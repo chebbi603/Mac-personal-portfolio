@@ -1,0 +1,175 @@
+.expertise-container{
+    display: flex;
+    width: 85%;
+    padding: 80px 145px;
+    padding-top: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    flex-direction: column;
+    gap: 60px;
+}
+.expertise-textcontainer{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    gap: 120px;
+}
+.expertise-sec1{
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    padding-top: 15px;
+    padding-bottom: 30px ;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.expertise-list{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.expertiseelement{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: 3rem;
+}
+
+.expertise-title{
+    color: black;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 64px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0;
+    padding-top: 10vh;
+    margin: 0;
+    line-height: 100%;
+}
+.expertise-type{
+    color: black;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 64px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+.expertise-example{
+    color: black;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 24px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+.expertise-myloc{
+    color: rgb(139, 139, 139);
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 18px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 300;
+    padding: 0;
+    padding-top: 3vh;
+    margin: 0;
+    line-height: 100%;
+}
+
+@media (max-width: 600px) {
+ 
+    .expertise-list{
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        margin-top: 2svh;
+    }
+    .expertise-title{
+        color: black;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 14svw;
+        text-align: left;
+        font-style: normal;
+        font-weight: 600;
+        padding: 0;
+        padding-top: 4vh;
+        margin: 0;
+        line-height: 100%;
+    }
+    .expertiseelement{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin: 0;
+    }
+
+    .expertise-type{
+        color: black;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 10svw;
+        text-align: left;
+        font-style: normal;
+        font-weight: 400;
+        padding: 0;
+        margin: 0;
+        line-height: 100%;
+    }
+    .expertise-example{
+        color: black;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 1.4rem;
+        text-align: left;
+        font-style: normal;
+        font-weight: 400;
+        padding: 0;
+        margin: 0;
+        line-height: 140%;
+    }
+    .expertise-myloc{
+        color: rgb(139, 139, 139);
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 14px;
+        text-align: left;
+        font-style: normal;
+        font-weight: 300;
+        padding: 0;
+        padding-top: 3vh;
+        margin: 0;
+        line-height: 100%;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+      }
+  }
+.ff{
+    gap: 0px;
+    margin-left: 0vw;
+}
+.fancy{
+    background-image: linear-gradient(40deg,#085078,#85d8ce,#085078);
+    background-size: 200% 100%;
+    font-weight: 600;
+    line-height: normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 10s linear infinite;
+}

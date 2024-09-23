@@ -1,0 +1,425 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 6vw;
+    gap: 0vw;
+    width: 90%;
+    justify-content: space-between;
+    position: absolute;
+    top: 5%;
+}
+
+.header-logo {
+    scale: 0.7;
+}
+
+.landing-container {
+    position: relative;
+    width: 100vw;
+    height: 120vh;
+    overflow: hidden;
+}
+.landing-container-2 {
+    position: relative;
+    width: 100vw;
+    height: 120vh;
+    overflow: hidden;
+}
+
+.overlay {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: visible;
+    top: 0;
+    right: 0;
+}
+
+.landing-img {
+    position: absolute;
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 70% 50%;
+    top: 0;
+    right: 0;
+}
+
+.header-text {
+    color: #FFF;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 2rem;
+    font-weight:100;
+    line-height: 100%;
+}
+
+.esmi {
+    margin-left: 1vw;
+    gap: 3svh;
+    transition-duration: 0.1s;
+}
+
+.esmi-lakab {
+    color: #FFF;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 18svw;
+    text-align: left;
+    margin: 0%;
+    line-height: 1;
+    letter-spacing: -3px;
+    font-weight: 600;
+}
+
+.esmi-esm {
+    color: #FFF;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 18svw;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: -3px;
+    margin: 0;
+    line-height: 1;
+}
+
+.desc-star {
+    height: 4svw;
+}
+
+.desc-text {
+    color: #FFF;
+    text-align: left;
+    margin: 0;
+    font-family: "Satoshi Variable", sans-serif;
+    font-size: 8svw;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.role {
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+    gap: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.social-container {
+    margin-top: 1rem;
+    padding: 1vw;
+    width: min-content;
+    height: min-content;
+}
+
+.socials {
+    display: flex;
+    width: min-content;
+    flex-direction: row;
+    position: relative;
+    padding: 10px 10px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5svw;
+    border-radius: 56px;
+    border: 3px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(45px);
+}
+
+.social-icon {
+    position: relative;
+    width: 9svw;
+    pointer-events: none;
+}
+
+
+.social-link {
+    width: 9svw;
+    height: 9svw;
+}
+
+
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 3svh;
+    top: max(6rem,28svh);
+    left: 5vw;
+}
+
+.mentions{ 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin: 0;
+    color: white;
+    
+}
+.mentions_txt{
+    font-size: 0.8rem;
+    margin: 0;
+    font-family: 'Satoshi Variable',sans-serif;
+}
+.mentions_link{
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+@media (min-width: 520px) {
+    .landing-img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 70% 0%;
+        top: 0;
+        right: 0;
+    }
+    .overlay{
+        height: 100%;
+    }
+
+    .desc-star {
+        height: 1rem;
+    }
+
+    .socials {
+        gap: 2vw;
+    }
+
+    .content {
+        position: absolute;
+        top: 40svh;
+        left: 5vw;
+        padding: -5vh;
+    }
+
+    .esmi-lakab {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 15svw;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .esmi-esm {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 11svw;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .role {
+        margin-left: 1vw;
+        display: flex;
+        flex-direction: row;
+        height: min-content;
+        gap: 0.5vw;
+        margin-top: 0;
+    }
+
+    .desc-text {
+        color: #FFF;
+        text-align: left;
+        margin: 0;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 6svw;
+        font-style: normal;
+        font-weight: 400;
+    }
+    .mentions_txt{
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 850px) {
+    .esmi-lakab {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 12svw;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .esmi-esm {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 10svw;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .desc-text {
+        color: #FFF;
+        text-align: left;
+        margin: 0;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 5svw;
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .socials {
+        gap: 0.8vw;
+    }
+
+    .desc-star {
+        height: 1.5rem;
+    }
+
+    .social-link {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .social-icon {
+        position: relative;
+        pointer-events: none;
+        width: 3rem;
+    }
+
+    .esmi-lakab {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 7rem;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .esmi-esm {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 6rem;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .desc-text {
+        color: #FFF;
+        text-align: left;
+        margin: 0;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: 3rem;
+        width: 65%;
+        font-style: normal;
+        font-weight: 400;
+    }
+    
+    .content {
+        position: absolute;
+        top: 35svh;
+        left: 5vw;
+        padding: -5vh;
+    }
+}
+
+
+@media (min-width: 1400px) {
+    .overlay {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0);
+        top: 0;
+        right: 0;
+    }
+    .mentions_txt{
+        margin: 0;
+        color: black;
+        font-family: 'Satoshi Variable',sans-serif;
+    }
+    .mentions_link{
+        font-weight: 800;
+        background-image: linear-gradient(40deg,#642B73,#C6426E);
+        line-height: normal;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+@media (min-height: 600px) {
+    .content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: max(0.5rem,3svh);
+        top: max(8rem,37svh);
+        left: 5vw;
+    }
+}
+
+@media (max-height: 600px) {
+    .content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: max(0.5rem,3svh);
+        top: max(6rem,30svh);
+        left: 5vw;
+    }
+    .desc-star {
+        height: 1rem;
+    }
+
+    .socials {
+        gap: 2vw;
+    }
+
+    .esmi-lakab {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: max(2.5rem,8svh);
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .esmi-esm {
+        color: #FFF;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: max(2.5rem,8svh);
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .role {
+        margin-left: 1vw;
+        display: flex;
+        flex-direction: row;
+        height: min-content;
+        gap: 0.5vw;
+        margin-top: 0;
+    }
+
+    .landing-container {
+        position: relative;
+        width: 100vw;
+        height: max(30rem,140svh);
+        overflow: hidden;
+    }
+
+    .desc-text {
+        color: #FFF;
+        text-align: left;
+        margin: 0;
+        font-family: "Satoshi Variable", sans-serif;
+        font-size: max(1rem,5svh);
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+.social-container{
+    z-index: 5;
+}
+.socials{
+    z-index: 5;
+}
