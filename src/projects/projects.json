@@ -1,27 +1,34 @@
 [
-    
-    {
-        "id": 1,
-        "projectName": "Avatario",
-        "projectInfo": "Branding - UX/UI Design",
-        "projectDesc": "Avatario is a mobile app that uses AI to help monitor youngster's mental heath by providing them with a set of games and challenges.",
-        "projectImages" : "./avatario/1.png ./avatario/2.png",
-        "projectPlaceholders" :  "./avatario/1.webp ./avatario/2.webp"
-    },
-    {
-        "id": 2,
-        "projectName": "Dr.Klini",
-        "projectInfo": "Branding - UX/UI Design - Android Application Development",
-        "projectDesc": "Dr Klini is an Android application that we created during the CraftHack hackathon organized by CraftHub Hungary. It was a great opportunity to invent a smart solution that can help improve the Hungarian health system. Using machine learning model and a wide database provided by the Hungarian Government, we were able to organize and schedule medical appointments while taking into consideration how critical his medical case is.",
-        "projectImages" : "./drklini/1.png ./drklini/2.png",
-        "projectPlaceholders" : "./drklini/1.webp ./drklini/2.webp"   
-    },
-    {
-        "id": 3,
-        "projectName": "SmarterMe",
-        "projectInfo": "Branding - UX/UI Design - Android Application Development",
-        "projectDesc": "SmarterMe is an Android application crafted during the DroidDay hackathon organized by INSAT Android Club. This app is made for students aged between six and fifteen to provide them with immense study resources. It also creates a competitive environment for students by providing them with a variety of challenges.",
-        "projectImages" : "./smarterme/1.png ./smarterme/2.png",
-        "projectPlaceholders" : "./smarterme/1.webp ./smarterme/2.webp"
-    }
+  {
+    "id": 1,
+    "projectName": "Tuniscovery",
+    "projectInfo": "Hackathon Project - UX/UI Design",
+    "projectDesc": "TourismTechJam was an intense 24-hour Hackathon that was an incredible opportunity to delve into the current state of tourism in Tunisia and collaborate on innovative solutions alongside the five active DMOs in the country.\nOur project focused on developing a mobile app designed to be the ultimate gateway for tourists visiting Tunisia. We dedicated significant effort to creating an intuitive User Experience (UX) to ensure easy navigation and exploration.",
+    "projectImages": "./hack4tourism/h4t-1.png ./hack4tourism/h4t-2.png",
+    "projectPlaceholders": "./hack4tourism/h4t-1.webp ./hack4tourism/h4t-2.webp"
+  },
+  {
+    "id": 2,
+    "projectName": "Avatario",
+    "projectInfo": "Branding - UX/UI Design",
+    "projectDesc": "Avatario is a mobile app that uses AI to help monitor youngster's mental heath by providing them with a set of games and challenges.",
+    "projectImages": "./avatario/1.png ./avatario/2.png",
+    "projectPlaceholders": "./avatario/1.webp ./avatario/2.webp"
+  },
+  {
+    "id": 3,
+    "projectName": "Dr.Klini",
+    "projectInfo": "Branding - UX/UI Design - Android Application Development",
+    "projectDesc": "Dr Klini is an Android application that we created during the CraftHack hackathon organized by CraftHub Hungary. It was a great opportunity to invent a smart solution that can help improve the Hungarian health system. Using machine learning model and a wide database provided by the Hungarian Government, we were able to organize and schedule medical appointments while taking into consideration how critical his medical case is.",
+    "projectImages": "./drklini/1.png ./drklini/2.png",
+    "projectPlaceholders": "./drklini/1.webp ./drklini/2.webp"
+  },
+  {
+    "id": 4,
+    "projectName": "SmarterMe",
+    "projectInfo": "Branding - UX/UI Design - Android Application Development",
+    "projectDesc": "SmarterMe is an Android application crafted during the DroidDay hackathon organized by INSAT Android Club. This app is made for students aged between six and fifteen to provide them with immense study resources. It also creates a competitive environment for students by providing them with a variety of challenges.",
+    "projectImages": "./smarterme/1.png ./smarterme/2.png",
+    "projectPlaceholders": "./smarterme/1.webp ./smarterme/2.webp"
+  }
 ]
