@@ -2,15 +2,23 @@
   text-align: center;
   overscroll-behavior: none;
   overflow: hidden;
+  background-color: black;
 }
 ::-webkit-scrollbar {
   display: none;
 }
 
 @font-face {
-  font-family: 'Satoshi Variable';
-  src: url('assets/Satoshi-Variable.woff2') format('woff2'),
-       url('assets/Satoshi-Variable.woff') format('woff');
+  font-family: "Satoshi Variable";
+  src: url("assets/Satoshi-Variable.woff2") format("woff2"),
+    url("assets/Satoshi-Variable.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("assets/dmsans.ttf");
   font-display: swap;
   font-style: normal;
 }
@@ -19,10 +27,9 @@
   height: 40vmin;
   position: relative;
   pointer-events: none;
-
 }
 .App-header {
-  background-color: #ffffff;
+  background-color: #000;
   min-height: 100%;
   display: flex;
   flex-direction: column;

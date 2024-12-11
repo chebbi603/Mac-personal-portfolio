@@ -1,45 +1,121 @@
-.aboutme-container{
-    display: flex;
-    width: 100%;
-    padding: 4rem 9svw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
-    background: #FFF;
-    flex-direction: column;
-    gap: 10%;
+.aboutme-container {
+  display: flex;
+  width: 100%;
+  padding: 4rem 9svw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background: #000;
+  flex-direction: column;
+  gap: 10%;
 }
-.aboutme-textcontainer{
-    display: flex;
-    align-items: flex-start;
-    gap: 7%;
+.aboutme-textcontainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 7%;
 }
-.aboutme-sec1{
-    display: flex;
-    width: 32%;
-    align-items: flex-start;
-    flex-direction: column;
+.quote {
+  filter: invert(100%);
 }
-.aboutme-sec1-mobile{
-    display: flex;
-    width: 85%;
-    align-items: flex-start;
-    flex-direction: column;
+.aboutme-sec1 {
+  display: flex;
+  width: 32%;
+  align-items: flex-start;
+  flex-direction: column;
 }
-.aboutme-sec2{
-    display: flex;
-    width: 43%;
-    align-items: flex-start;
-    flex-direction: column;
+.aboutme-sec1-mobile {
+  display: flex;
+  width: 85%;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.aboutme-sec2 {
+  display: flex;
+  width: 43%;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
-.aboutme-sec2-mobile{
+.aboutme-sec2-mobile {
+  display: flex;
+  width: 85%;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.aboutme-title {
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 4rem;
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  padding: 0;
+  padding-top: 10vh;
+  margin: 0;
+  line-height: 100%;
+}
+.about-myloc {
+  color: rgb(139, 139, 139);
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 300;
+  padding: 0;
+  padding-top: 3vh;
+  margin: 0;
+  line-height: 100%;
+}
+.aboutme-sub {
+  color: #fff;
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+}
+.aboutme-detail {
+  color: #fff;
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 300;
+  padding-top: 15vh;
+  line-height: 150%;
+  margin: 0;
+}
+@media (max-width: 1600px) {
+  .aboutme-sec2 {
     display: flex;
-    width: 85%;
+    width: 45%;
     align-items: flex-start;
     flex-direction: column;
-}
-.aboutme-title{
+  }
+  .aboutme-detail {
     color: black;
-    font-family: "Satoshi Variable", sans-serif;
+    text-align: left;
+    font-family: "DM Sans", sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 300;
+    padding-top: 15vh;
+    line-height: 150%;
+    margin: 0;
+  }
+  .aboutme-textcontainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 4%;
+  }
+  .aboutme-sec1 {
+    display: flex;
+    width: 37%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .aboutme-title {
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
     font-size: 4rem;
     text-align: left;
     font-style: normal;
@@ -48,11 +124,23 @@
     padding-top: 10vh;
     margin: 0;
     line-height: 100%;
+  }
+  .aboutme-sub {
+    color: #fff;
+    text-align: left;
+    font-family: "DM Sans", sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
 }
-.about-myloc{
+
+@media (max-width: 1000px) {
+  .about-myloc {
     color: rgb(139, 139, 139);
-    font-family: "Satoshi Variable", sans-serif;
-    font-size: 18px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
     text-align: left;
     font-style: normal;
     font-weight: 300;
@@ -60,151 +148,61 @@
     padding-top: 3vh;
     margin: 0;
     line-height: 100%;
-}
-.aboutme-sub{
-    color: black;
+  }
+  .aboutme-sub {
+    color: #fff;
     text-align: left;
-    font-family: "Satoshi Variable", sans-serif;
-    font-size: 3rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 4rem;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    letter-spacing: -2px;
-}
-.aboutme-detail{
-    color: black;
+  }
+  .aboutme-title {
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 6rem;
     text-align: left;
-    font-family: "Satoshi Variable", sans-serif;
-    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0;
+    padding-top: 10vh;
+    margin: 0;
+    line-height: 100%;
+  }
+  .aboutme-detail {
+    color: #fff;
+    text-align: left;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 300;
     padding-top: 15vh;
     line-height: 150%;
     margin: 0;
-}
-@media  (max-width: 1600px) {
-    .aboutme-sec2{
-        display: flex;
-        width: 45%;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-    .aboutme-detail{
-        color: black;
-        text-align: left;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 2rem;
-        font-style: normal;
-        font-weight: 300;
-        padding-top: 15vh;
-        line-height: 150%;
-        margin: 0;
-    }
-    .aboutme-textcontainer{
-        display: flex;
-        align-items: flex-start;
-        gap: 4%;
-    }
-    .aboutme-sec1{
-        display: flex;
-        width: 37%;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-    .aboutme-title{
-        color: black;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 4rem;
-        text-align: left;
-        font-style: normal;
-        font-weight: 600;
-        padding: 0;
-        padding-top: 10vh;
-        margin: 0;
-        line-height: 100%;
-    }
-    .aboutme-sub{
-        color: black;
-        text-align: left;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 2.5rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: -1px;
-    }
+  }
 }
 
-@media  (max-width: 1000px) {
-    .about-myloc{
-        color: rgb(139, 139, 139);
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 14px;
-        text-align: left;
-        font-style: normal;
-        font-weight: 300;
-        padding: 0;
-        padding-top: 3vh;
-        margin: 0;
-        line-height: 100%;
-    }
-    .aboutme-sub{
-        color: black;
-        text-align: left;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 4rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: -1px;
-    }
-    .aboutme-title{
-        color: black;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 6rem;
-        text-align: left;
-        font-style: normal;
-        font-weight: 600;
-        padding: 0;
-        padding-top: 10vh;
-        margin: 0;
-        line-height: 100%;
-    }
-    .aboutme-detail{
-        color: black;
-        text-align: left;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 1.5rem;
-        font-style: normal;
-        font-weight: 300;
-        padding-top: 15vh;
-        line-height: 150%;
-        margin: 0;
-    }
-}
-
-@media  (max-width: 800px) {
-    
-    .aboutme-sub{
-        color: black;
-        text-align: left;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 2.5rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: -1px;
-    }
-    .aboutme-title{
-        color: black;
-        font-family: "Satoshi Variable", sans-serif;
-        font-size: 3rem;
-        text-align: left;
-        font-style: normal;
-        font-weight: 600;
-        padding: 0;
-        padding-top: 10vh;
-        margin: 0;
-        line-height: 100%;
-    }
+@media (max-width: 800px) {
+  .aboutme-sub {
+    color: #fff;
+    text-align: left;
+    font-family: "DM Sans", sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .aboutme-title {
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 3rem;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0;
+    padding-top: 10vh;
+    margin: 0;
+    line-height: 100%;
+  }
 }

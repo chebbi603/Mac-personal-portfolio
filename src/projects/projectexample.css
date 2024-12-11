@@ -4,7 +4,7 @@
   padding: 80px 145px;
   margin-top: 2vh;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #121516;
   flex-direction: column;
   gap: 60px;
   z-index: 0;
@@ -46,9 +46,9 @@
   z-index: 9;
 }
 .project-title {
-  color: black;
+  color: white;
   z-index: 9;
-  font-family: "Satoshi Variable", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 3rem;
   text-align: left;
   width: fit-content;
@@ -59,8 +59,8 @@
   line-height: 100%;
 }
 .projects-sub {
-  color: black;
-  font-family: "Satoshi Variable", sans-serif;
+  color: white;
+  font-family: "DM Sans", sans-serif;
   font-size: 52px;
   width: fit-content;
   text-align: left;
@@ -71,8 +71,8 @@
   line-height: 100%;
 }
 .project-info {
-  color: #111516;
-  font-family: "Satoshi Variable", sans-serif;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
   font-size: 1rem;
   text-align: left;
   font-style: normal;
@@ -82,9 +82,9 @@
   line-height: 130%;
 }
 .project-description {
-  font-family: "Satoshi Variable", sans-serif;
-  color: #111516;
-  font-family: "Satoshi Variable";
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+  font-family: "DM Sans";
   font-size: 1.2rem;
   text-align: left;
   font-style: normal;
@@ -96,7 +96,7 @@
 
 .myloc {
   color: rgb(139, 139, 139);
-  font-family: "Satoshi Variable", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   text-align: left;
   font-style: normal;
@@ -149,9 +149,9 @@
 
 @media (min-width: 1000px) {
   .project-description {
-    font-family: "Satoshi Variable", sans-serif;
-    color: #111516;
-    font-family: "Satoshi Variable";
+    font-family: "DM Sans", sans-serif;
+    color: #fff;
+    font-family: "DM Sans";
     font-size: 2rem;
     text-align: left;
     font-style: normal;
@@ -162,8 +162,8 @@
   }
 
   .project-info {
-    color: #111516;
-    font-family: "Satoshi Variable", sans-serif;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
     text-align: left;
     font-style: normal;
@@ -174,9 +174,9 @@
   }
 
   .project-title {
-    color: black;
+    color: white;
     z-index: 9;
-    font-family: "Satoshi Variable", sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 4rem;
     text-align: left;
     font-style: normal;
@@ -197,7 +197,7 @@
   font-size: 24px;
   height: fit-content;
   color: #fff;
-  font-family: "Satoshi Variable" sans-serif;
+  font-family: "DM Sans" sans-serif;
   font-weight: 600;
   width: fit-content;
   border-radius: 56px;

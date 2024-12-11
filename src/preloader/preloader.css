@@ -1,58 +1,58 @@
-.preloader-container{
-    position: fixed;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    background-color: #0b0c0f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.preloader-container {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0c0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.preloader-img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.preloader-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.preloader-content{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    align-items: center;
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
 }
-.preloader-text{
-    opacity: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2vh;
+.preloader-text {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2vh;
 }
-.preloader-logo{
-    height: 5vh;
+.preloader-logo {
+  height: 5vh;
 }
-.preloader-title{
+.preloader-title {
+  color: white;
+  text-align: left;
+  font-size: 5rem;
+  color: #fff;
+  z-index: 1;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .preloader-title {
     color: white;
     text-align: left;
-    font-size: 5rem;
+    font-size: 4rem;
     color: #fff;
     z-index: 1;
-    font-family: "Satoshi Variable", sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
     margin: 0;
-}
-@media (max-width:1000px) {
-    .preloader-title{
-        color: white;
-        text-align: left;
-        font-size: 4rem;
-        color: #fff;
-        z-index: 1;
-        font-family: "Satoshi Variable", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 100%;
-        margin: 0;
-    }
+  }
 }

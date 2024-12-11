@@ -40,14 +40,14 @@ function ProjectsHeader({ id }) {
         <div className={id === 1 ? "projectsheader-text" : "tuniscovery-text"}>
           <MediaQuery query="(min-device-width: 1000px)">
             {id === 1 ? (
-              <p className="projectsheader-title">PROJECTS</p>
+              <p className="projectsheader-title">Projects</p>
             ) : (
               <p className="projectsheader-title">Tuniscovery</p>
             )}
           </MediaQuery>
           <MediaQuery query="(max-device-width: 1000px)">
             {id === 1 ? (
-              <p className="projectsheader-title-mobile">PROJECTS</p>
+              <p className="projectsheader-title-mobile">Projects</p>
             ) : (
               <p className="projectsheader-title-mobile">Tuniscovery</p>
             )}
