@@ -1,6 +1,6 @@
 # Welcome to Mohamed Ayoub Chebbi's Portfolio
 
-Website is live on: https://chebbimedayoub.tech
+Website is live on: https://www.chebbimedayoub.com/
 
 ## Available Scripts
 
