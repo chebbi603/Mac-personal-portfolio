@@ -1,0 +1,46 @@
+.company-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12rem 48px;
+  padding-top: 16rem;
+}
+
+.company-section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: max-content;
+  grid-auto-rows: -webkit-max-content;
+  gap: 0px;
+  width: 100%;
+}
+
+.company-title {
+  font-family: Host;
+  color: white;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.company-img {
+  grid-column: span 1;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .company-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .company-title {
+    font-size: 2rem;
+  }
+  .company-container {
+    padding: 12rem 32px;
+  }
+}

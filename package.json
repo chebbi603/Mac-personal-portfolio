@@ -4,7 +4,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.9.58",
     "@studio-freight/lenis": "^1.0.27",
+    "@tabler/icons-react": "^3.28.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

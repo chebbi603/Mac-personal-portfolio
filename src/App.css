@@ -1,19 +1,12 @@
 .App {
   text-align: center;
   overscroll-behavior: none;
+  width: 100vw;
   overflow: hidden;
   background-color: black;
 }
 ::-webkit-scrollbar {
   display: none;
-}
-
-@font-face {
-  font-family: "Satoshi Variable";
-  src: url("assets/Satoshi-Variable.woff2") format("woff2"),
-    url("assets/Satoshi-Variable.woff") format("woff");
-  font-display: swap;
-  font-style: normal;
 }
 
 @font-face {
@@ -23,18 +16,19 @@
   font-style: normal;
 }
 
-.Applogo {
-  height: 40vmin;
-  position: relative;
-  pointer-events: none;
+@font-face {
+  font-family: Host;
+  src: url("assets/host.ttf");
+  font-display: swap;
+  font-style: normal;
 }
+
 .App-header {
   background-color: #000;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }

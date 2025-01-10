@@ -5,7 +5,7 @@ function AboutMeMobile() {
     <div className="aboutme-container">
       <div className="aboutme-textcontainer-mobile">
         <div className="aboutme-sec1-mobile">
-          <img src={quote}></img>
+          <img className="quote" src={quote}></img>
           <p className="aboutme-title">My Journey began</p>
           <p className="aboutme-sub">
             when a four year old kid was trying to explore computers and their

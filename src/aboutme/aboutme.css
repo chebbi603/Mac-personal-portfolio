@@ -1,23 +1,26 @@
 .aboutme-container {
   display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   width: 100%;
-  padding: 4rem 9svw;
+  padding: 12rem 4rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background: #000;
-  flex-direction: column;
   gap: 10%;
 }
 .aboutme-textcontainer {
-  display: flex;
+  display: grid;
   align-items: flex-start;
-  gap: 7%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 4rem 0rem;
 }
 .quote {
   filter: invert(100%);
 }
 .aboutme-sec1 {
   display: flex;
-  width: 32%;
+  grid-column: span 1;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -29,7 +32,7 @@
 }
 .aboutme-sec2 {
   display: flex;
-  width: 43%;
+  grid-column: span 1;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -42,167 +45,89 @@
 }
 .aboutme-title {
   color: #fff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 4rem;
+  font-family: Host;
+  text-transform: uppercase;
+  font-size: 3rem;
   text-align: left;
   font-style: normal;
   font-weight: 600;
   padding: 0;
-  padding-top: 10vh;
+  padding-top: 2rem;
   margin: 0;
   line-height: 100%;
 }
 .about-myloc {
   color: rgb(139, 139, 139);
-  font-family: "DM Sans", sans-serif;
+  font-family: Host;
   font-size: 18px;
   text-align: left;
   font-style: normal;
   font-weight: 300;
   padding: 0;
-  padding-top: 3vh;
+  padding-top: 3rem;
   margin: 0;
   line-height: 100%;
 }
 .aboutme-sub {
-  color: #fff;
+  color: #fffa;
   text-align: left;
-  font-family: "DM Sans", sans-serif;
-  font-size: 3rem;
+  font-family: Host;
+  font-size: 2rem;
+  text-transform: uppercase;
   font-style: normal;
   font-weight: 300;
   line-height: 150%;
 }
 .aboutme-detail {
-  color: #fff;
+  color: #fffa;
   text-align: left;
-  font-family: "DM Sans", sans-serif;
-  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: Host;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 300;
-  padding-top: 15vh;
   line-height: 150%;
   margin: 0;
 }
 @media (max-width: 1600px) {
   .aboutme-sec2 {
     display: flex;
-    width: 45%;
     align-items: flex-start;
     flex-direction: column;
-  }
-  .aboutme-detail {
-    color: black;
-    text-align: left;
-    font-family: "DM Sans", sans-serif;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 300;
-    padding-top: 15vh;
-    line-height: 150%;
-    margin: 0;
-  }
-  .aboutme-textcontainer {
-    display: flex;
-    align-items: flex-start;
-    gap: 4%;
   }
   .aboutme-sec1 {
     display: flex;
-    width: 37%;
     align-items: flex-start;
     flex-direction: column;
-  }
-  .aboutme-title {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 4rem;
-    text-align: left;
-    font-style: normal;
-    font-weight: 600;
-    padding: 0;
-    padding-top: 10vh;
-    margin: 0;
-    line-height: 100%;
-  }
-  .aboutme-sub {
-    color: #fff;
-    text-align: left;
-    font-family: "DM Sans", sans-serif;
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
   }
 }
 
 @media (max-width: 1000px) {
   .about-myloc {
-    color: rgb(139, 139, 139);
-    font-family: "DM Sans", sans-serif;
     font-size: 14px;
-    text-align: left;
-    font-style: normal;
-    font-weight: 300;
-    padding: 0;
-    padding-top: 3vh;
-    margin: 0;
-    line-height: 100%;
   }
   .aboutme-sub {
-    color: #fff;
-    text-align: left;
-    font-family: "DM Sans", sans-serif;
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
+    font-size: 2rem;
   }
   .aboutme-title {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 6rem;
-    text-align: left;
-    font-style: normal;
-    font-weight: 600;
-    padding: 0;
-    padding-top: 10vh;
-    margin: 0;
-    line-height: 100%;
+    font-size: 3rem;
   }
   .aboutme-detail {
-    color: #fff;
-    text-align: left;
-    font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 300;
-    padding-top: 15vh;
-    line-height: 150%;
-    margin: 0;
   }
 }
 
 @media (max-width: 800px) {
   .aboutme-sub {
-    color: #fff;
-    text-align: left;
-    font-family: "DM Sans", sans-serif;
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
+    font-size: 1.5rem;
   }
   .aboutme-title {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 3rem;
-    text-align: left;
-    font-style: normal;
-    font-weight: 600;
-    padding: 0;
-    padding-top: 10vh;
-    margin: 0;
-    line-height: 100%;
+    font-size: 2rem;
   }
+}
+
+.aboutme-textcontainer-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }

@@ -1,57 +1,34 @@
-.header {
+.home {
+  width: 100vw;
+  height: 80vh;
+  gap: 120px;
+  box-sizing: border-box;
+  padding-top: 15rem;
+  align-items: center;
+  justify-content: center;
   display: flex;
-  flex-direction: row;
-  margin-left: 6vw;
-  gap: 0vw;
-  width: 90%;
-  justify-content: space-between;
-  position: absolute;
-  top: 5%;
+  flex-direction: column;
 }
 
-.header-logo {
-  scale: 0.7;
+.arrow {
+  animation: ripple 4s ease-in-out infinite;
 }
 
-.landing-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  overflow: hidden;
-}
-.landing-container-2 {
-  position: relative;
-  background-color: #000;
-  width: 100vw;
-  height: 120vh;
-  overflow: hidden;
-}
-
-.overlay {
-  height: 90%;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0);
-  visibility: visible;
-  top: 0;
-  right: 0;
-}
-
-.landing-img {
-  position: absolute;
-  height: 90%;
-  background-color: #000;
-  width: 100%;
-  object-fit: cover;
-  object-position: 70% 50%;
-  top: 0;
-  right: 0;
+@keyframes ripple {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .header-text {
   color: #fff;
-  font-family: "DM Sans", sans-serif;
+  font-family: Host;
   font-size: 2rem;
   font-weight: 100;
   line-height: 100%;
@@ -65,36 +42,38 @@
   transition-duration: 0.1s;
 }
 
-.esmi-lakab {
+.esmi-text {
   color: #fff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 18svw;
+  font-family: Host;
+  font-size: 7rem;
   text-align: center;
   margin: 0%;
   line-height: 1;
-  font-weight: 600;
-}
-
-.esmi-esm {
-  color: #fff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 18svw;
-  text-align: center;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1;
-}
-
-.desc-star {
-  height: 4svw;
+  font-weight: 800;
+  transition: 0.4s ease-out;
+  &:hover {
+    color: #aaa;
+    letter-spacing: -2px;
+    font-weight: 600;
+  }
 }
 
 .desc-text {
-  color: #fff;
+  color: #888;
   text-align: center;
   margin: 0;
-  font-family: "DM Sans", sans-serif;
-  font-size: 8svw;
+  font-family: Host;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sub-text {
+  color: #888;
+  text-align: center;
+  margin: 0;
+  font-family: Host;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
 }
@@ -120,10 +99,10 @@
   width: min-content;
   flex-direction: row;
   position: relative;
-  padding: 10px 10px;
-  justify-content: space-between;
+  padding: 16px 16px;
+  justify-content: center;
   align-items: center;
-  gap: 2.5svw;
+  gap: 16px;
   border-radius: 56px;
   border: 3px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.05);
@@ -132,22 +111,17 @@
 
 .social-icon {
   position: relative;
-  width: 9svw;
+  width: 32px;
+  height: 32px;
   pointer-events: none;
 }
 
-.social-link {
-  width: 9svw;
-  height: 9svw;
-}
-
 .content {
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3svh;
-  top: max(5rem, 28svh);
+  gap: 32px;
+  padding: 24px 24px;
 }
 
 .mentions {
@@ -178,9 +152,10 @@
 }
 
 .mentions_txt {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: Host;
+  color: inherit;
 }
 .mentions_link {
   color: inherit;
@@ -188,255 +163,21 @@
   font-weight: 800;
 }
 
-@media (min-width: 520px) {
-  .landing-img {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: 70% 0%;
-    top: 0;
-    right: 0;
-  }
-  .overlay {
-    height: 100%;
-  }
-
-  .desc-star {
-    height: 1rem;
-  }
-
-  .socials {
-    gap: 2vw;
-  }
-
-  .content {
-    position: absolute;
-    top: 30svh;
-    left: 5vw;
-    right: 5vw;
-    align-items: center;
-  }
-
-  .esmi-lakab {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 15svw;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .esmi-esm {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 11svw;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .role {
-    margin-left: 1vw;
-    display: flex;
-    flex-direction: row;
-    height: min-content;
-    gap: 0.5vw;
-    margin-top: 0;
-  }
-
-  .desc-text {
-    color: #fff;
-    text-align: left;
-    margin: 0;
-    font-family: "DM Sans", sans-serif;
-    font-size: 6svw;
-    font-style: normal;
-    font-weight: 400;
-  }
-  .mentions_txt {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 850px) {
-  .esmi-lakab {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 12svw;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .esmi-esm {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 10svw;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .desc-text {
-    color: #fff;
-    text-align: left;
-    margin: 0;
-    font-family: "DM Sans", sans-serif;
-    font-size: 5svw;
-    font-style: normal;
-    font-weight: 400;
-  }
-}
-
-@media (min-width: 1024px) {
-  .socials {
-    gap: 0.8vw;
-  }
-
-  .desc-star {
-    height: 1.5rem;
-  }
-
-  .social-link {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .social-icon {
-    position: relative;
-    pointer-events: none;
-    width: 3rem;
-  }
-
-  .esmi-lakab {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 9rem;
-    text-align: left;
-    font-weight: 700;
-  }
-
-  .esmi-esm {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: 6rem;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .desc-text {
-    color: #fff;
-    text-align: center;
-    margin: 0;
-    font-family: "DM Sans", sans-serif;
-    font-size: 3rem;
-    width: 65%;
-    font-style: normal;
-    font-weight: 400;
-  }
-
-  .content {
-    position: absolute;
-    top: 25svh;
-    padding: -5vh;
-  }
-}
-
-@media (min-width: 1400px) {
-  .overlay {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0);
-    top: 0;
-    right: 0;
-  }
-  .mentions_txt {
-    margin: 0;
-    color: white;
-    font-family: "DM Sans", sans-serif;
-  }
-  .mentions_link {
-    font-weight: 800;
-    background-image: linear-gradient(40deg, #642b73, #c6426e);
-    line-height: normal;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-}
-
-@media (min-height: 600px) {
-  .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 24px;
-    gap: max(0.5rem, 3svh);
-    top: max(6rem, 30svh);
-  }
-}
-
-@media (max-height: 600px) {
-  .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: max(0.5rem, 3svh);
-    top: max(6rem, 25svh);
-    left: 5vw;
-  }
-  .desc-star {
-    height: 1rem;
-  }
-
-  .socials {
-    gap: 2vw;
-  }
-
-  .esmi-lakab {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: max(2.5rem, 8svh);
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .esmi-esm {
-    color: #fff;
-    font-family: "DM Sans", sans-serif;
-    font-size: max(2.5rem, 8svh);
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .role {
-    margin-left: 1vw;
-    display: flex;
-    flex-direction: row;
-    height: min-content;
-    gap: 0.5vw;
-    margin-top: 0;
-  }
-
-  .landing-container {
-    position: relative;
-    width: 100vw;
-    height: max(30rem, 140svh);
-    overflow: hidden;
-  }
-
-  .desc-text {
-    color: #fff;
-    text-align: left;
-    margin: 0;
-    font-family: "DM Sans", sans-serif;
-    font-size: max(1rem, 5svh);
-    font-style: normal;
-    font-weight: 400;
-  }
-}
 .social-container {
   z-index: 5;
 }
 .socials {
   z-index: 5;
+}
+
+@media (max-width: 900px) {
+  .esmi-text {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .esmi-text {
+    font-size: 3rem;
+  }
 }

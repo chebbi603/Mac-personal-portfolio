@@ -44,7 +44,7 @@ function ProjectTemplate({ id, name, hint, desc, images, placeholders }) {
       </div>
       <p className="project-description">{desc}</p>
       {id === 1 ? (
-        <Link to="/tuniscovery" target="_blank">
+        <Link to="/tuniscovery">
           <MagneticButton>
             <div className="studycase-btn">
               <p className="studycase-txt">View Case Study</p>

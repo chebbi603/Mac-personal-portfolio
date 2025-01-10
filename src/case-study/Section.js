@@ -234,10 +234,10 @@ function Sections() {
       <div className="fin">
         <p className="section-sub">UX Case Study</p>
         <img src={logo} className="logo" />
-        <Link to="/" target="_blank">
+        <Link to="/">
           <MagneticButton>
             <div className="studycase-btn">
-              <p className="studycase-txt">Home Page</p>
+              <p className="studycase-txt">HOME PAGE</p>
             </div>
           </MagneticButton>
         </Link>

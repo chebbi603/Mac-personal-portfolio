@@ -1,0 +1,16 @@
+.picture-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 72px 0px;
+}
+
+.picture-section {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.picture-img {
+  height: 300px;
+}

@@ -5,6 +5,7 @@ import headercomp from "../assets/projectsheader_c.webp";
 import MediaQuery from "react-responsive";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ProgressiveImage = ({ src, placeholder, alt, mobile }) => {
   const [imageSrc, setImageSrc] = useState(placeholder);
@@ -40,14 +41,46 @@ function ProjectsHeader({ id }) {
         <div className={id === 1 ? "projectsheader-text" : "tuniscovery-text"}>
           <MediaQuery query="(min-device-width: 1000px)">
             {id === 1 ? (
-              <p className="projectsheader-title">Projects</p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "24px",
+                }}
+              >
+                <p className="projectsheader-title">
+                  BROWSE
+                  <br />
+                  MY PROJECTS
+                </p>
+                <Link to="/projects">
+                  <a className="project-button">LET'S CHECK IT OUT</a>
+                </Link>
+              </div>
             ) : (
-              <p className="projectsheader-title">Tuniscovery</p>
+              <p className="projectsheader-title">TUNISCOVERY</p>
             )}
           </MediaQuery>
           <MediaQuery query="(max-device-width: 1000px)">
             {id === 1 ? (
-              <p className="projectsheader-title-mobile">Projects</p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "24px",
+                }}
+              >
+                <p className="projectsheader-title-mobile">
+                  BROWSE
+                  <br />
+                  MY PROJECTS
+                </p>
+                <Link to="/tuniscovery">
+                  <a className="project-button">LET'S CHECK IT OUT</a>
+                </Link>
+              </div>
             ) : (
               <p className="projectsheader-title-mobile">Tuniscovery</p>
             )}
@@ -71,9 +104,6 @@ function ProjectsHeader({ id }) {
             ></ProgressiveImage>
           </MediaQuery>
         </div>
-      </div>
-      <div>
-        {id === 1 ? <p className="projheader-myloc">PROJECTS</p> : <></>}
       </div>
     </div>
   );
