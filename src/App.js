@@ -12,6 +12,7 @@ import CaseStudy from "./case-study/CaseStudy";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
 import ContactPage from "./contact/ContactPage";
+import P404 from "./404/404";
 
 function App() {
   //FIREBASE
@@ -68,6 +69,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/tuniscovery" element={<CaseStudy />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/*" element={<P404 />} />
       </Routes>
     </div>
   );

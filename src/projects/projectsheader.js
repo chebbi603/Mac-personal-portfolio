@@ -54,7 +54,7 @@ function ProjectsHeader({ id }) {
                   <br />
                   MY PROJECTS
                 </p>
-                <Link to="/projects">
+                <Link to="/tuniscovery">
                   <a className="project-button">LET'S CHECK IT OUT</a>
                 </Link>
               </div>
