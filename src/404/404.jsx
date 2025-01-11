@@ -112,8 +112,8 @@ function P404() {
       <Preloader text1={"OOPS..."} text2={""} />
       <div className="p404-container">
         <p className="p404-text">It looks like this page is unavailable</p>
-        <Link to="/">
-          <a className="project-button">HOME PAGE</a>
+        <Link to="/" className="project-button">
+          HOME PAGE
         </Link>
       </div>
     </div>

@@ -36,16 +36,19 @@ function Navbar() {
     reveal.current = gsap.fromTo(
       ".menu-element",
       {
-        opacity: 0,
-        y: -30,
+        autoAlpha: 0,
+        translateY: -30,
+        immediateRender: true,
+        visibility: "hidden",
       },
       {
-        opacity: 1,
-        y: 0,
+        autoAlpha: 1,
+        translateY: 0,
         stagger: 0.2,
         duration: 0.5,
         ease: "power1.out",
         paused: true,
+        visibility: "visible",
       }
     );
   });

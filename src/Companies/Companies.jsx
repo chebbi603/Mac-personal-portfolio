@@ -17,8 +17,10 @@ function Companies() {
     gsap.fromTo(
       ".company-img",
       {
-        y: -40,
-        opacity: 0,
+        translateY: -40,
+        autoAlpha: 0,
+        immediateRender: true,
+        willChange: "transform",
       },
       {
         scrollTrigger: {
@@ -26,8 +28,8 @@ function Companies() {
           start: "top 50%",
         },
         stagger: 0.2,
-        y: 0,
-        opacity: 1,
+        translateY: 0,
+        autoAlpha: 1,
         duration: 0.5,
         ease: "power1.out",
       }
