@@ -1,9 +1,8 @@
 .home {
   width: 100vw;
-  height: 80vh;
-  gap: 120px;
   box-sizing: border-box;
-  padding-top: 15rem;
+  padding: 4rem 0rem;
+  padding-top: 10rem;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -45,7 +44,7 @@
 .esmi-text {
   color: #fff;
   font-family: Host;
-  font-size: 7rem;
+  font-size: 6rem;
   text-align: center;
   margin: 0%;
   line-height: 1;
@@ -179,5 +178,11 @@
 @media (max-width: 640px) {
   .esmi-text {
     font-size: 3rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .home {
+    padding-top: 6rem;
   }
 }

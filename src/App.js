@@ -1,10 +1,6 @@
 import "./App.css";
 import Lenis from "@studio-freight/lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useLayoutEffect } from "react";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { Helmet } from "react-helmet";
 import { Route, Routes } from "react-router";
 import HomePage from "./HomePage";
@@ -13,6 +9,10 @@ import { useLocation } from "react-router";
 import { useEffect } from "react";
 import ContactPage from "./contact/ContactPage";
 import P404 from "./404/404";
+import ProjectPage from "./projects/ProjectPage";
+import MediaQuery from "react-responsive";
+import AnimatedCursor from "react-animated-cursor";
+import UnidebNotes from "./unidebnotes/UnidebNotes";
 
 function App() {
   //FIREBASE
@@ -28,7 +28,6 @@ function App() {
   //
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 
   const lenis = new Lenis({
     duration: 0.6,
@@ -65,10 +64,41 @@ function App() {
         />
         <meta property="og:url" content="https://chebbimedayoub.tech" />
       </Helmet>
+      <MediaQuery query="(min-device-width: 700px)">
+        <AnimatedCursor
+          backgroundColor={"#000"}
+          innerSize={8}
+          outerSize={25}
+          innerScale={1}
+          outerScale={1.7}
+          hasBlendMode={true}
+          outerAlpha={0}
+          zIndex={500}
+          outerStyle={{
+            mixBlendMode: "exclusion",
+            backgroundColor: "#fff",
+          }}
+          innerStyle={{
+            mixBlendMode: "difference",
+            backgroundColor: "#fff",
+          }}
+          clickables={[
+            "a",
+            "select",
+            "textarea",
+            "button",
+            ".link",
+            "Link",
+            ".menu-link-element",
+          ]}
+        />
+      </MediaQuery>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/tuniscovery" element={<CaseStudy />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/projects" element={<ProjectPage />} />
+        <Route path="/unidebnotes" element={<UnidebNotes />} />
         <Route path="/*" element={<P404 />} />
       </Routes>
     </div>

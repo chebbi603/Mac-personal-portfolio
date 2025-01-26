@@ -3,7 +3,6 @@
   width: 85%;
   padding: 80px 145px;
   padding-top: 0px;
-  background: #000;
   flex-direction: column;
   gap: 60px;
 }
@@ -46,13 +45,16 @@
   margin-top: 25vh;
   opacity: 0.5;
   position: relative;
+  height: 800px;
 }
 .projectsheader-image-mobile {
   z-index: 0;
   margin-top: 25vh;
   opacity: 0.5;
   position: relative;
+  height: 800px;
 }
+
 .projheader-myloc {
   color: rgb(139, 139, 139);
   font-family: "DM Sans", sans-serif;

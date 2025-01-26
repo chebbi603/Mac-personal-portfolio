@@ -1,39 +1,10 @@
 import "./home.css";
-import logosmall from "../src/assets/logo_small.svg";
-import fb from "../src/assets/fb.svg";
-import lin from "../src/assets/linkedin.svg";
-import dri from "../src/assets/dribbble.svg";
-import upw from "../src/assets/upwork.svg";
-import insta from "../src/assets/insta.svg";
-import vsco from "../src/assets/vsco.svg";
-import github from "../src/assets/github.svg";
-import MagneticButton from "./gsap";
-import MediaQuery from "react-responsive";
-import { useState } from "react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IconArrowDown } from "@tabler/icons-react";
 
 gsap.registerPlugin(useGSAP);
-
-const ProgressiveImage = ({ src, placeholder, alt }) => {
-  const [imageSrc, setImageSrc] = useState(placeholder);
-
-  const onImageLoad = () => {
-    setImageSrc(src);
-  };
-
-  return (
-    <img
-      className="landing-img"
-      fetchpriority="high"
-      src={imageSrc}
-      onLoad={onImageLoad}
-      alt={alt}
-    />
-  );
-};
 
 function Home() {
   const container = useRef();
@@ -82,11 +53,23 @@ function Home() {
           </a>
         </div>
         <div className="esmi" ref={container}>
-          <p className={"esmi-text esm-anim"}>MOHAMED</p>
-          <p className={"esmi-text esm-anim"}>AYOUB CHEBBI</p>
+          <p className={"esmi-text esm-anim"}>DIGITAL SOLUTIONS</p>
+          <p className={"esmi-text esm-anim"}>
+            W/
+            <span style={{ fontFamily: "Space Grotesk", fontWeight: 400 }}>
+              {"{"}CODE{"} "}
+            </span>
+            &
+            <span style={{ fontFamily: "Stardom", fontWeight: 400 }}>
+              {" "}
+              DESIGN
+            </span>
+          </p>
         </div>
         <p className={"desc-text esm-anim"}>
-          FREELANCE UX/UI DESIGNER
+          THIS IS MOHAMED AYOUB!
+          <br />
+          FREELANCE UX/UI DESIGNER &
           <br />
           COMPUTER SCIENCE ENGINEERING STUDENT
         </p>

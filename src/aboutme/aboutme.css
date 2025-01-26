@@ -4,8 +4,6 @@
   box-sizing: border-box;
   width: 100%;
   padding: 12rem 4rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background: #000;
   gap: 10%;
 }
 .aboutme-textcontainer {
@@ -26,7 +24,6 @@
 }
 .aboutme-sec1-mobile {
   display: flex;
-  width: 85%;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -39,7 +36,6 @@
 
 .aboutme-sec2-mobile {
   display: flex;
-  width: 85%;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -114,6 +110,9 @@
   }
   .aboutme-detail {
     font-size: 1.5rem;
+  }
+  .aboutme-container {
+    padding: 6rem 2rem;
   }
 }
 

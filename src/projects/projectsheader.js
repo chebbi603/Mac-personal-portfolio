@@ -6,6 +6,13 @@ import MediaQuery from "react-responsive";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const ProgressiveImage = ({ src, placeholder, alt, mobile }) => {
   const [imageSrc, setImageSrc] = useState(placeholder);
@@ -34,8 +41,132 @@ const ProgressiveImage = ({ src, placeholder, alt, mobile }) => {
 };
 
 function ProjectsHeader({ id }) {
+  const projectsScope = useRef();
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".tuniscovery-text",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 2,
+          delay: 2.5,
+        }
+      );
+
+      ScrollTrigger.refresh();
+
+      gsap.fromTo(
+        ".projectsheader-text",
+        {
+          opacity: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: ".projectsheader-content",
+            start: "top 80% bottom 10%",
+            end: "bottom 30%",
+            scrub: true,
+          },
+          opacity: 1,
+          y: 700,
+          zIndex: 5,
+        }
+      );
+
+      gsap.to(".tuniscovery-text", {
+        scrollTrigger: {
+          trigger: ".projectsheader-content",
+          start: "top 40% bottom 10%",
+          end: "bottom 30%",
+          scrub: true,
+        },
+        y: 600,
+        zIndex: 5,
+      });
+
+      window.addEventListener("resize", function (event) {
+        if (document.querySelector(".projectsheader-image")) {
+          gsap.killTweensOf(".projectsheader-image");
+          gsap.fromTo(
+            ".projectsheader-image",
+            {
+              clipPath: "polygon(30% 10%, 70% 10%, 70% 90%, 30% 90%)",
+            },
+            {
+              scrollTrigger: {
+                trigger: ".projectsheader-image",
+                start: "top 80% ",
+                end: "bottom 15% ",
+                scrub: true,
+              },
+              clipPath: "polygon(5% 10%, 95% 10%, 95% 90%, 5% 90%)",
+            }
+          );
+        }
+        if (document.querySelector(".projectsheader-image-mobile")) {
+          gsap.killTweensOf(".projectsheader-image-mobile");
+          gsap.fromTo(
+            ".projectsheader-image-mobile",
+            {
+              clipPath: "polygon(45% 40%, 55% 40%, 55% 60%, 45% 60%)",
+            },
+            {
+              scrollTrigger: {
+                trigger: ".projectsheader-image-mobile",
+                start: "top 60% ",
+                end: "bottom 15% ",
+                scrub: true,
+              },
+              clipPath: "polygon(37% 0%, 63% 0%, 63% 100%, 37% 100%)",
+            }
+          );
+        }
+      });
+      if (document.querySelector(".projectsheader-image")) {
+        gsap.fromTo(
+          ".projectsheader-image",
+          {
+            clipPath: "polygon(30% 10%, 70% 10%, 70% 90%, 30% 90%)",
+          },
+          {
+            scrollTrigger: {
+              trigger: ".projectsheader-image",
+              start: "top 80% ",
+              end: "bottom 15% ",
+              scrub: true,
+            },
+            clipPath: "polygon(5% 10%, 95% 10%, 95% 90%, 5% 90%)",
+          }
+        );
+      }
+      if (document.querySelector(".projectsheader-image-mobile")) {
+        gsap.fromTo(
+          ".projectsheader-image-mobile",
+          {
+            clipPath: "polygon(45% 40%, 55% 40%, 55% 60%, 45% 60%)",
+          },
+          {
+            scrollTrigger: {
+              trigger: ".projectsheader-image-mobile",
+              start: "top 60% ",
+              end: "bottom 15% ",
+              scrub: true,
+            },
+            clipPath: "polygon(37% 0%, 63% 0%, 63% 100%, 37% 100%)",
+          }
+        );
+      }
+    },
+
+    { scope: projectsScope }
+  );
+
   return (
-    <div className="projectsheader-container">
+    <div className="projectsheader-container" ref={projectsScope}>
       <div className="projectsheader-content">
         {id !== 1 ? <p className="projheader-myloc">UX Case Study</p> : <></>}
         <div className={id === 1 ? "projectsheader-text" : "tuniscovery-text"}>
@@ -54,7 +185,7 @@ function ProjectsHeader({ id }) {
                   <br />
                   MY PROJECTS
                 </p>
-                <Link to="/tuniscovery">
+                <Link to="/projects">
                   <a className="project-button">LET'S CHECK IT OUT</a>
                 </Link>
               </div>
@@ -77,7 +208,7 @@ function ProjectsHeader({ id }) {
                   <br />
                   MY PROJECTS
                 </p>
-                <Link to="/tuniscovery">
+                <Link to="/projects">
                   <a className="project-button">LET'S CHECK IT OUT</a>
                 </Link>
               </div>
@@ -101,6 +232,7 @@ function ProjectsHeader({ id }) {
               placeholder={headercomp}
               mobile={true}
               alt="prjhdrimg"
+              ref={projectsScope}
             ></ProgressiveImage>
           </MediaQuery>
         </div>

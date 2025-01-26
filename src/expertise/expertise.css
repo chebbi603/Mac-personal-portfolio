@@ -3,11 +3,10 @@
   width: 85%;
   padding: 80px 145px;
   padding-top: 0px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background: #000;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #fff;
   gap: 60px;
 }
 .expertise-textcontainer {
@@ -31,7 +30,7 @@
 .expertise-list {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 1rem;
 }
 .expertiseelement {
   display: flex;
@@ -43,7 +42,6 @@
 }
 
 .expertise-title {
-  color: white;
   padding: 16px 32px;
   border-radius: 50px;
   border: 1px solid white;
@@ -57,8 +55,8 @@
 }
 .expertise-type {
   font-family: Host;
-  color: white;
-  font-size: 4rem;
+  color: #cdb4db;
+  font-size: 6rem;
   line-height: 100%;
   padding: 0px;
   margin: 0px;
@@ -144,14 +142,9 @@
   }
 }
 .fancy {
-  background-image: linear-gradient(40deg, #085078, #85d8ce, #085078);
-  background-size: 200% 100%;
   font-weight: 600;
-  line-height: normal;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: gradientAnimation 10s linear infinite;
+  color: #fff;
+  margin: 0;
 }
 
 .expertise-icons {

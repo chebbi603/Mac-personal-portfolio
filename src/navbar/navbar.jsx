@@ -16,6 +16,14 @@ function Navbar() {
   const showAnim = useRef(null);
   const reveal = useRef(null);
 
+  const changeColor = () => {
+    gsap.to(".header", {
+      backgroundColor: "#0001",
+      duration: 2,
+      delay: 0.5,
+    });
+  };
+
   useGSAP(() => {
     showAnim.current = gsap.fromTo(
       ".menu-container",
@@ -61,13 +69,14 @@ function Navbar() {
       // Play the animation if the menu is closed
       showAnim.current.play();
       reveal.current.play();
+      changeColor();
     }
     setMenu(!menu); // Toggle menu state
   };
 
   return (
     <div className="navbar-container">
-      <div className={`header ${menu ? "nocolor" : ""}`}>
+      <div className={`header ${menu ? "" : "headerc"}`}>
         <img src={logosmall} className="header-logo" alt={"byMe"} />
         <div className="header-links">
           <MediaQuery minWidth={460}>

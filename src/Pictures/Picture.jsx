@@ -19,7 +19,7 @@ import ScrollTrigger from "gsap-trial/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-function Pictures() {
+function Pictures({ line, both }) {
   useGSAP(() => {
     gsap.fromTo(
       ".psec1",
@@ -59,23 +59,49 @@ function Pictures() {
 
   return (
     <div className="picture-container">
-      <div className="picture-section psec1">
-        <img className="picture-img" src={img1} />
-        <img className="picture-img" src={img2} />
-        <img className="picture-img" src={img3} />
-        <img className="picture-img" src={img6} />
-        <img className="picture-img" src={img5} />
-        <img className="picture-img" src={img4} />
-      </div>
-
-      <div className="picture-section psec2">
-        <img className="picture-img" src={img7} />
-        <img className="picture-img" src={img8} />
-        <img className="picture-img" src={img9} />
-        <img className="picture-img" src={img10} />
-        <img className="picture-img" src={img11} />
-        <img className="picture-img" src={img12} />
-      </div>
+      {!both ? (
+        <>
+          {line === 1 ? (
+            <div className="picture-section psec1">
+              <img className="picture-img" src={img1} />
+              <img className="picture-img" src={img2} />
+              <img className="picture-img" src={img3} />
+              <img className="picture-img" src={img6} />
+              <img className="picture-img" src={img5} />
+              <img className="picture-img" src={img4} />
+            </div>
+          ) : null}
+          {line === 2 ? (
+            <div className="picture-section psec2">
+              <img className="picture-img" src={img7} />
+              <img className="picture-img" src={img8} />
+              <img className="picture-img" src={img9} />
+              <img className="picture-img" src={img10} />
+              <img className="picture-img" src={img11} />
+              <img className="picture-img" src={img12} />
+            </div>
+          ) : null}
+        </>
+      ) : (
+        <>
+          <div className="picture-section psec1">
+            <img className="picture-img" src={img1} />
+            <img className="picture-img" src={img2} />
+            <img className="picture-img" src={img3} />
+            <img className="picture-img" src={img6} />
+            <img className="picture-img" src={img5} />
+            <img className="picture-img" src={img4} />
+          </div>
+          <div className="picture-section psec2">
+            <img className="picture-img" src={img7} />
+            <img className="picture-img" src={img8} />
+            <img className="picture-img" src={img9} />
+            <img className="picture-img" src={img10} />
+            <img className="picture-img" src={img11} />
+            <img className="picture-img" src={img12} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

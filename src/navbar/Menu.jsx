@@ -20,7 +20,7 @@ function Menu() {
         <Link className="menu-element" to="/">
           <a className="menu-element">HOME</a>{" "}
         </Link>
-        <Link className="menu-element" to="/tuniscovery">
+        <Link className="menu-element" to="/projects">
           <a className="menu-element">PROJECTS</a>{" "}
         </Link>
         <Link className="menu-element" to="/contact">

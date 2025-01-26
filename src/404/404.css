@@ -30,7 +30,7 @@
 @media (max-width: 900px) {
   .p404-container {
     gap: 1rem;
-    padding: 2rem, 24px;
+    padding: 2rem 24px;
   }
   .p404-text {
     font-size: 3rem;

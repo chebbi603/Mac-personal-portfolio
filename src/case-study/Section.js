@@ -11,32 +11,15 @@ import img6 from "./assets/h4tp-06.png";
 import logo from "./assets/logo.svg";
 import MagneticButton from "../gsap";
 import { Link } from "react-router-dom";
+import tuniscovery1 from "./assets/tuniscovery_1.webm";
+import tuniscovery2 from "./assets/tuniscovery_2.webm";
+import tuniscovery3 from "./assets/tuniscovery_3.webm";
+import { IconArrowRight } from "@tabler/icons-react";
 function Sections() {
   return (
     <div className="section-container">
-      <MediaQuery query="(min-device-width: 700px)">
-        <AnimatedCursor
-          backgroundColor={"#000"}
-          innerSize={8}
-          outerSize={25}
-          innerScale={1}
-          outerScale={1.7}
-          hasBlendMode={true}
-          outerAlpha={0}
-          zIndex={500}
-          outerStyle={{
-            mixBlendMode: "exclusion",
-            backgroundColor: "#fff",
-          }}
-          innerStyle={{
-            mixBlendMode: "difference",
-            backgroundColor: "#fff",
-          }}
-          clickables={["a", "select", "textarea", "button", ".link", "Link"]}
-        />
-      </MediaQuery>
       <div className="section-content">
-        <p className="section-sub">About the project</p>
+        <p className="section-sub">BACKGROUND</p>
         <p className="section-title">Tuniscovery</p>
         <p className="section-text">
           <b>#TourismTechJam</b> was an intense 24-hour Hackathon hosted at The
@@ -52,7 +35,25 @@ function Sections() {
         </p>
         <br />
         <p className="section-sub">Role</p>
-        <p className="section-text">UX/UI Designer</p>
+        <p className="section-text">
+          <b>UX/UI Designer</b>
+        </p>
+      </div>
+      <div className="section-content">
+        <p className="section-title">The Process</p>
+        <div className="process-container">
+          <p className="section-text">Understand</p>
+          <IconArrowRight />
+          <p className="section-text">Research</p>
+          <IconArrowRight />
+          <p className="section-text">Analyze</p>
+          <IconArrowRight />
+          <p className="section-text">Design</p>
+          <IconArrowRight />
+          <p className="section-text">Limited Testing</p>
+          <IconArrowRight />
+          <p className="section-text">Present</p>
+        </div>
       </div>
       <div className="section-content">
         <p className="section-sub">The Problem</p>
@@ -70,6 +71,110 @@ function Sections() {
           restaurants, while offering tailored suggestions that fit their unique
           preferences and location in real-time.
         </p>
+      </div>
+      <div className="section-content" style={{ width: "100%" }}>
+        <p className="section-sub">User Research</p>
+        <p className="section-title">Step 2: Let's do some research</p>
+        <br />
+        <div className="research-container">
+          <div className="research-container-item">
+            <p className="section-sub">Research Methods</p>
+            <p className="section-text">
+              <b>Existing solutions & systems</b>
+            </p>
+            <p className="section-text">
+              <b>Qualitative research (interviews with DMO managers)</b>
+            </p>
+            <p className="section-text">
+              <b>Quantitative research (Reviews of existing solutions)</b>
+            </p>
+            <p className="section-text" style={{ fontSize: "1rem" }}>
+              * Limited access to data due to hackathon constraints
+            </p>
+          </div>
+          <br />
+          <div className="research-container-item">
+            <p className="section-sub">Target users</p>
+            <p className="section-text">
+              <b>Tourists who want to explore Tunisian destinations</b>
+            </p>
+            <p className="section-text">
+              <b>DMOs who want to promote their destinations</b>
+            </p>
+            <p className="section-text">
+              <b>Small businesses located in each destination</b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="section-content">
+        <p className="section-sub">Research Insights</p>
+        <p className="section-title">Reflecting on pain points</p>
+        <br />
+        <div className="avatars-container">
+          <div className="avatar-container">
+            <img
+              src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_9.png"
+              className="avatar-image"
+            />
+            <div className="avatar-info">
+              <p className="avatar-name">Sarah (United Kingdom)</p>
+              <p className="avatar-description">
+                "I’ve always relied on travel agencies to plan my trips because
+                they feel safe and organized. But sometimes, I wonder what I
+                might be missing out on. I’d love to explore more of Tunisia on
+                my own, but I worry about language barriers, getting lost, or
+                ending up in places I don’t feel comfortable. I need a tool that
+                gives me confidence to step out of my comfort zone while still
+                feeling secure."
+              </p>
+              <p className="avatar-description" style={{ color: "#fcef71" }}>
+                * MAIN HACKATHON TOPIC
+              </p>
+            </div>
+          </div>
+          <div className="avatar-container">
+            <img
+              src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_18.png"
+              className="avatar-image"
+            />
+            <div className="avatar-info">
+              <p className="avatar-name">Ahmed (Tunisia)</p>
+              <p className="avatar-description">
+                "Tourists visiting our area often stick to major attractions
+                promoted by travel agencies, leaving out many of the unique
+                experiences we have to offer. My goal is to showcase everything
+                that makes our destination special, from our cultural events to
+                our hidden gems. I need a platform that not only highlights
+                these attractions but also allows me to directly reach and
+                inspire tourists in real time, encouraging them to explore
+                beyond their set itineraries."
+              </p>{" "}
+              <p className="avatar-description" style={{ color: "#fcef71" }}>
+                * MAIN HACKATHON TOPIC
+              </p>
+            </div>
+          </div>
+          <div className="avatar-container">
+            <img
+              src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_2.png"
+              className="avatar-image"
+            />
+            <div className="avatar-info">
+              <p className="avatar-name">Amel (Tunisia)</p>
+              <p className="avatar-description">
+                "It’s hard to compete with big, agency-affiliated shops that get
+                all the attention. My ceramic shop represents the heart of
+                Tunisian craftsmanship, but tourists often don’t even know I
+                exist. I wish I had a way to promote my business to tourists who
+                are already nearby, show them what makes my work special, and
+                invite them to experience something truly authentic. It would
+                make a huge difference for my livelihood and for preserving our
+                culture."
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="section-container">
         <div className="section-content">
@@ -95,7 +200,38 @@ function Sections() {
           Organizations
           <br /> - Exploring sites with immersive view features
         </p>
+        <br />
+        <div className="cs-video-container">
+          <div className="cs-video-container-item">
+            <video
+              className="cs-video"
+              autoPlay
+              loop
+              muted
+              src={tuniscovery1}
+            />
+          </div>
+          <div className="cs-video-container-item">
+            <video
+              className="cs-video"
+              autoPlay
+              loop
+              muted
+              src={tuniscovery2}
+            />
+          </div>
+          <div className="cs-video-container-item">
+            <video
+              className="cs-video"
+              autoPlay
+              loop
+              muted
+              src={tuniscovery3}
+            />
+          </div>
+        </div>
       </div>
+
       <div className="section-content">
         <p className="section-sub">The Challenge</p>
         <p className="section-title">Consistency vs Diversity</p>
