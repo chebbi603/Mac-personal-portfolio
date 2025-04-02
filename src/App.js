@@ -56,13 +56,14 @@ function App() {
       <Helmet>
         <meta
           name="description"
-          content="Welcome to Mohamed Ayoub Chebbi's portfolio, a 21 year old UX/UI Designer and Developer studying in Hungary"
+          content="Welcome to Mohamed Ayoub Chebbi's portfolio, a 22 year old UX/UI Designer and Developer studying in Hungary"
         />
         <meta
           name="keywords"
           content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
         />
-        <meta property="og:url" content="https://chebbimedayoub.tech" />
+        <meta property="og:url" content="https://chebbimedayoub.com" />
+        {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
       </Helmet>
       <MediaQuery query="(min-device-width: 700px)">
         <AnimatedCursor

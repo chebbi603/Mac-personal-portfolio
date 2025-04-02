@@ -37,7 +37,7 @@
   gap: 0svh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   transition-duration: 0.1s;
 }
 
@@ -45,21 +45,19 @@
   color: #fff;
   font-family: Host;
   font-size: 6rem;
-  text-align: center;
+  text-align: left;
   margin: 0%;
   line-height: 1;
   font-weight: 800;
   transition: 0.4s ease-out;
   &:hover {
     color: #aaa;
-    letter-spacing: -2px;
-    font-weight: 600;
   }
 }
 
 .desc-text {
   color: #888;
-  text-align: center;
+  text-align: left;
   margin: 0;
   font-family: Host;
   font-size: 1.5rem;
@@ -69,7 +67,7 @@
 
 .sub-text {
   color: #888;
-  text-align: center;
+  text-align: left;
   margin: 0;
   font-family: Host;
   font-size: 1rem;
@@ -118,9 +116,9 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
-  padding: 24px 24px;
+  padding: 24px 0px;
 }
 
 .mentions {
@@ -169,15 +167,45 @@
   z-index: 5;
 }
 
+.home-img {
+  height: 600px;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  padding: 0px 48px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
 @media (max-width: 900px) {
   .esmi-text {
     font-size: 6rem;
+  }
+  .home-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .home-img {
+    height: auto;
+  }
+  .esmi-text {
+    font-size: 4rem;
   }
 }
 
 @media (max-width: 640px) {
   .esmi-text {
     font-size: 3rem;
+  }
+  .home {
+    padding-top: 6rem;
   }
 }
 

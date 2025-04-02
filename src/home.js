@@ -3,6 +3,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IconArrowDown } from "@tabler/icons-react";
+import img1 from "./assets/photo-2.webp";
 
 gsap.registerPlugin(useGSAP);
 
@@ -28,52 +29,41 @@ function Home() {
 
   return (
     <div className="home">
-      {/* <div className="header">
-        <img src={logosmall} className="header-logo" alt={"byMe"} />
-        <div className="mentions-l">
-          <div className="available-icn"></div>
-          <a
-            className="mentions_txt"
-            target="_blank"
-            href="https://www.upwork.com/freelancers/ayoubc4"
-          >
-            Available for projects
-          </a>
-        </div>
-      </div> */}
-      <div className={"content"}>
-        <div className="mentions-l">
-          <div className="available-icn"></div>
-          <a
-            className="mentions_txt"
-            target="_blank"
-            href="https://www.upwork.com/freelancers/ayoubc4"
-          >
-            AVAILABLE FOR PROJECTS
-          </a>
-        </div>
-        <div className="esmi" ref={container}>
-          <p className={"esmi-text esm-anim"}>DIGITAL SOLUTIONS</p>
-          <p className={"esmi-text esm-anim"}>
-            W/
-            <span style={{ fontFamily: "Space Grotesk", fontWeight: 400 }}>
-              {"{"}CODE{"} "}
-            </span>
-            &
-            <span style={{ fontFamily: "Stardom", fontWeight: 400 }}>
-              {" "}
-              DESIGN
-            </span>
+      <div className="home-container">
+        <div className={"content"}>
+          <div className="esmi" ref={container}>
+            <div className="mentions-l">
+              <div className="available-icn"></div>
+              <a
+                className="mentions_txt"
+                target="_blank"
+                href="https://www.upwork.com/freelancers/ayoubc4"
+              >
+                AVAILABLE FOR PROJECTS
+              </a>
+            </div>
+            <br />
+            <p className={"esmi-text esm-anim"}>I CRAFT DIGITAL</p>
+            <p className={"esmi-text esm-anim"}>SOLUTIONS WITH</p>
+            <p className={"esmi-text esm-anim"}>
+              <span style={{ fontFamily: "Space Grotesk", fontWeight: 400 }}>
+                {"{"}C0DE{"} "}
+              </span>
+              &
+              <span style={{ fontFamily: "Parisienne", fontWeight: 400 }}>
+                {" "}
+                Design
+              </span>
+            </p>
+          </div>
+          <p className={"desc-text esm-anim"}>
+            MY NAME IS MOHAMED AYOUB 👋
+            <br />I AM A <span className="tun">TUNISIAN</span> UX/UI DESIGNER &
+            <br />A COMPUTER SCIENCE ENGINEERING STUDENT
+            <br />
+            BASED IN DEBRECEN, HUNGARY
           </p>
-        </div>
-        <p className={"desc-text esm-anim"}>
-          THIS IS MOHAMED AYOUB!
-          <br />
-          FREELANCE UX/UI DESIGNER &
-          <br />
-          COMPUTER SCIENCE ENGINEERING STUDENT
-        </p>
-        {/* <div className={"social-container esm-anim"}>
+          {/* <div className={"social-container esm-anim"}>
           <MagneticButton>
             <div className={"socials"}>
               <a
@@ -128,6 +118,9 @@ function Home() {
             </div>
           </MagneticButton>
         </div> */}
+        </div>
+
+        <img className="home-img esm-anim" src={img1}></img>
       </div>
       <div className="arrow">
         <IconArrowDown color="white" size={32} />

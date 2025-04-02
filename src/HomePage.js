@@ -32,19 +32,17 @@ function HomePage() {
           circle,
           {
             opacity: 0,
-            x: 80,
-            fontWeight: 100,
+            scale: 0.8,
           },
           {
             scrollTrigger: {
               trigger: circle,
               start: "top 90% top",
-              end: "bottom 70%",
+              end: "bottom 50%",
               scrub: true,
             },
-            x: 0,
             opacity: 1,
-            fontWeight: 600,
+            scale: 1,
           }
         );
       });
@@ -399,6 +397,7 @@ function HomePage() {
 
   return (
     <div ref={el}>
+      <div className="blur"></div>
       <Navbar />
       <div className="App-header">
         <section className={"section1"}>

@@ -79,7 +79,7 @@ function Contact() {
               href="https://docs.google.com/document/d/1yMcimjWwgk-uz37sfpEnC_1TAqAn8VN6pbHjrjwuwjI/edit?usp=sharing"
               target="_blank"
             >
-              MY CV
+              CV
             </a>
             <IconArrowUpRight size={24} />
           </div>
