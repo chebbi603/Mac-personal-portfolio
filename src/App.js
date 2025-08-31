@@ -1,7 +1,7 @@
 import "./App.css";
 import Lenis from "@studio-freight/lenis";
 import { initializeApp } from "firebase/app";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router";
 import HomePage from "./HomePage";
 import CaseStudy from "./case-study/CaseStudy";
@@ -13,6 +13,7 @@ import ProjectPage from "./projects/ProjectPage";
 import MediaQuery from "react-responsive";
 import AnimatedCursor from "react-animated-cursor";
 import UnidebNotes from "./unidebnotes/UnidebNotes";
+import MENASYP from "./menasyp/MENASYP";
 
 function App() {
   //FIREBASE
@@ -52,19 +53,20 @@ function App() {
   useScrollRestoration();
 
   return (
-    <div className="App">
-      <Helmet>
-        <meta
-          name="description"
-          content="Welcome to Mohamed Ayoub Chebbi's portfolio, a 22 year old UX/UI Designer and Developer studying in Hungary"
-        />
-        <meta
-          name="keywords"
-          content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
-        />
-        <meta property="og:url" content="https://chebbimedayoub.com" />
-        {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
-      </Helmet>
+    <HelmetProvider>
+      <div className="App">
+        <Helmet>
+          <meta
+            name="description"
+            content="Welcome to Mohamed Ayoub Chebbi's portfolio, a 22 year old UX/UI Designer and Developer studying in Hungary"
+          />
+          <meta
+            name="keywords"
+            content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
+          />
+          <meta property="og:url" content="https://chebbimedayoub.com" />
+          {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
+        </Helmet>
       <MediaQuery query="(min-device-width: 700px)">
         <AnimatedCursor
           backgroundColor={"#000"}
@@ -100,9 +102,11 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/unidebnotes" element={<UnidebNotes />} />
+        <Route path="/menasyp25" element={<MENASYP />} />
         <Route path="/*" element={<P404 />} />
       </Routes>
     </div>
+    </HelmetProvider>
   );
 }
 

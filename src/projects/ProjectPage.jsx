@@ -12,8 +12,10 @@ import Contact from "../contact/contact";
 import { useRef } from "react";
 import Pictures from "../Pictures/Picture";
 import unideb from "./unidebnotes/unidebnotes.webm";
+// import mena from "../menasyp/assets/menasyp_with_audio.webm";
 import { IconArrowDownLeft } from "@tabler/icons-react";
 import ScrollResetter from "../ScrollResetter/ScrollResetter";
+const mena = "/menasyp_mobile_optimized.mp4";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -42,6 +44,9 @@ function ProjectItem({ tag }) {
             autoPlay
             muted
             loop
+            preload="metadata"
+            playsInline
+            webkit-playsinline="true"
           />
         ) : (
           <img className="project-item-image" src={tag.image} alt={tag.name} />
@@ -113,6 +118,19 @@ export default function ProjectPage() {
           <IconArrowDownLeft size={64} color="white" />
         </div>
         <div className="project-item-container">
+          <ProjectItem
+            tag={{
+              color: "#FF2057",
+              name: "IEEE R8 MENA SYP 2025",
+              path: "/menasyp25",
+              video: true,
+              type: "BRANDING - GRAPHIC DESIGN",
+              year: "2022",
+              description:
+                "The IEEE R8 MENA SYP is a student congress that aims to inspire future leaders from 17+ countries",
+              image: mena,
+            }}
+          />
           <ProjectItem
             tag={{
               name: "Tuniscovery",

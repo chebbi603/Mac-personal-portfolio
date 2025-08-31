@@ -185,8 +185,8 @@ function ProjectsHeader({ id }) {
                   <br />
                   MY PROJECTS
                 </p>
-                <Link to="/projects">
-                  <a className="project-button">LET'S CHECK IT OUT</a>
+                <Link to="/projects" className="project-button">
+                  LET'S CHECK IT OUT
                 </Link>
               </div>
             ) : (
@@ -208,8 +208,8 @@ function ProjectsHeader({ id }) {
                   <br />
                   MY PROJECTS
                 </p>
-                <Link to="/projects">
-                  <a className="project-button">LET'S CHECK IT OUT</a>
+                <Link to="/projects" className="project-button">
+                  LET'S CHECK IT OUT
                 </Link>
               </div>
             ) : (

@@ -18,13 +18,13 @@ function Menu() {
       <div></div>
       <div className="menu-elements">
         <Link className="menu-element" to="/">
-          <a className="menu-element">HOME</a>{" "}
+          HOME
         </Link>
         <Link className="menu-element" to="/projects">
-          <a className="menu-element">PROJECTS</a>{" "}
+          PROJECTS
         </Link>
         <Link className="menu-element" to="/contact">
-          <a className="menu-element">CONTACT</a>{" "}
+          CONTACT
         </Link>
       </div>
       <div className="menu-link-container">

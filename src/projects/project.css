@@ -179,4 +179,12 @@
   .project-page-dribbble-container {
     padding: 20rem 2rem;
   }
+  
+  /* Mobile video fixes */
+  .project-item-image video {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    object-fit: contain;
+  }
 }

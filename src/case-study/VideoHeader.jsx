@@ -31,7 +31,6 @@ export default function VideoHeader({ src }) {
   });
   return (
     <div className="section-content video-container">
-      <video className="video-file" src={src} loop muted />
-    </div>
+      <video className="video-file" src={src} loop muted />   </div>
   );
 }
