@@ -14,6 +14,7 @@ import MediaQuery from "react-responsive";
 import AnimatedCursor from "react-animated-cursor";
 import UnidebNotes from "./unidebnotes/UnidebNotes";
 import MENASYP from "./menasyp/MENASYP";
+import GrainOverlay from "./GrainOverlay/GrainOverlay";
 
 import { calculateAge } from "./utils/time";
 
@@ -30,7 +31,7 @@ function App() {
   };
   //
 
-  const app = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
   const lenis = new Lenis({
     duration: 0.6,
@@ -58,6 +59,7 @@ function App() {
 
   return (
     <HelmetProvider>
+      <GrainOverlay />
       <div className="App">
         <Helmet>
           <meta

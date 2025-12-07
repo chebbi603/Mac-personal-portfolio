@@ -11,14 +11,14 @@ export default function ScrollResetter() {
   }, []);
 
   return isVisible ? (
-    <a
+    <button
       className="scroll-resetter"
       onClick={() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >
       <IconArrowUp size={24} />
-    </a>
+    </button>
   ) : (
     <></>
   );

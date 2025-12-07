@@ -6,7 +6,6 @@ import Expertise from "./expertise/expertise";
 import ProjectsHeader from "./projects/projectsheader";
 import AboutMeMobile from "./aboutme/aboutme_mobile";
 import MediaQuery from "react-responsive";
-import AnimatedCursor from "react-animated-cursor";
 import Preloader from "./preloader/preloader";
 import Navbar from "./navbar/navbar";
 import { useGSAP } from "@gsap/react";
