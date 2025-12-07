@@ -1,6 +1,5 @@
 import React from "react";
 import "../case-study/casestudy.css";
-import MagneticButton from "../gsap";
 import { Link } from "react-router-dom";
 import ScrollVideoComponent from "../case-study/ScrollVideoComponent";
 
@@ -72,11 +71,11 @@ function MENASYPSections() {
         </p>
         <br />
         <div className="section-image-container">
-          <img src={presentation1} className="section-image" />
-          <img src={presentation2} className="section-image" />
-          <img src={presentation3} className="section-image" />
-          <img src={presentation4} className="section-image" />
-          <img src={presentation5} className="section-image" />
+          <img src={presentation1} className="section-image" alt="Presentation slide 1" />
+          <img src={presentation2} className="section-image" alt="Presentation slide 2" />
+          <img src={presentation3} className="section-image" alt="Presentation slide 3" />
+          <img src={presentation4} className="section-image" alt="Presentation slide 4" />
+          <img src={presentation5} className="section-image" alt="Presentation slide 5" />
         </div>
       </div>
 
@@ -90,11 +89,11 @@ function MENASYPSections() {
         </p>
         <br />
         <div className="section-image-container">
-          <img src={presentation6} className="section-image" />
-          <img src={presentation7} className="section-image" />
-          <img src={presentation8} className="section-image" />
-          <img src={presentation9} className="section-image" />
-          <img src={presentation10} className="section-image" />
+          <img src={presentation6} className="section-image" alt="Presentation slide 6" />
+          <img src={presentation7} className="section-image" alt="Presentation slide 7" />
+          <img src={presentation8} className="section-image" alt="Presentation slide 8" />
+          <img src={presentation9} className="section-image" alt="Presentation slide 9" />
+          <img src={presentation10} className="section-image" alt="Presentation slide 10" />
         </div>
       </div>
 

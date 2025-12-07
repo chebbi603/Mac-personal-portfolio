@@ -1,32 +1,18 @@
 import "./contact.css";
-import logosmall from "../assets/logo_small.svg";
 import wpp from "../assets/photo.webp";
 import "../home.css";
-import MagneticButton from "../gsap";
 import MediaQuery from "react-responsive";
-import { useState } from "react";
-import { IconArrowDownRight, IconArrowUpRight } from "@tabler/icons-react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
-const ProgressiveImage = ({ src, placeholder, alt }) => {
-  const [imageSrc, setImageSrc] = useState(placeholder);
-
-  const onImageLoad = () => {
-    setImageSrc(src);
-  };
-
-  return <img className="wpp" src={imageSrc} onLoad={onImageLoad} alt={alt} />;
-};
 function Contact() {
   return (
     <div className="contact-container">
-      {/* <ProgressiveImage src={wpp} placeholder={wpp_c}></ProgressiveImage> */}
       <div className="contact-content">
         <p className="contact-title">LET'S HAVE A QUICK CHAT :D</p>
         <div className="contact-link-container">
           <div className="menu-link-element">
             <a
               className="menu-link-text"
-              target="_blank"
               href="mailto:chebbimohamedayoub@gmail.com"
             >
               EMAIL
@@ -36,7 +22,7 @@ function Contact() {
           <div className="menu-link-element">
             <a
               className="menu-link-text"
-              target="_blank"
+              target="_blank" rel="noreferrer"
               href="https://www.linkedin.com/in/mohamed-ayoub-chebbi/"
             >
               LINKEDIN
@@ -46,7 +32,7 @@ function Contact() {
           <div className="menu-link-element">
             <a
               className="menu-link-text"
-              target="_blank"
+              target="_blank" rel="noreferrer"
               href="https://www.dribbble.com/chebbimedayoub"
             >
               DRIBBBLE
@@ -56,7 +42,7 @@ function Contact() {
           <div className="menu-link-element">
             <a
               className="menu-link-text"
-              target="_blank"
+              target="_blank" rel="noreferrer"
               href="https://github.com/chebbi603"
             >
               GITHUB
@@ -66,7 +52,7 @@ function Contact() {
           <div className="menu-link-element">
             <a
               className="menu-link-text"
-              target="_blank"
+              target="_blank" rel="noreferrer"
               href="https://www.upwork.com/freelancers/ayoubc4"
             >
               UPWORK
@@ -77,7 +63,7 @@ function Contact() {
             <a
               className="menu-link-text"
               href="https://docs.google.com/document/d/1yMcimjWwgk-uz37sfpEnC_1TAqAn8VN6pbHjrjwuwjI/edit?usp=sharing"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               CV
             </a>
@@ -93,7 +79,7 @@ function Contact() {
       </div>
       <MediaQuery minWidth={1500}>
         <div className="contact-img-container">
-          <img className="contact-img" src={wpp} />
+          <img className="contact-img" src={wpp} alt="Contact: Chebbi Mohamed Ayoub" />
         </div>
       </MediaQuery>
     </div>

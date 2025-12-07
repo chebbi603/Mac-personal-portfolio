@@ -1,7 +1,5 @@
 import React from "react";
 import "./casestudy.css";
-import AnimatedCursor from "react-animated-cursor";
-import MediaQuery from "react-responsive";
 import img1 from "./assets/h4tp-01.png";
 import img2 from "./assets/h4tp-02.png";
 import img3 from "./assets/h4tp-03.png";
@@ -9,7 +7,7 @@ import img4 from "./assets/h4tp-04.png";
 import img5 from "./assets/h4tp-05.png";
 import img6 from "./assets/h4tp-06.png";
 import logo from "./assets/logo.svg";
-import MagneticButton from "../gsap";
+import MagneticButton from "../MagneticButton";
 import { Link } from "react-router-dom";
 import tuniscovery1 from "./assets/tuniscovery_1.webm";
 import tuniscovery2 from "./assets/tuniscovery_2.webm";
@@ -116,6 +114,7 @@ function Sections() {
             <img
               src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_9.png"
               className="avatar-image"
+              alt="Sarah, User Persona"
             />
             <div className="avatar-info">
               <p className="avatar-name">Sarah (United Kingdom)</p>
@@ -137,6 +136,7 @@ function Sections() {
             <img
               src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_18.png"
               className="avatar-image"
+              alt="Ahmed, User Persona"
             />
             <div className="avatar-info">
               <p className="avatar-name">Ahmed (Tunisia)</p>
@@ -159,6 +159,7 @@ function Sections() {
             <img
               src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_2.png"
               className="avatar-image"
+              alt="Amel, User Persona"
             />
             <div className="avatar-info">
               <p className="avatar-name">Amel (Tunisia)</p>
@@ -351,7 +352,7 @@ function Sections() {
           design. Huge shoutout to{" "}
           <a
             href="https://www.linkedin.com/in/ahmed-trabelsi-42986116b/"
-            target="_blank"
+            target="_blank" rel="noreferrer"
           >
             <b>@AhmedTrabelsi </b>
           </a>
@@ -359,17 +360,17 @@ function Sections() {
           <br /> <br />
         </p>
         <div className="section-image-container">
-          <img className="section-image" src={img6} />
-          <img className="section-image" src={img5} />
-          <img className="section-image" src={img4} />
-          <img className="section-image" src={img3} />
-          <img className="section-image" src={img2} />
-          <img className="section-image" src={img1} />
+          <img className="section-image" src={img6} alt="Process step 6" />
+          <img className="section-image" src={img5} alt="Process step 5" />
+          <img className="section-image" src={img4} alt="Process step 4" />
+          <img className="section-image" src={img3} alt="Process step 3" />
+          <img className="section-image" src={img2} alt="Process step 2" />
+          <img className="section-image" src={img1} alt="Process step 1" />
         </div>
       </div>
       <div className="fin">
         <p className="section-sub">UX Case Study</p>
-        <img src={logo} className="logo" />
+        <img src={logo} className="logo" alt="Tuniscovery Logo" />
         <Link to="/">
           <MagneticButton>
             <div className="studycase-btn">

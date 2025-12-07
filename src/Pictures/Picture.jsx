@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import img1 from "./assets/1.webp";
 import img2 from "./assets/2.webp";
 import img3 from "./assets/3.webp";
@@ -20,15 +21,18 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 function Pictures({ line, both }) {
+  const container = useRef();
+  const q = gsap.utils.selector(container);
+
   useGSAP(() => {
     gsap.fromTo(
-      ".psec1",
+      q(".psec1"),
       {
         x: 200,
       },
       {
         scrollTrigger: {
-          trigger: ".picture-container",
+          trigger: container.current,
 
           start: "top 100%",
           end: "bottom 0%",
@@ -39,13 +43,13 @@ function Pictures({ line, both }) {
       }
     );
     gsap.fromTo(
-      ".psec2",
+      q(".psec2"),
       {
         x: -200,
       },
       {
         scrollTrigger: {
-          trigger: ".picture-container",
+          trigger: container.current,
 
           start: "top 100%",
           end: "bottom 0%",
@@ -55,50 +59,50 @@ function Pictures({ line, both }) {
         x: 200,
       }
     );
-  });
+  }, { scope: container });
 
   return (
-    <div className="picture-container">
+    <div className="picture-container" ref={container}>
       {!both ? (
         <>
           {line === 1 ? (
             <div className="picture-section psec1">
-              <img className="picture-img" src={img1} />
-              <img className="picture-img" src={img2} />
-              <img className="picture-img" src={img3} />
-              <img className="picture-img" src={img6} />
-              <img className="picture-img" src={img5} />
-              <img className="picture-img" src={img4} />
+              <img className="picture-img" src={img1} alt="Portfolio work 1" />
+              <img className="picture-img" src={img2} alt="Portfolio work 2" />
+              <img className="picture-img" src={img3} alt="Portfolio work 3" />
+              <img className="picture-img" src={img6} alt="Portfolio work 6" />
+              <img className="picture-img" src={img5} alt="Portfolio work 5" />
+              <img className="picture-img" src={img4} alt="Portfolio work 4" />
             </div>
           ) : null}
           {line === 2 ? (
             <div className="picture-section psec2">
-              <img className="picture-img" src={img7} />
-              <img className="picture-img" src={img8} />
-              <img className="picture-img" src={img9} />
-              <img className="picture-img" src={img10} />
-              <img className="picture-img" src={img11} />
-              <img className="picture-img" src={img12} />
+              <img className="picture-img" src={img7} alt="Portfolio work 7" />
+              <img className="picture-img" src={img8} alt="Portfolio work 8" />
+              <img className="picture-img" src={img9} alt="Portfolio work 9" />
+              <img className="picture-img" src={img10} alt="Portfolio work 10" />
+              <img className="picture-img" src={img11} alt="Portfolio work 11" />
+              <img className="picture-img" src={img12} alt="Portfolio work 12" />
             </div>
           ) : null}
         </>
       ) : (
         <>
           <div className="picture-section psec1">
-            <img className="picture-img" src={img1} />
-            <img className="picture-img" src={img2} />
-            <img className="picture-img" src={img3} />
-            <img className="picture-img" src={img6} />
-            <img className="picture-img" src={img5} />
-            <img className="picture-img" src={img4} />
+            <img className="picture-img" src={img1} alt="Portfolio work 1" />
+            <img className="picture-img" src={img2} alt="Portfolio work 2" />
+            <img className="picture-img" src={img3} alt="Portfolio work 3" />
+            <img className="picture-img" src={img6} alt="Portfolio work 6" />
+            <img className="picture-img" src={img5} alt="Portfolio work 5" />
+            <img className="picture-img" src={img4} alt="Portfolio work 4" />
           </div>
           <div className="picture-section psec2">
-            <img className="picture-img" src={img7} />
-            <img className="picture-img" src={img8} />
-            <img className="picture-img" src={img9} />
-            <img className="picture-img" src={img10} />
-            <img className="picture-img" src={img11} />
-            <img className="picture-img" src={img12} />
+            <img className="picture-img" src={img7} alt="Portfolio work 7" />
+            <img className="picture-img" src={img8} alt="Portfolio work 8" />
+            <img className="picture-img" src={img9} alt="Portfolio work 9" />
+            <img className="picture-img" src={img10} alt="Portfolio work 10" />
+            <img className="picture-img" src={img11} alt="Portfolio work 11" />
+            <img className="picture-img" src={img12} alt="Portfolio work 12" />
           </div>
         </>
       )}

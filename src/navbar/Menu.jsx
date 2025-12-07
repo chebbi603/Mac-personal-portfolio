@@ -31,7 +31,7 @@ function Menu() {
         <div className="menu-link-element">
           <a
             className="menu-link-text"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             href="mailto:chebbimohamedayoub@gmail.com"
           >
             EMAIL
@@ -41,7 +41,7 @@ function Menu() {
         <div className="menu-link-element">
           <a
             className="menu-link-text"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             href="https://www.linkedin.com/in/mohamed-ayoub-chebbi/"
           >
             LINKEDIN
@@ -51,7 +51,7 @@ function Menu() {
         <div className="menu-link-element">
           <a
             className="menu-link-text"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             href="https://www.dribbble.com/chebbimedayoub"
           >
             DRIBBBLE
@@ -61,7 +61,7 @@ function Menu() {
         <div className="menu-link-element">
           <a
             className="menu-link-text"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             href="https://github.com/chebbi603"
           >
             GITHUB
@@ -71,7 +71,7 @@ function Menu() {
         <div className="menu-link-element">
           <a
             className="menu-link-text"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             href="https://www.upwork.com/freelancers/ayoubc4"
           >
             UPWORK
@@ -81,7 +81,7 @@ function Menu() {
         <div className="menu-link-element">
           <a
             href="https://docs.google.com/document/d/1yMcimjWwgk-uz37sfpEnC_1TAqAn8VN6pbHjrjwuwjI/edit?usp=sharing"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             className="menu-link-text"
           >
             MY CV

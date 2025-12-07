@@ -15,6 +15,8 @@ import AnimatedCursor from "react-animated-cursor";
 import UnidebNotes from "./unidebnotes/UnidebNotes";
 import MENASYP from "./menasyp/MENASYP";
 
+import { calculateAge } from "./utils/time";
+
 function App() {
   //FIREBASE
   const firebaseConfig = {
@@ -52,13 +54,15 @@ function App() {
 
   useScrollRestoration();
 
+  const age = calculateAge("2002-12-03");
+
   return (
     <HelmetProvider>
       <div className="App">
         <Helmet>
           <meta
             name="description"
-            content="Welcome to Mohamed Ayoub Chebbi's portfolio, a 22 year old UX/UI Designer and Developer studying in Hungary"
+            content={`Welcome to Mohamed Ayoub Chebbi's portfolio, a ${age} year old UX/UI Designer and Developer studying in Hungary`}
           />
           <meta
             name="keywords"

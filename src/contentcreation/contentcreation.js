@@ -38,15 +38,15 @@ function ContentCreation() {
             <div className="project-images" style={{gridTemplateColumns: `3 fr`, gridAutoRows:"max-content"}}>
                     
                     
-                    <a href="https://www.instagram.com/reel/C7UypurORDc/" target="_blank">
+                    <a href="https://www.instagram.com/reel/C7UypurORDc/" target="_blank" rel="noreferrer">
                     <div className="project-image-container" >
                         <div className="project-image-img">
-                          <img src={typo} className="pig">
+                          <img src={typo} className="pig" alt="Typography Thumbnail">
                           </img>
                         </div>
                     </div>
                     </a>
-                    <a href="https://www.instagram.com/two_am_prod/" target="_blank">
+                    <a href="https://www.instagram.com/two_am_prod/" target="_blank" rel="noreferrer">
                     <div className="project-image-container" >
                         <div className="project-image-img">
                           <video autoPlay className="pig" type="video/mp4" muted loop>
@@ -55,10 +55,10 @@ function ContentCreation() {
                         </div>
                     </div>
                     </a>
-                    <a href="https://www.instagram.com/p/C6UXJvnKCsn/" target="_blank">
+                    <a href="https://www.instagram.com/p/C6UXJvnKCsn/" target="_blank" rel="noreferrer">
                     <div className="project-image-container" >
                         <div className="project-image-img">
-                          <img src={ux} className="pig">
+                          <img src={ux} className="pig" alt="UX Design Thumbnail">
                           </img>
                         </div>
                     </div>

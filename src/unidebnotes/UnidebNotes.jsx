@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import Preloader from "../preloader/preloader";
 import gsap from "gsap";

@@ -89,13 +89,22 @@ function Navbar() {
               </a>
             </div>
           </MediaQuery>
-          <a className="menu-icon" onClick={reverseMenu}>
+          <button
+            className="menu-icon"
+            onClick={reverseMenu}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+            }}
+          >
             {!menu ? (
               <IconMenu size={32} color="white" />
             ) : (
               <IconX size={32} color="white" />
             )}
-          </a>
+          </button>
         </div>
       </div>
       <Menu className="menu" />

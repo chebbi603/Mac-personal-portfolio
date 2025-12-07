@@ -3,8 +3,6 @@ import Contact from "./contact";
 import Preloader from "../preloader/preloader";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import AnimatedCursor from "react-animated-cursor";
-import MediaQuery from "react-responsive";
 
 gsap.registerPlugin(useGSAP);
 

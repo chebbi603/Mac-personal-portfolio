@@ -1,11 +1,9 @@
 import React from "react";
 import "../case-study/casestudy.css";
-import MagneticButton from "../gsap";
 import { Link } from "react-router-dom";
 import { IconArrowRight } from "@tabler/icons-react";
 import unidebnotes from "./assets/unideb-video.mov";
 import VideoHeader from "../case-study/VideoHeader";
-import { IconBulb } from "@tabler/icons-react";
 import homepage from "./assets/unideb-homepage.png";
 import pdfv from "./assets/unideb-pdf.png";
 import searchv from "./assets/unideb-search.mp4";
@@ -167,6 +165,7 @@ function UnidebSections() {
             <img
               src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_21.png"
               className="avatar-image"
+              alt="Sarah - The Active Sharer"
             />
             <div className="avatar-info">
               <p className="avatar-name">Sarah - The Active Sharer</p>
@@ -182,6 +181,7 @@ function UnidebSections() {
             <img
               src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_6.png"
               className="avatar-image"
+              alt="Michael - The Resource Seeker"
             />
             <div className="avatar-info">
               <p className="avatar-name">Michael - The Resource Seeker</p>
@@ -197,6 +197,7 @@ function UnidebSections() {
             <img
               src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_26.png"
               className="avatar-image"
+              alt="Emma - The Collaborative Learner"
             />
             <div className="avatar-info">
               <p className="avatar-name">Emma - The Collaborative Learner</p>
@@ -232,7 +233,7 @@ function UnidebSections() {
           where you expect it to be.
         </p>
         <br />
-        <img src={homepage} className="section-image" />
+        <img src={homepage} className="section-image" alt="Unideb Notes Homepage" />
       </div>
 
       <div className="section-content">
@@ -246,7 +247,7 @@ function UnidebSections() {
           next and previous buttons.
         </p>
         <br />
-        <img src={pdfv} className="section-image" />
+        <img src={pdfv} className="section-image" alt="PDF Viewer Interface" />
       </div>
 
       <div className="section-content">
@@ -290,7 +291,7 @@ function UnidebSections() {
           our student user base.
         </p>
         <br />
-        <img src={sorafont} className="font-svg" />
+        <img src={sorafont} className="font-svg" alt="Sora Font Specimen" />
         <br />
         <div className="colors">
           <div className="colorpick" style={{ backgroundColor: "#6256CA" }}>

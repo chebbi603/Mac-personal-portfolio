@@ -179,7 +179,7 @@ export default function ProjectPage() {
         </h3>
         <a
           href="https://www.dribbble.com/chebbimedayoub"
-          target="_blank"
+          target="_blank" rel="noreferrer"
           className="project-button"
         >
           LET'S CHECK IT OUT

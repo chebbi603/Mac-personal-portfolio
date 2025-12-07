@@ -1,23 +1,3 @@
-import {
-  IconBrandAdobeAfterEffect,
-  IconBrandAdobeIllustrator,
-  IconBrandAdobePhotoshop,
-  IconBrandAdobePremier,
-  IconBrandAdobeXd,
-  IconBrandAndroid,
-  IconBrandApple,
-  IconBrandCpp,
-  IconBrandCSharp,
-  IconBrandCss3,
-  IconBrandFigma,
-  IconBrandFlutter,
-  IconBrandFramer,
-  IconBrandJavascript,
-  IconBrandPython,
-  IconBrandReact,
-  IconBrandSketch,
-  IconHtml,
-} from "@tabler/icons-react";
 import "./expertise.css";
 function Expertise() {
   return (
@@ -82,7 +62,7 @@ function Expertise() {
           <div className="expertiseelement">
             <a
               href="https://vsco.co/chebbimedayoub/gallery"
-              target="_blank"
+              target="_blank" rel="noreferrer"
               className="expertise-type fancy"
             >
               PHOTOGRAPHY

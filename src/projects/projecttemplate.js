@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import "./projectexample.css";
 import { useState } from "react";
-import MagneticButton from "../gsap";
+import MagneticButton from "../MagneticButton";
 import { Link, NavLink } from "react-router-dom";
 
 ProjectTemplate.propTypes = {

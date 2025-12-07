@@ -1,11 +1,14 @@
 import "./aboutme.css";
 import quote from "../assets/quote.svg";
+import { calculateAge } from "../utils/time";
+
 function AboutMe() {
+  const age = calculateAge("2002-12-03");
   return (
     <div className="aboutme-container">
       <div className="aboutme-textcontainer">
         <div className="aboutme-sec1">
-          <img className="quote" src={quote}></img>
+          <img className="quote" src={quote} alt="Quote"></img>
           <p className="aboutme-title">My Journey began</p>
           <p className="aboutme-sub">
             when a four year old kid was trying to explore computers and their
@@ -15,7 +18,7 @@ function AboutMe() {
         <div className="aboutme-sec2">
           <p className="aboutme-detail">
             This is <b>Mohamed Ayoub.</b>
-            <br></br> <br></br>A 22 year old freelancer and tech enthusiast from
+            <br></br> <br></br>A {age} year old freelancer and tech enthusiast from
             Tunisia and currently residing in Hungary.
             <br></br> <br></br>
             My passion for creating software solutions started back in 2018. I

@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./home";
+import Hero from "./Hero";
 import AboutMe from "./aboutme/aboutme";
 import Contact from "./contact/contact";
 import Expertise from "./expertise/expertise";
@@ -48,13 +48,13 @@ function HomePage() {
       });
 
       gsap.fromTo(
-        ".contact-text",
+        q(".contact-text"),
         {
           opacity: 0,
         },
         {
           scrollTrigger: {
-            trigger: ".contact-content",
+            trigger: q(".contact-content"),
             start: "20% 60%",
             end: "bottom 90%",
             scrub: true,
@@ -67,8 +67,8 @@ function HomePage() {
 
       // Projects Animation
 
-      var sections = gsap.utils.toArray(".project-main");
-      var containers = gsap.utils.toArray(".project-container");
+      var sections = gsap.utils.toArray(q(".project-main"));
+      var containers = gsap.utils.toArray(q(".project-container"));
 
       sections.forEach((container, index) => {
         gsap.fromTo(
@@ -198,12 +198,12 @@ function HomePage() {
         );
       });
 
-      if (document.querySelector(".aboutme-sec1")) {
-        gsap.to(".aboutme-sec1", {
+      if (q(".aboutme-sec1").length > 0) {
+        gsap.to(q(".aboutme-sec1"), {
           scrollTrigger: {
-            trigger: ".aboutme-sec2",
+            trigger: q(".aboutme-sec2"),
 
-            pin: ".aboutme-sec1",
+            pin: q(".aboutme-sec1"),
             start: "top 40%",
             end: "bottom 60%",
             scrub: true,
@@ -213,14 +213,14 @@ function HomePage() {
       }
 
       gsap.fromTo(
-        ".footer",
+        q(".footer"),
         {
           autoAlpha: 0,
           scale: 0.9,
         },
         {
           scrollTrigger: {
-            trigger: ".footer",
+            trigger: q(".footer"),
             start: "top 70%",
             end: "bottom bottom",
             scrub: true,
@@ -229,19 +229,19 @@ function HomePage() {
           scale: 1,
         }
       );
-      gsap.to(".App-header", {
+      gsap.to(q(".App-header"), {
         backgroundColor: "black",
         duration: 0.5,
       });
 
       gsap.fromTo(
-        ".App-header",
+        q(".App-header"),
         {
           backgroundColor: "black",
         },
         {
           scrollTrigger: {
-            trigger: ".aboutme-container",
+            trigger: q(".aboutme-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -250,13 +250,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".App-header",
+        q(".App-header"),
         {
           backgroundColor: "#212d40",
         },
         {
           scrollTrigger: {
-            trigger: ".expertise-container",
+            trigger: q(".expertise-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -265,13 +265,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".App-header",
+        q(".App-header"),
         {
           backgroundColor: "#291938",
         },
         {
           scrollTrigger: {
-            trigger: ".company-container",
+            trigger: q(".company-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -280,13 +280,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".App-header",
+        q(".App-header"),
         {
           backgroundColor: "#2a2b47",
         },
         {
           scrollTrigger: {
-            trigger: ".projectsheader-container",
+            trigger: q(".projectsheader-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -295,13 +295,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".App-header",
+        q(".App-header"),
         {
           backgroundColor: "#252933",
         },
         {
           scrollTrigger: {
-            trigger: ".contact-container",
+            trigger: q(".contact-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -311,13 +311,13 @@ function HomePage() {
       );
       // navbar
       gsap.fromTo(
-        ".headerc",
+        q(".headerc"),
         {
           backgroundColor: "black",
         },
         {
           scrollTrigger: {
-            trigger: ".aboutme-container",
+            trigger: q(".aboutme-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -326,13 +326,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".headerc",
+        q(".headerc"),
         {
           backgroundColor: "#212d40",
         },
         {
           scrollTrigger: {
-            trigger: ".expertise-container",
+            trigger: q(".expertise-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -341,19 +341,19 @@ function HomePage() {
         }
       );
 
-      gsap.to(".headerc", {
+      gsap.to(q(".headerc"), {
         backgroundColor: "black",
         duration: 0.5,
       });
 
       gsap.fromTo(
-        ".headerc",
+        q(".headerc"),
         {
           backgroundColor: "#291938",
         },
         {
           scrollTrigger: {
-            trigger: ".company-container",
+            trigger: q(".company-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -362,13 +362,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".headerc",
+        q(".headerc"),
         {
           backgroundColor: "#2a2b47",
         },
         {
           scrollTrigger: {
-            trigger: ".projectsheader-container",
+            trigger: q(".projectsheader-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -377,13 +377,13 @@ function HomePage() {
         }
       );
       gsap.fromTo(
-        ".headerc",
+        q(".headerc"),
         {
           backgroundColor: "#252933",
         },
         {
           scrollTrigger: {
-            trigger: ".contact-container",
+            trigger: q(".contact-container"),
             start: "top 80%",
             end: "top 10%",
             scrub: true,
@@ -402,7 +402,7 @@ function HomePage() {
       <div className="App-header">
         <section className={"section1"}>
           <Preloader text1={"LOADING"} text2={"PORTFOLIO..."} />
-          <Home />
+          <Hero />
         </section>
         <Pictures line={2} both={true} />
         <section>
