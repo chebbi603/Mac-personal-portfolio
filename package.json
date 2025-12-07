@@ -60,6 +60,7 @@
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
+    "firebase-tools": "^14.27.0",
     "gh-pages": "^6.1.1"
   }
 }
