@@ -1,42 +1,101 @@
 import "./aboutme.css";
 import quote from "../assets/quote.svg";
-import { calculateAge } from "../utils/time";
+import mypic from "../assets/mypic.jpg";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function AboutMe() {
-  const age = calculateAge("2002-12-03");
+  const container = useRef();
+  const q = gsap.utils.selector(container);
+
+  useGSAP(
+    () => {
+      // 1. Initial State (Blur & Hidden)
+      gsap.set(q(".aboutme-title, .quote-wrapper, .profile-container, .aboutme-desc"), {
+        y: 50,
+        opacity: 0,
+        filter: "blur(10px)",
+      });
+
+      // 2. Blur Fade In Animation
+      gsap.to(q(".aboutme-title, .quote-wrapper, .profile-container, .aboutme-desc"), {
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 60%",
+          end: "bottom bottom",
+        },
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        stagger: 0.1,
+        duration: 1,
+        ease: "power2.out",
+      });
+
+      // 3. Intensified Parallax using Translation
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 1200px)", () => {
+        gsap.fromTo(q(".aboutme-sec1"), {
+          y: -200,
+        }, {
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+          },
+          y: 200,
+          ease: "none",
+        });
+      });
+    },
+    { scope: container }
+  );
+
   return (
-    <div className="aboutme-container">
+    <div className="aboutme-container" ref={container}>
       <div className="aboutme-textcontainer">
         <div className="aboutme-sec1">
-          <img className="quote" src={quote} alt="Quote"></img>
-          <p className="aboutme-title">My Journey began</p>
-          <p className="aboutme-sub">
-            when a four year old kid was trying to explore computers and their
-            capabilities and believed in the power of technology...
+          <div className="quote-wrapper">
+            <img className="quote" src={quote} alt="Quote" />
+          </div>
+          <p className="aboutme-title">
+            Building the future <br />
+            of interaction, <br />
+            one thoughtful interface at a time.
           </p>
         </div>
         <div className="aboutme-sec2">
-          <p className="aboutme-detail">
-            This is <b>Mohamed Ayoub.</b>
-            <br></br> <br></br>A {age} year old freelancer and tech enthusiast from
-            Tunisia and currently residing in Hungary.
-            <br></br> <br></br>
-            My passion for creating software solutions started back in 2018. I
-            have created different projects for different organizations and
-            companies where I worked on developing mobile applications, websites
-            and robotics projects.
-            <br></br>
-            <br></br>
-            The urge of creating better designs for my apps led me to develop
-            Design skills. My first UX/UI design was published on Dribbble in
-            2019. I have now over 10000 followers and over 55000 shot views.
-            <br></br>
-            <br></br>I am currently opting for a Bachelor’s degree in Computer
-            Science Engineering and studying in the University of Debrecen,
-            Hungary. I am also working as a freelancer on Upwork. I have earned
-            a Top Rated Badge with a 100% Job success rate after working with
-            different clients from different countries.
-          </p>
+          {/* Profile Header */}
+          <div className="profile-container">
+            <img className="profile-avatar" src={mypic} alt="Mohamed Ayoub" />
+            <div className="profile-info">
+              <h3 className="profile-name">Mohamed Ayoub</h3>
+              <p className="profile-role">
+                UX Architect - Forward Deployed Engineer @BMWGroup
+              </p>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="aboutme-desc">
+            <p>
+              I bridge design and engineering to create digital experiences
+              that feel effortless and perform without compromise.
+            </p>
+            <p>
+              From enterprise workflows at BMW Group to AI products
+              and adaptive systems, my studio delivers work that stands apart,
+              where every detail serves the whole.
+            </p>
+            <p>
+              Working with ambitious teams across the world.
+            </p>
+          </div>
         </div>
       </div>
       <div>
@@ -46,3 +105,5 @@ function AboutMe() {
   );
 }
 export default AboutMe;
+
+

@@ -52,7 +52,7 @@ function waitForFontsLoad() {
   });
 }
 
-function Preloader({ text1, text2 }) {
+function Preloader({ text1, text2, onLoadComplete }) {
   const preloaderContainer = useRef();
   useGSAP(
     () => {
@@ -86,6 +86,9 @@ function Preloader({ text1, text2 }) {
           delay: 2,
           zIndex: -1,
           duration: 0.5,
+          onComplete: () => {
+            if (onLoadComplete) onLoadComplete();
+          }
         });
       });
     },

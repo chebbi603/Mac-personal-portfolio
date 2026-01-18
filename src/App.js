@@ -59,7 +59,6 @@ function App() {
 
   return (
     <HelmetProvider>
-      <GrainOverlay />
       <div className="App">
         <Helmet>
           <meta

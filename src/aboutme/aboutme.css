@@ -6,6 +6,7 @@
   padding: 12rem 4rem;
   gap: 10%;
 }
+
 .aboutme-textcontainer {
   display: grid;
   align-items: flex-start;
@@ -13,45 +14,97 @@
   gap: 2rem;
   padding: 4rem 0rem;
 }
-.quote {
-  filter: invert(100%);
-}
-.aboutme-sec1 {
-  display: flex;
-  grid-column: span 1;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.aboutme-sec1-mobile {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.aboutme-sec2 {
-  display: flex;
-  grid-column: span 1;
-  align-items: flex-start;
-  flex-direction: column;
+
+.quote-wrapper {
+  margin-bottom: 2rem;
+  display: block; /* Ensure it takes up space */
 }
 
-.aboutme-sec2-mobile {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+.quote {
+  filter: invert(100%); /* Turns black SVG to white */
+  width: 40px; /* Make sure quote size is controlled */
+  display: block; /* Fix for image spacing */
 }
+
+.aboutme-sec1,
+.aboutme-sec2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem; /* Increased gap for better spacing between sections */
+}
+
+/* Profile Header Styles */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.profile-name {
+  color: #fff;
+  font-family: Host;
+  font-size: 2.5rem; /* Increased size */
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.profile-role {
+  color: rgb(139, 139, 139);
+  font-family: Host;
+  font-size: 1.1rem; /* Slightly larger */
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Description Text */
+.aboutme-desc p {
+  color: #fffa;
+  text-align: left;
+  font-family: Host;
+  font-size: 1.5rem; /* Restored from original */
+  text-transform: uppercase; /* Restored from original */
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* Restored from original */
+  margin: 0 0 1.5rem 0;
+}
+
 .aboutme-title {
   color: #fff;
   font-family: Host;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: left;
   font-style: normal;
   font-weight: 600;
   padding: 0;
-  padding-top: 2rem;
   margin: 0;
-  line-height: 100%;
+  line-height: 1.1;
 }
+
 .about-myloc {
   color: rgb(139, 139, 139);
   font-family: Host;
@@ -59,74 +112,51 @@
   text-align: left;
   font-style: normal;
   font-weight: 300;
-  padding: 0;
   padding-top: 3rem;
   margin: 0;
   line-height: 100%;
 }
-.aboutme-sub {
-  color: #fffa;
-  text-align: left;
-  font-family: Host;
-  font-size: 2rem;
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 150%;
-}
-.aboutme-detail {
-  color: #fffa;
-  text-align: left;
-  text-transform: uppercase;
-  font-family: Host;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 150%;
-  margin: 0;
-}
-@media (max-width: 1600px) {
-  .aboutme-sec2 {
-    display: flex;
+
+/* Responisveness for profile */
+@media (max-width: 800px) {
+  .profile-container {
+    flex-direction: column; /* Stack avatar and info on mobile? maybe not, keep row */
     align-items: flex-start;
-    flex-direction: column;
   }
-  .aboutme-sec1 {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  
+  .profile-role {
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 1000px) {
-  .about-myloc {
-    font-size: 14px;
-  }
-  .aboutme-sub {
-    font-size: 2rem;
-  }
-  .aboutme-title {
-    font-size: 3rem;
-  }
-  .aboutme-detail {
-    font-size: 1.5rem;
-  }
+/* Responsiveness */
+
+@media (max-width: 1200px) {
   .aboutme-container {
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
+  }
+  
+  .aboutme-textcontainer {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 4rem;
   }
 }
 
 @media (max-width: 800px) {
-  .aboutme-sub {
-    font-size: 1.5rem;
+  .aboutme-container {
+    padding: 6rem 1.5rem;
   }
-  .aboutme-title {
-    font-size: 2rem;
-  }
-}
 
-.aboutme-textcontainer-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
+  .aboutme-title {
+    font-size: 2.5rem;
+  }
+
+  .aboutme-detail {
+    font-size: 1.25rem;
+  }
+
+  .about-myloc {
+    font-size: 14px;
+    padding-top: 1rem;
+  }
 }

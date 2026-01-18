@@ -9,8 +9,8 @@
   display: flex;
   flex-direction: row;
   padding: 24px 48px;
-  background-color: #00000080;
-  backdrop-filter: blur(200px);
+  background-color: transparent;
+  backdrop-filter: none;
   z-index: 11;
   align-items: center;
   justify-content: space-between;

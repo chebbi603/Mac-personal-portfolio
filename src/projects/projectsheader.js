@@ -40,13 +40,17 @@ const ProgressiveImage = ({ src, placeholder, alt, mobile }) => {
     );
 };
 
-function ProjectsHeader({ id }) {
+function ProjectsHeader({ id, startAnimation }) {
   const projectsScope = useRef();
 
   useGSAP(
     () => {
+      if (!startAnimation) return;
+
       gsap.fromTo(
         ".tuniscovery-text",
+        // ... (rest of the code is implicitly preserved if I don't replace it, but I need to target the block correctly)
+        // Actually I need to cover the entire useGSAP block to insert the StartAnimation dependency at the end.
         {
           opacity: 0,
         },
@@ -162,7 +166,7 @@ function ProjectsHeader({ id }) {
       }
     },
 
-    { scope: projectsScope }
+    { scope: projectsScope, dependencies: [startAnimation] }
   );
 
   return (

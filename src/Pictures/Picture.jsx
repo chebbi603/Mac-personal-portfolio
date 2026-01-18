@@ -15,16 +15,18 @@ import img12 from "./assets/12.webp";
 import "./pictures.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-function Pictures({ line, both }) {
+function Pictures({ line, both, startAnimation }) {
   const container = useRef();
   const q = gsap.utils.selector(container);
 
   useGSAP(() => {
+    if (!startAnimation) return;
+
     gsap.fromTo(
       q(".psec1"),
       {
@@ -59,7 +61,7 @@ function Pictures({ line, both }) {
         x: 200,
       }
     );
-  }, { scope: container });
+  }, { scope: container, dependencies: [startAnimation] });
 
   return (
     <div className="picture-container" ref={container}>
