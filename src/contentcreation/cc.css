@@ -37,7 +37,7 @@
   z-index: -5;
 }
 .project-title {
-  color: white;
+  color: #fefae0;
   z-index: -5;
   font-family: "DM Sans", sans-serif;
   font-size: 3rem;
@@ -49,7 +49,7 @@
   line-height: 100%;
 }
 .projects-sub {
-  color: white;
+  color: #fefae0;
   font-family: "DM Sans", sans-serif;
   font-size: 52px;
   width: fit-content;
@@ -61,7 +61,7 @@
   line-height: 100%;
 }
 .project-info {
-  color: #fff;
+  color: #fefae0;
   font-family: "DM Sans", sans-serif;
   font-size: 1rem;
   text-align: left;
@@ -73,7 +73,7 @@
 }
 .project-description {
   font-family: "DM Sans", sans-serif;
-  color: #fff;
+  color: #fefae0;
   font-family: "DM Sans";
   font-size: 1.2rem;
   text-align: left;
@@ -140,7 +140,7 @@
 @media (min-width: 1000px) {
   .project-description {
     font-family: "DM Sans", sans-serif;
-    color: #fff;
+    color: #fefae0;
     font-family: "DM Sans";
     font-size: 2rem;
     text-align: left;
@@ -152,7 +152,7 @@
   }
 
   .project-info {
-    color: #fff;
+    color: #fefae0;
     font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
     text-align: left;
@@ -164,7 +164,7 @@
   }
 
   .project-title {
-    color: white;
+    color: #fefae0;
     z-index: -5;
     font-family: "DM Sans", sans-serif;
     font-size: 4rem;

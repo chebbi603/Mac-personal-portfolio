@@ -4,7 +4,7 @@
   width: 100vw;
   min-height: 90vh;
   gap: 48px;
-  border-top: 1px solid #fff2;
+  border-top: 1px solid #fefae022;
 }
 .contact-img {
   height: 100%;
@@ -32,7 +32,7 @@
 }
 
 .contact-title {
-  color: #fff;
+  color: #fefae0;
   position: relative;
   z-index: 1;
   font-family: Host;

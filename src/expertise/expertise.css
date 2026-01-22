@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #fefae0;
   gap: 60px;
 }
 .expertise-textcontainer {
@@ -44,7 +44,7 @@
 .expertise-title {
   padding: 16px 32px;
   border-radius: 50px;
-  border: 1px solid white;
+  border: 1px solid #fefae0;
   font-family: Host;
   font-size: 1rem;
   text-align: center;
@@ -63,7 +63,7 @@
 }
 
 .expertise-example {
-  color: white;
+  color: #fefae0;
   font-family: Host;
   font-size: 2rem;
   text-align: left;
@@ -106,7 +106,7 @@
     font-size: 10svw;
   }
   .expertise-example {
-    color: white;
+    color: #fefae0;
     font-family: Host;
     font-size: 1.4rem;
     text-align: left;
@@ -143,7 +143,7 @@
 }
 .fancy {
   font-weight: 600;
-  color: #fff;
+  color: #fefae0;
   margin: 0;
 }
 

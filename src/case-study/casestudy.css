@@ -59,7 +59,7 @@
 }
 
 .section-title {
-  color: white;
+  color: #fefae0;
   font-family: Host;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -70,7 +70,7 @@
 }
 
 .section-title-fancy {
-  color: white;
+  color: #fefae0;
   font-family: Host;
   text-transform: uppercase;
   font-size: 3rem;
@@ -92,11 +92,11 @@
   font-weight: 300;
 }
 .section-text b {
-  color: #fff;
+  color: #fefae0;
 }
 
 .dmo-title {
-  color: white;
+  color: #fefae0;
   font-family: Host;
   font-size: 1.2rem;
   text-align: left;
@@ -117,7 +117,7 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50px;
-  border: 0.5px solid #fff;
+  border: 0.5px solid #fefae0;
 }
 .colors {
   display: flex;
@@ -169,7 +169,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50px;
-    border: 0.5px solid #fff;
+    border: 0.5px solid #fefae0;
   }
   .colors {
     display: flex;
@@ -227,7 +227,7 @@
 }
 a {
   text-decoration: none;
-  color: white;
+  color: #fefae0;
 }
 
 .studycase {
@@ -238,17 +238,17 @@ a {
 }
 .studycase-btn {
   display: flex;
-  border: 1px solid white;
+  border: 1px solid #fefae0;
   border-radius: 50px;
   padding: 12px 24px;
-  color: #fff;
+  color: #fefae0;
   font-family: Host;
   font-size: 1rem;
   font-weight: 600;
   transition: 0.4s ease-in-out;
 }
 .studycase-btn:hover {
-  background-color: white;
+  background-color: #fefae0;
   padding: 12px 32px;
   color: black;
 }
@@ -293,7 +293,7 @@ a {
   margin: 0;
   text-transform: uppercase;
   font-weight: 600;
-  color: #fff;
+  color: #fefae0;
 }
 
 .avatar-description {
@@ -355,7 +355,7 @@ a {
   flex-direction: row;
   gap: 1rem;
   flex-wrap: wrap;
-  color: #fff;
+  color: #fefae0;
   align-items: center;
   justify-content: flex-start;
 }

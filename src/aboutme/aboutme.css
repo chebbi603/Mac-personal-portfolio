@@ -60,7 +60,7 @@
 }
 
 .profile-name {
-  color: #fff;
+  color: #fefae0;
   font-family: Host;
   font-size: 2.5rem; /* Increased size */
   font-weight: 600;
@@ -93,7 +93,7 @@
 }
 
 .aboutme-title {
-  color: #fff;
+  color: #fefae0;
   font-family: Host;
   text-transform: uppercase;
   font-size: 4rem;

@@ -33,10 +33,10 @@
   height: 5vh;
 }
 .preloader-title {
-  color: white;
+  color: #fefae0;
   text-align: center;
   font-size: 4rem;
-  color: #fff;
+  color: #fefae0;
   z-index: 1;
   font-family: Host, sans-serif;
   font-style: normal;
