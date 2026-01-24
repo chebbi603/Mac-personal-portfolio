@@ -60,4 +60,9 @@
   pointer-events: none; /* Ensures no interaction issues */
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 

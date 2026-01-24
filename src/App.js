@@ -3,20 +3,22 @@ import Lenis from "@studio-freight/lenis";
 import { initializeApp } from "firebase/app";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router";
-import HomePage from "./HomePage";
-import CaseStudy from "./case-study/CaseStudy";
 import { useLocation } from "react-router";
-import { useEffect } from "react";
-import ContactPage from "./contact/ContactPage";
-import P404 from "./404/404";
-import ProjectPage from "./projects/ProjectPage";
+import { useEffect, lazy, Suspense } from "react";
 import MediaQuery from "react-responsive";
 import AnimatedCursor from "react-animated-cursor";
-import UnidebNotes from "./unidebnotes/UnidebNotes";
-import MENASYP from "./menasyp/MENASYP";
-import GrainOverlay from "./GrainOverlay/GrainOverlay";
 
 import { calculateAge } from "./utils/time";
+
+// Lazy Loaded Components
+const HomePage = lazy(() => import("./pages/HomePage"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const P404 = lazy(() => import("./pages/404/404"));
+const ProjectPage = lazy(() => import("./pages/Projects/ProjectPage"));
+const UnidebNotes = lazy(() => import("./pages/UnidebNotes/UnidebNotes"));
+const MENASYP = lazy(() => import("./pages/MENASYP/MENASYP"));
+const GrainOverlay = lazy(() => import("./components/GrainOverlay/GrainOverlay"));
 
 function App() {
   //FIREBASE
@@ -72,45 +74,47 @@ function App() {
           <meta property="og:url" content="https://chebbimedayoub.com" />
           {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
         </Helmet>
-      <MediaQuery query="(min-device-width: 700px)">
-        <AnimatedCursor
-          backgroundColor={"#000"}
-          innerSize={8}
-          outerSize={25}
-          innerScale={1}
-          outerScale={1.7}
-          hasBlendMode={true}
-          outerAlpha={0}
-          zIndex={500}
-          outerStyle={{
-            mixBlendMode: "exclusion",
-            backgroundColor: "#fff",
-          }}
-          innerStyle={{
-            mixBlendMode: "difference",
-            backgroundColor: "#fff",
-          }}
-          clickables={[
-            "a",
-            "select",
-            "textarea",
-            "button",
-            ".link",
-            "Link",
-            ".menu-link-element",
-          ]}
-        />
-      </MediaQuery>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/tuniscovery" element={<CaseStudy />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/projects" element={<ProjectPage />} />
-        <Route path="/unidebnotes" element={<UnidebNotes />} />
-        <Route path="/menasyp25" element={<MENASYP />} />
-        <Route path="/*" element={<P404 />} />
-      </Routes>
-    </div>
+        <MediaQuery query="(min-device-width: 700px)">
+          <AnimatedCursor
+            backgroundColor={"#000"}
+            innerSize={8}
+            outerSize={25}
+            innerScale={1}
+            outerScale={1.7}
+            hasBlendMode={true}
+            outerAlpha={0}
+            zIndex={500}
+            outerStyle={{
+              mixBlendMode: "exclusion",
+              backgroundColor: "#fff",
+            }}
+            innerStyle={{
+              mixBlendMode: "difference",
+              backgroundColor: "#fff",
+            }}
+            clickables={[
+              "a",
+              "select",
+              "textarea",
+              "button",
+              ".link",
+              "Link",
+              ".menu-link-element",
+            ]}
+          />
+        </MediaQuery>
+        <Suspense fallback={<div className="preloader-fallback">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/tuniscovery" element={<CaseStudy />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/projects" element={<ProjectPage />} />
+            <Route path="/unidebnotes" element={<UnidebNotes />} />
+            <Route path="/menasyp25" element={<MENASYP />} />
+            <Route path="/*" element={<P404 />} />
+          </Routes>
+        </Suspense>
+      </div>
     </HelmetProvider>
   );
 }
