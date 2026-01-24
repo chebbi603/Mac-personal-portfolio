@@ -14,7 +14,6 @@ import Pictures from "../../components/Pictures/Picture";
 import unideb from "./unidebnotes/unidebnotes.webm";
 // import mena from "../menasyp/assets/menasyp_with_audio.webm";
 import { IconArrowDownLeft } from "@tabler/icons-react";
-import ScrollResetter from "../../components/ScrollResetter/ScrollResetter";
 const mena = "/menasyp_mobile_optimized.mp4";
 
 gsap.registerPlugin(useGSAP);
@@ -189,7 +188,6 @@ export default function ProjectPage() {
       <div className="project-page-footer">
         <Contact />
       </div>
-      <ScrollResetter />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import ProjectsHeader from "../../components/Projects/projectsheader";
+// import ProjectsHeader from "../../components/Projects/projectsheader";
 import "./casestudy.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap-trial/ScrollTrigger";
@@ -7,7 +7,6 @@ import Preloader from "../../components/Preloader/preloader";
 import Sections from "./Section";
 import { useGSAP } from "@gsap/react";
 import Navbar from "../../components/Navbar/navbar";
-import ScrollResetter from "../../components/ScrollResetter/ScrollResetter";
 
 function CaseStudy() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
@@ -55,9 +54,7 @@ function CaseStudy() {
         onLoadComplete={() => setPreloaderFinished(true)}
       />
       <div className="darkness"></div>
-      <ProjectsHeader id={2} startAnimation={preloaderFinished} />
       <Sections />
-      <ScrollResetter />
     </div>
   );
 }

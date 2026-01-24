@@ -20,18 +20,20 @@ function Companies() {
       {
         translateY: -40,
         autoAlpha: 0,
+        filter: "blur(20px)",
         immediateRender: true,
         willChange: "transform",
       },
       {
         scrollTrigger: {
-          trigger: ".company-title",
-          start: "top 50%",
+          trigger: ".company-container",
+          start: "top 80%",
         },
-        stagger: 0.2,
+        stagger: 0.05,
         translateY: 0,
         autoAlpha: 1,
-        duration: 0.5,
+        filter: "blur(0px)",
+        duration: 0.4,
         ease: "power1.out",
       }
     );
@@ -39,7 +41,6 @@ function Companies() {
 
   return (
     <div className="company-container">
-      <p className="company-title">BRANDS I HAVE WORKED FOR</p>
       <div className="company-section logsec">
         <img className="company-img" src={img_bmw} alt="BMW Group" />
         <img className="company-img" src={img1} alt="Company logo 1" />

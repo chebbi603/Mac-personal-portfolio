@@ -6,7 +6,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import "../CaseStudy/casestudy.css";
 import MENASYPSections from "./MENASYPSection";
-import ScrollResetter from "../../components/ScrollResetter/ScrollResetter";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 ScrollTrigger.normalizeScroll(true);
@@ -71,7 +70,6 @@ export default function MENASYP() {
       <Navbar />
       <Preloader text1={"IEEE R8 MENA SYP"} text2={"TUNISIA 2025"} />
       <MENASYPSections />
-      <ScrollResetter />
     </div>
   );
 }

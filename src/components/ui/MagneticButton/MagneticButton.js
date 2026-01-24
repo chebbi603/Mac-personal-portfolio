@@ -6,21 +6,24 @@ export default function MagneticButton({ children }) {
     const magnetic = useRef(null);
 
     useGSAP(() => {
-        const xTo = gsap.quickTo(magnetic.current, "x", { duration: 1, ease: "elastic.out(1,1)" });
-        const yTo = gsap.quickTo(magnetic.current, "y", { duration: 1, ease: "elastic.out(1,1)" });
+        // iPad style: Fast response, no bounce, feels "sticky"
+        const xTo = gsap.quickTo(magnetic.current, "x", { duration: 0.35, ease: "power4.out" });
+        const yTo = gsap.quickTo(magnetic.current, "y", { duration: 0.35, ease: "power4.out" });
 
         const mouseMove = (e) => {
             const { clientX, clientY } = e;
             const { height, width, left, top } = magnetic.current.getBoundingClientRect();
+
+            // Calculate distance from center
             const x = clientX - (left + width / 2);
             const y = clientY - (top + height / 2);
-            xTo(x / 8);
-            yTo(y / 4);
-            gsap.to(magnetic.current, { scale: 1.1, boxShadow: "0px 0px 200px rgba(255, 255, 255, 0.4)" });
+
+            // Move the element towards the mouse but dampened (factor of 3 or 4 usually feels good)
+            xTo(x / 3);
+            yTo(y / 3);
         };
 
         const mouseLeave = () => {
-            gsap.to(magnetic.current, { scale: 1, boxShadow: "0px 0px 200px rgba(255, 255, 255, 0)" });
             xTo(0);
             yTo(0);
         };
@@ -39,5 +42,6 @@ export default function MagneticButton({ children }) {
         };
     }, { scope: magnetic });
 
+    // Use cloneElement to pass the ref to the single child
     return React.cloneElement(children, { ref: magnetic });
 }

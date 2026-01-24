@@ -5,7 +5,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import "../CaseStudy/casestudy.css";
 import UnidebSections from "./UnidebSection";
-import ScrollResetter from "../../components/ScrollResetter/ScrollResetter";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 ScrollTrigger.normalizeScroll(true);
@@ -40,7 +39,6 @@ export default function UnidebNotes() {
       <Navbar />
       <Preloader text1={"UNIDEB NOTES"} text2={""} />
       <UnidebSections />
-      <ScrollResetter />
     </div>
   );
 }

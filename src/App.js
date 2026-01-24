@@ -6,9 +6,11 @@ import { Route, Routes } from "react-router";
 import { useLocation } from "react-router";
 import { useEffect, lazy, Suspense } from "react";
 import MediaQuery from "react-responsive";
-import AnimatedCursor from "react-animated-cursor";
+import { CursorProvider } from "./context/CursorContext";
+import IPadCursor from "./components/iPadCursor/iPadCursor";
 
 import { calculateAge } from "./utils/time";
+import ContactAudit from "./components/ContactAudit/ContactAudit";
 
 // Lazy Loaded Components
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -18,7 +20,6 @@ const P404 = lazy(() => import("./pages/404/404"));
 const ProjectPage = lazy(() => import("./pages/Projects/ProjectPage"));
 const UnidebNotes = lazy(() => import("./pages/UnidebNotes/UnidebNotes"));
 const MENASYP = lazy(() => import("./pages/MENASYP/MENASYP"));
-const GrainOverlay = lazy(() => import("./components/GrainOverlay/GrainOverlay"));
 
 function App() {
   //FIREBASE
@@ -61,60 +62,37 @@ function App() {
 
   return (
     <HelmetProvider>
-      <div className="App">
-        <Helmet>
-          <meta
-            name="description"
-            content={`Welcome to Mohamed Ayoub Chebbi's portfolio, a ${age} year old UX/UI Designer and Developer studying in Hungary`}
-          />
-          <meta
-            name="keywords"
-            content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
-          />
-          <meta property="og:url" content="https://chebbimedayoub.com" />
-          {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
-        </Helmet>
-        <MediaQuery query="(min-device-width: 700px)">
-          <AnimatedCursor
-            backgroundColor={"#000"}
-            innerSize={8}
-            outerSize={25}
-            innerScale={1}
-            outerScale={1.7}
-            hasBlendMode={true}
-            outerAlpha={0}
-            zIndex={500}
-            outerStyle={{
-              mixBlendMode: "exclusion",
-              backgroundColor: "#fff",
-            }}
-            innerStyle={{
-              mixBlendMode: "difference",
-              backgroundColor: "#fff",
-            }}
-            clickables={[
-              "a",
-              "select",
-              "textarea",
-              "button",
-              ".link",
-              "Link",
-              ".menu-link-element",
-            ]}
-          />
-        </MediaQuery>
-        <Suspense fallback={<div className="preloader-fallback">Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/tuniscovery" element={<CaseStudy />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/projects" element={<ProjectPage />} />
-            <Route path="/unidebnotes" element={<UnidebNotes />} />
-            <Route path="/menasyp25" element={<MENASYP />} />
-            <Route path="/*" element={<P404 />} />
-          </Routes>
-        </Suspense>
-      </div>
+      <CursorProvider>
+        <div className="App">
+          <Helmet>
+            <meta
+              name="description"
+              content={`Welcome to Mohamed Ayoub Chebbi's portfolio, a ${age} year old UX/UI Designer and Developer studying in Hungary`}
+            />
+            <meta
+              name="keywords"
+              content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
+            />
+            <meta property="og:url" content="https://chebbimedayoub.com" />
+            {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
+          </Helmet>
+          <MediaQuery query="(min-device-width: 700px)">
+            <IPadCursor />
+          </MediaQuery>
+          <Suspense fallback={<div className="preloader-fallback">Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/tuniscovery" element={<CaseStudy />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/projects" element={<ProjectPage />} />
+              <Route path="/unidebnotes" element={<UnidebNotes />} />
+              <Route path="/menasyp25" element={<MENASYP />} />
+              <Route path="/*" element={<P404 />} />
+            </Routes>
+          </Suspense>
+          <ContactAudit />
+        </div>
+      </CursorProvider>
     </HelmetProvider>
   );
 }

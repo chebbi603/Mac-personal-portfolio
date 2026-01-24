@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import AboutMe from "../components/AboutMe/aboutme";
 import Contact from "../components/Contact/contact";
 import Expertise from "../components/Expertise/expertise";
-import ProjectsHeader from "../components/Projects/projectsheader";
+import CaseStudies from "../components/CaseStudies/CaseStudies";
 // import AboutMeMobile from "./aboutme/aboutme_mobile"; // Deleted
 // import MediaQuery from "react-responsive"; // Deleted
 import Preloader from "../components/Preloader/preloader";
@@ -14,7 +14,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
 import Pictures from "../components/Pictures/Picture";
 import Companies from "../components/Companies/Companies";
-import ScrollResetter from "../components/ScrollResetter/ScrollResetter";
 import { useSectionNavigation } from "../hooks/useSectionNavigation";
 import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 import { useProjectsAnimation } from "../hooks/useProjectsAnimation";
@@ -31,8 +30,7 @@ function HomePage() {
   const navbarColors = [
     { trigger: ".aboutme-container", color: "#212d40" },
     { trigger: ".expertise-container", color: "#291938" },
-    { trigger: ".company-container", color: "#2a2b47" },
-    { trigger: ".projectsheader-container", color: "#252933" },
+    { trigger: ".casestudies-container", color: "#000" },
     { trigger: ".contact-container", color: "#000" },
   ];
 
@@ -72,30 +70,24 @@ function HomePage() {
       <div className="blur"></div>
       <Navbar />
       <div className="App-header">
-        <section className={"section1"}>
-          <Preloader
-            text1={"LOADING"}
-            text2={"PORTFOLIO..."}
-            onLoadComplete={() => setPreloaderFinished(true)}
-          />
-          <Hero startAnimation={preloaderFinished} />
-        </section>
-        <section>
-          <section>
-            <AboutMe />
-          </section>
-        </section>
+        <Preloader
+          text1={"LOADING"}
+          text2={"PORTFOLIO..."}
+          onLoadComplete={() => setPreloaderFinished(true)}
+        />
+        <Hero startAnimation={preloaderFinished} />
+        <Companies />
+        <AboutMe />
         <Pictures line={2} both={true} startAnimation={preloaderFinished} />
         <Expertise />
-        <Companies />
-        <ProjectsHeader id={1} startAnimation={preloaderFinished} />
+        <CaseStudies />
         {/* <ProjectsList /> */}
         {/* <ProjectsList /> */}
         <div className="footer">
           <Contact />
         </div>
+
       </div>
-      <ScrollResetter />
     </div>
   );
 }

@@ -1,0 +1,77 @@
+.contact-audit-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* The expanding container */
+.contact-audit-wrapper {
+  position: relative;
+  background-color: #fefae0; /* Solid Creamy color */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border for definition */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50px; /* Pill shape */
+  width: 140px; /* Initial width for "Get an audit" text */
+  height: 60px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Initial Text "Get an audit" */
+.audit-text-initial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  white-space: nowrap;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000;
+  pointer-events: none;
+}
+
+/* The list of options (hidden initially) */
+.audit-options-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  justify-content: space-evenly;
+}
+
+.audit-option-item {
+  color: #fefae0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  white-space: nowrap;
+  text-align: left;
+  border-radius: 12px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.audit-option-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.audit-option-item span {
+  font-weight: 500;
+}

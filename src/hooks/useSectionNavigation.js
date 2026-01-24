@@ -11,23 +11,18 @@ export const useSectionNavigation = (containerRef, colorConfig, enabled = true) 
             const q = gsap.utils.selector(containerRef);
 
             const setupColorTransition = (targetSelector, initialColor, config) => {
-                config.reduce((prevColor, { trigger, color }) => {
-                    gsap.fromTo(
-                        q(targetSelector),
-                        { backgroundColor: prevColor },
-                        {
-                            scrollTrigger: {
-                                trigger: q(trigger),
-                                start: "top 80%",
-                                end: "top 10%",
-                                scrub: true,
-                            },
-                            backgroundColor: color,
-                            immediateRender: false,
-                        }
-                    );
-                    return color;
-                }, initialColor);
+                config.forEach(({ trigger, color }) => {
+                    gsap.to(q(targetSelector), {
+                        scrollTrigger: {
+                            trigger: q(trigger),
+                            start: "top 80%",
+                            end: "top 10%",
+                            scrub: true,
+                        },
+                        backgroundColor: color,
+                        immediateRender: false,
+                    });
+                });
             };
 
             // Initial Scroll: Transparent -> Base Dark Color (0-100px)
