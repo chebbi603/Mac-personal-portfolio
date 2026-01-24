@@ -5,7 +5,6 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { useCursor } from "../../context/CursorContext";
 
 // Import Videos
 import tuniscoveryVid from "../../pages/Projects/hack4tourism/tuniscovery.webm";
@@ -64,26 +63,19 @@ const projects = [
 function CaseStudyCard({ project }) {
   const videoRef = useRef(null);
   const cardRef = useRef(null);
-  const { setCursor, resetCursor } = useCursor();
 
+  // Use simple mouse events just for the video play/pause, NOT cursor
   const handleMouseEnter = () => {
     if (videoRef.current) {
       videoRef.current.play();
     }
-    setCursor({ 
-      type: "custom", 
-      text: project.external ? "Visit Instagram" : "View Case Study", 
-      icon: IconArrowUpRight 
-    });
   };
 
   const handleMouseLeave = () => {
     if (videoRef.current) {
       videoRef.current.pause();
     }
-    resetCursor();
   };
-
 
   const CardContent = (
     <>
@@ -110,10 +102,14 @@ function CaseStudyCard({ project }) {
   );
 
   const commonProps = {
-    className: "casestudy-card",
+    className: "casestudy-card no-snap", // no-snap handled by new cursor logic automatically if custom is present
     ref: cardRef,
     onMouseEnter: handleMouseEnter,
-    onMouseLeave: handleMouseLeave
+    onMouseLeave: handleMouseLeave,
+    // Data Attributes for the new Cursor System
+    "data-cursor": "custom",
+    "data-cursor-text": project.external ? "VISIT INSTAGRAM" : "VIEW CASE STUDY",
+    "data-cursor-icon": "arrow-up-right"
   };
   
   if (project.external) {
