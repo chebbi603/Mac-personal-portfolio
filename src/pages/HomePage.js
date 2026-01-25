@@ -4,6 +4,7 @@ import AboutMe from "../components/AboutMe/aboutme";
 import Contact from "../components/Contact/contact";
 import Expertise from "../components/Expertise/expertise";
 import CaseStudies from "../components/CaseStudies/CaseStudies";
+import ServiceSpectrum from "../components/ServiceSpectrum/ServiceSpectrum";
 // import AboutMeMobile from "./aboutme/aboutme_mobile"; // Deleted
 // import MediaQuery from "react-responsive"; // Deleted
 import Preloader from "../components/Preloader/preloader";
@@ -29,6 +30,7 @@ function HomePage() {
 
   const navbarColors = [
     { trigger: ".aboutme-container", color: "#252422" },
+    { trigger: ".servicespectrum-container", color: "#121212" },
     { trigger: ".expertise-container", color: "#22333b" },
     { trigger: ".casestudies-container", color: "#121212" },
     { trigger: ".contact-container", color: "#121212" },
@@ -78,6 +80,7 @@ function HomePage() {
         <Hero startAnimation={preloaderFinished} />
         <Companies />
         <AboutMe />
+        <ServiceSpectrum />
         {/* <Pictures line={2} both={true} startAnimation={preloaderFinished} /> */}
         <Expertise />
         <CaseStudies />

@@ -57,7 +57,14 @@ function AboutMe() {
   );
 
   return (
-    <div className="aboutme-container" ref={container}>
+    <div
+      className="aboutme-container"
+      ref={container}
+      onClick={() => window.open("https://www.linkedin.com/in/mohamed-ayoub-chebbi/", "_blank")}
+      data-cursor="custom"
+      data-cursor-text="CHECK MY LINKEDIN"
+      data-cursor-icon="arrow-up-right"
+    >
       <div className="aboutme-textcontainer">
         <div className="aboutme-sec1">
           <div className="quote-wrapper">
