@@ -28,10 +28,10 @@ function HomePage() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
 
   const navbarColors = [
-    { trigger: ".aboutme-container", color: "#212d40" },
-    { trigger: ".expertise-container", color: "#291938" },
-    { trigger: ".casestudies-container", color: "#000" },
-    { trigger: ".contact-container", color: "#000" },
+    { trigger: ".aboutme-container", color: "#252422" },
+    { trigger: ".expertise-container", color: "#22333b" },
+    { trigger: ".casestudies-container", color: "#121212" },
+    { trigger: ".contact-container", color: "#121212" },
   ];
 
   // --- Animations ---
@@ -78,7 +78,7 @@ function HomePage() {
         <Hero startAnimation={preloaderFinished} />
         <Companies />
         <AboutMe />
-        <Pictures line={2} both={true} startAnimation={preloaderFinished} />
+        {/* <Pictures line={2} both={true} startAnimation={preloaderFinished} /> */}
         <Expertise />
         <CaseStudies />
         {/* <ProjectsList /> */}
