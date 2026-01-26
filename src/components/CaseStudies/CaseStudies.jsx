@@ -129,6 +129,7 @@ function CaseStudyCard({ project }) {
 
 export default function CaseStudies() {
   const containerRef = useRef(null);
+  const titleRef = useRef(null);
 
   useGSAP(() => {
     // Animate entire grid as one unit
@@ -156,11 +157,28 @@ export default function CaseStudies() {
       }
     );
 
+    // Parallax title animation - scrolls slower and blurs when overlapped
+    if (titleRef.current) {
+      gsap.to(titleRef.current, {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 50%",
+          end: "top -20%",
+          scrub: true,
+        },
+        y: 150,
+        filter: "blur(20px)",
+        opacity: 0,
+        ease: "none",
+      });
+    }
+
 
   }, { scope: containerRef });
 
   return (
     <div className="casestudies-container" ref={containerRef}>
+      <h2 className="section-title" ref={titleRef}>Work</h2>
       <div className="casestudies-grid">
         {projects.map((p) => (
           <CaseStudyCard key={p.id} project={p} />

@@ -93,6 +93,7 @@ function ServiceSpectrum() {
   
   /* Refs */
   const containerRef = useRef(null);
+  const titleRef = useRef(null);
   const columnsRef = useRef([]);
   const mergedCardRef = useRef(null);
 
@@ -193,6 +194,22 @@ function ServiceSpectrum() {
           }
         });
       }
+
+      // Parallax title animation - scrolls slower and blurs when overlapped
+      if (titleRef.current) {
+        gsap.to(titleRef.current, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 50%",
+            end: "top -20%",
+            scrub: true,
+          },
+          y: 150,
+          filter: "blur(20px)",
+          opacity: 0,
+          ease: "none",
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -200,7 +217,7 @@ function ServiceSpectrum() {
 
   return (
     <div className="servicespectrum-container" ref={containerRef}>
-      <p className="servicespectrum-label">SERVICE SPECTRUM</p>
+      <h2 className="section-title" ref={titleRef}>Services</h2>
 
       {/* Grid Container */}
       <div className="spectrum-columns">

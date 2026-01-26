@@ -6,6 +6,21 @@
   margin: 0;
 }
 
+.section-title {
+  font-family: Stardom;
+  font-size: 7rem;
+  color: #fefae0;
+  text-align: left;
+  font-weight: 400;
+  padding-bottom: 2rem;
+  padding-left: 4rem;
+  margin: 0;
+  line-height: 1;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
 .casestudies-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

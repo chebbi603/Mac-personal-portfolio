@@ -2,7 +2,7 @@ import "../App.css";
 import Hero from "../components/Hero";
 import AboutMe from "../components/AboutMe/aboutme";
 import Contact from "../components/Contact/contact";
-import Expertise from "../components/Expertise/expertise";
+import Process from "../components/Process/Process";
 import CaseStudies from "../components/CaseStudies/CaseStudies";
 import ServiceSpectrum from "../components/ServiceSpectrum/ServiceSpectrum";
 // import AboutMeMobile from "./aboutme/aboutme_mobile"; // Deleted
@@ -31,19 +31,15 @@ function HomePage() {
   const navbarColors = [
     { trigger: ".aboutme-container", color: "#252422" },
     { trigger: ".servicespectrum-container", color: "#121212" },
-    { trigger: ".expertise-container", color: "#22333b" },
+    { trigger: ".process-container", color: "#22333b" },
     { trigger: ".casestudies-container", color: "#121212" },
     { trigger: ".contact-container", color: "#121212" },
   ];
 
   // --- Animations ---
 
-  // Fade In Expertise
-  useScrollFadeIn(el, ".expertiseelement", {
-    from: { opacity: 0, scale: 0.8 },
-    to: { opacity: 1, scale: 1 },
-    scrollTrigger: { start: "top 90%", end: "bottom 50%", scrub: true }
-  }, preloaderFinished);
+  // Fade In Process items (handled internally by Process component now)
+  // useScrollFadeIn removed - Process component has its own scroll animation
 
   // Animate Contact
   useScrollFadeIn(el, ".contact-text", {
@@ -82,7 +78,7 @@ function HomePage() {
         <AboutMe />
         <ServiceSpectrum />
         {/* <Pictures line={2} both={true} startAnimation={preloaderFinished} /> */}
-        <Expertise />
+        <Process />
         <CaseStudies />
         {/* <ProjectsList /> */}
         {/* <ProjectsList /> */}

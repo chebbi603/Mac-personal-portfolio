@@ -12,19 +12,19 @@
   overflow-x: hidden;
 }
 
-.servicespectrum-label {
-  color: rgb(139, 139, 139);
-  font-family: Host;
-  font-size: 18px;
+.section-title {
+  font-family: Stardom;
+  font-size: 7rem;
+  color: #fefae0;
   text-align: left;
-  font-style: normal;
-  font-weight: 300;
-  padding-bottom: 3rem;
+  font-weight: 400;
+  padding-bottom: 2rem;
   padding-left: 4rem;
   margin: 0;
-  line-height: 100%;
+  line-height: 1;
   width: 100%;
-  max-width: none;
+  position: relative;
+  z-index: 1;
 }
 
 /* The Thread Line */
