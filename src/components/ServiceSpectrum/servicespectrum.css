@@ -382,47 +382,51 @@
    ======================================== */
 @media (max-width: 900px) {
   .servicespectrum-container {
-    padding: 4rem 0; /* Full width container, internal padding handles content */
+    padding: 4rem 0;
   }
   
-  /* Section title padding fix for mobile */
   .servicespectrum-title {
       font-size: 3rem;
-      padding-left: 32px; /* Match standard mobile padding */
+      padding-left: 32px;
   }
 
   .spectrum-columns {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: none;
     border-top: 1px solid rgba(254, 250, 224, 0.15);
-    border-bottom: none;
+    border-bottom: 1px solid rgba(254, 250, 224, 0.15);
   }
 
-  /* Individual columns stack */
-  .spectrum-column {
-    border-bottom: 1px solid rgba(254, 250, 224, 0.15);
+  /* Reset grid placement for all columns */
+  .spectrum-column:nth-child(n) {
+    grid-column: auto;
+    width: 100%;
     border-right: none;
-    border-left: none !important;
-    padding: 3rem 2rem; /* Reduced padding */
+    border-left: none;
+    border-bottom: 1px solid rgba(254, 250, 224, 0.15);
+    padding: 3rem 2rem;
+  }
+
+  .spectrum-separator {
+    display: none; /* Hide separator in stack mode */
   }
   
-  .column-label {
-      font-size: 2rem;
-  }
-
-  /* Merged card wrapper on mobile */
   .merged-card-wrapper {
-    grid-column: auto !important; /* Reset grid placement */
-    grid-row: auto !important;
-    border-left: none;
-    border-right: none;
-    border-bottom: 0px solid rgba(254, 250, 224, 0.15); /* Last item */
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    min-height: auto;
+    border: none;
+    border-bottom: none; /* Last item */
   }
 
   .spectrum-merged-card {
     padding: 3rem 2rem;
-    min-height: auto;
+  }
+  
+  .column-label {
+      font-size: 2rem;
   }
   
   .merged-title {
@@ -431,10 +435,6 @@
 
   .merged-card-content {
     align-items: flex-start;
-  }
-  
-  .merged-answer {
-      font-size: 1rem;
   }
   
   .merged-phases {

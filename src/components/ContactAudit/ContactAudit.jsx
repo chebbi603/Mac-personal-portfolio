@@ -104,7 +104,7 @@ export default function ContactAudit() {
           onMouseLeave={handleMouseLeave}
       >
           <div className="audit-text-initial">
-              GET AN AUDIT
+              LET'S TALK
           </div>
 
           <div className="audit-options-list">

@@ -56,8 +56,8 @@ export function useContextAwareness() {
         if (referrer === "linkedin") {
             greeting = "Saw my post? Here's the deep dive.";
             welcomeText = "WELCOME FROM LINKEDIN";
-            preloaderText1 = "SAW MY POST?";
-            preloaderText2 = "HERE'S THE PROOF.";
+            preloaderText1 = "LIKED MY LINKEDIN?";
+            preloaderText2 = "LEARN MORE.";
         } else if (referrer === "twitter") {
             greeting = "Welcome from X. Let's talk product.";
             welcomeText = "WELCOME FROM X";
