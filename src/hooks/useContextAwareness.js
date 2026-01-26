@@ -92,8 +92,8 @@ export function useContextAwareness() {
                 case "evening":
                     greeting = "Evening session? The best ideas come after hours.";
                     welcomeText = "GOOD EVENING";
-                    preloaderText1 = "EVENING SESSION";
-                    preloaderText2 = "INITIATING...";
+                    preloaderText1 = "EVENING EXPLORATION?";
+                    preloaderText2 = "GETTING STARTED...";
                     break;
                 default:
                     greeting = "Bridging Human-Centric Design and Robust Engineering.";
