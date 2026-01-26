@@ -1,0 +1,31 @@
+[debug] [2026-01-26T22:37:43.977Z] ----------------------------------------------------------------------
+[debug] [2026-01-26T22:37:43.979Z] Command:       /opt/homebrew/Cellar/node/25.1.0/bin/node /Users/chebbimedayoub/.npm/_npx/ba4f1959e38407b5/node_modules/.bin/firebase deploy
+[debug] [2026-01-26T22:37:43.979Z] CLI Version:   15.4.0
+[debug] [2026-01-26T22:37:43.979Z] Platform:      darwin
+[debug] [2026-01-26T22:37:43.979Z] Node Version:  v25.1.0
+[debug] [2026-01-26T22:37:43.979Z] Time:          Mon Jan 26 2026 23:37:43 GMT+0100 (Central European Standard Time)
+[debug] [2026-01-26T22:37:43.979Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-01-26T22:37:44.546Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-26T22:37:44.546Z] > authorizing via signed-in user (chebbi603@gmail.com)
+[debug] [2026-01-26T22:37:44.546Z] [iam] checking project mac-portfolio-3a56b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-01-26T22:37:44.547Z] Checked if tokens are valid: true, expires at: 1769470283610
+[debug] [2026-01-26T22:37:44.547Z] Checked if tokens are valid: true, expires at: 1769470283610
+[debug] [2026-01-26T22:37:44.547Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mac-portfolio-3a56b:testIamPermissions [none]
+[debug] [2026-01-26T22:37:44.547Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mac-portfolio-3a56b:testIamPermissions x-goog-quota-user=projects/mac-portfolio-3a56b
+[debug] [2026-01-26T22:37:44.547Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mac-portfolio-3a56b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-01-26T22:37:45.342Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mac-portfolio-3a56b:testIamPermissions 200
+[debug] [2026-01-26T22:37:45.342Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mac-portfolio-3a56b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-01-26T22:37:45.343Z] Checked if tokens are valid: true, expires at: 1769470283610
+[debug] [2026-01-26T22:37:45.343Z] Checked if tokens are valid: true, expires at: 1769470283610
+[debug] [2026-01-26T22:37:45.343Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mac-portfolio-3a56b [none]
+[debug] [2026-01-26T22:37:45.630Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mac-portfolio-3a56b 200
+[debug] [2026-01-26T22:37:45.630Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mac-portfolio-3a56b {"projectId":"mac-portfolio-3a56b","projectNumber":"569080617747","displayName":"mac-portfolio","name":"projects/mac-portfolio-3a56b","resources":{"hostingSite":"mac-portfolio-3a56b"},"state":"ACTIVE","etag":"1_95ff642e-adcb-4741-b98a-4402cecc839b"}
+[info] 
+[info] === Deploying to 'mac-portfolio-3a56b'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-01-26T22:37:45.633Z] Checked if tokens are valid: true, expires at: 1769470283610
+[debug] [2026-01-26T22:37:45.633Z] Checked if tokens are valid: true, expires at: 1769470283610
+[debug] [2026-01-26T22:37:45.633Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mac-portfolio-3a56b/versions [none]
+[debug] [2026-01-26T22:37:45.633Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/mac-portfolio-3a56b/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { useTransitionNavigate } from "../../hooks/useTransitionNavigate";
 
+import { useState, useEffect } from "react";
 // Import Videos
 import tuniscoveryVid from "../../pages/Projects/hack4tourism/tuniscovery.webm";
 import twoamVid from "../../pages/Projects/2am/2am.webm";
@@ -59,22 +60,38 @@ const projects = [
   }
 ];
 
-// (projects array remains same...)
 
 function CaseStudyCard({ project }) {
   const videoRef = useRef(null);
   const cardRef = useRef(null);
   const transitionTo = useTransitionNavigate();
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Use simple mouse events just for the video play/pause, NOT cursor
+  useEffect(() => {
+    // Check initial width
+    const checkMobile = () => setIsMobile(window.innerWidth < 900);
+    checkMobile();
+    
+    // Add listener
+    window.addEventListener('resize', checkMobile);
+    
+    // On mobile, try to play immediately
+    if (window.innerWidth < 900 && videoRef.current) {
+        videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
+    }
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Use simple mouse events just for the video play/pause on Desktop
   const handleMouseEnter = () => {
-    if (videoRef.current) {
+    if (!isMobile && videoRef.current) {
       videoRef.current.play();
     }
   };
 
   const handleMouseLeave = () => {
-    if (videoRef.current) {
+    if (!isMobile && videoRef.current) {
       videoRef.current.pause();
     }
   };
@@ -88,7 +105,8 @@ function CaseStudyCard({ project }) {
         muted
         loop
         playsInline
-        preload="metadata"
+        autoPlay={isMobile} // Only autoplay property on mobile
+        preload="metadata" // Metadata is enough since we might not play immediately on desktop
       />
       {/* Dynamic gradient color passed via style */}
       <div 
