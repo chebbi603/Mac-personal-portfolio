@@ -51,13 +51,46 @@ function HomePage() {
   // Projects Animation
   useProjectsAnimation(el, preloaderFinished);
 
-  // Footer Animation
-  // Was: gsap.fromTo(q(".footer"), { autoAlpha: 0, scale: 0.9 }, { scrollTrigger: {...}, autoAlpha: 1, scale: 1 })
-  useScrollFadeIn(el, ".footer", {
-    from: { autoAlpha: 0, scale: 0.9 },
-    to: { autoAlpha: 1, scale: 1 },
-    scrollTrigger: { start: "top 70%", end: "bottom bottom", scrub: true }
-  }, preloaderFinished);
+  // Footer Animation - blur stagger
+  // Footer Animation - blur stagger with mobile optimization
+  useGSAP(() => {
+    if (!preloaderFinished) return;
+
+    ScrollTrigger.matchMedia({
+      // Desktop
+      "(min-width: 900px)": function () {
+        gsap.fromTo(q(".footer"),
+          { filter: "blur(20px)", opacity: 0 },
+          {
+            filter: "blur(0px)",
+            opacity: 1,
+            scrollTrigger: {
+              trigger: q(".footer"),
+              start: "top 80%",
+              end: "top 40%",
+              scrub: true
+            }
+          }
+        );
+      },
+      // Mobile
+      "(max-width: 899px)": function () {
+        gsap.fromTo(q(".footer"),
+          { filter: "blur(10px)", opacity: 0 }, // Less blur for performance
+          {
+            filter: "blur(0px)",
+            opacity: 1,
+            scrollTrigger: {
+              trigger: q(".footer"),
+              start: "top 90%", // Trigger earlier on mobile
+              end: "top 60%",
+              scrub: true
+            }
+          }
+        );
+      }
+    });
+  }, { scope: el, dependencies: [preloaderFinished] });
 
   // Navbar Colors
   useSectionNavigation(el, navbarColors, preloaderFinished);
