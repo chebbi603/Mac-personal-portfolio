@@ -4,11 +4,17 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export const useSectionNavigation = (containerRef, colorConfig, enabled = true) => {
+export const useSectionNavigation = (containerRef, colorConfig, enabled = true, themeColors = null) => {
     useGSAP(
         () => {
             if (!enabled) return;
             const q = gsap.utils.selector(containerRef);
+
+            // Determine base colors (use theme colors if provided, else defaults)
+            const baseNavbarColor = themeColors?.navbarBase
+                ? `${themeColors.navbarBase}cc` // Add some transparency
+                : "rgba(0, 0, 0, 0.8)";
+            const baseAppHeaderColor = themeColors?.navbarBase || "black";
 
             const setupColorTransition = (targetSelector, initialColor, config) => {
                 config.forEach(({ trigger, color }) => {
@@ -33,7 +39,7 @@ export const useSectionNavigation = (containerRef, colorConfig, enabled = true) 
                     end: "100px top",
                     scrub: true,
                 },
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                backgroundColor: baseNavbarColor,
             });
 
             gsap.to(q(".App-header"), {
@@ -43,12 +49,13 @@ export const useSectionNavigation = (containerRef, colorConfig, enabled = true) 
                     end: "100px top",
                     scrub: true,
                 },
-                backgroundColor: "black",
+                backgroundColor: baseAppHeaderColor,
             });
 
-            setupColorTransition(".headerc", "rgba(0, 0, 0, 0.8)", colorConfig);
-            setupColorTransition(".App-header", "black", colorConfig);
+            setupColorTransition(".headerc", baseNavbarColor, colorConfig);
+            setupColorTransition(".App-header", baseAppHeaderColor, colorConfig);
         },
-        { scope: containerRef, dependencies: [colorConfig, enabled] }
+        { scope: containerRef, dependencies: [colorConfig, enabled, themeColors] }
     );
 };
+

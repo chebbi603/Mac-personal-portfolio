@@ -12,7 +12,7 @@
   overflow-x: hidden;
 }
 
-.section-title {
+.servicespectrum-title {
   font-family: Stardom;
   font-size: 7rem;
   color: #fefae0;
@@ -386,7 +386,7 @@
   }
   
   /* Section title padding fix for mobile */
-  .section-title {
+  .servicespectrum-title {
       font-size: 3rem;
       padding-left: 32px; /* Match standard mobile padding */
   }

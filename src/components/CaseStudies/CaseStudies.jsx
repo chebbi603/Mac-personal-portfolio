@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import { IconArrowUpRight } from "@tabler/icons-react";
+import { useTransitionNavigate } from "../../hooks/useTransitionNavigate";
 
 // Import Videos
 import tuniscoveryVid from "../../pages/Projects/hack4tourism/tuniscovery.webm";
@@ -63,6 +64,7 @@ const projects = [
 function CaseStudyCard({ project }) {
   const videoRef = useRef(null);
   const cardRef = useRef(null);
+  const transitionTo = useTransitionNavigate();
 
   // Use simple mouse events just for the video play/pause, NOT cursor
   const handleMouseEnter = () => {
@@ -121,9 +123,13 @@ function CaseStudyCard({ project }) {
   }
 
   return (
-    <Link to={project.path} {...commonProps}>
+    <div 
+      onClick={() => transitionTo(project.path)}
+      {...commonProps} 
+      style={{ cursor: "pointer" }} // Ensure it looks clickable
+    >
       {CardContent}
-    </Link>
+    </div>
   );
 }
 
@@ -189,7 +195,7 @@ export default function CaseStudies() {
 
   return (
     <div className="casestudies-container" ref={containerRef}>
-      <h2 className="section-title" ref={titleRef}>Work</h2>
+      <h2 className="casestudies-title" ref={titleRef}>Work</h2>
       <div className="casestudies-grid">
         {projects.map((p) => (
           <CaseStudyCard key={p.id} project={p} />

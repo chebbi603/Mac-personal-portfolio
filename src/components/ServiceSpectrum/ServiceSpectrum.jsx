@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { IconMail, IconCalendar } from "@tabler/icons-react";
+import { SOCIALS } from "../../config";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -66,14 +67,14 @@ function SpectrumAuditDropdown({ onClose }) {
        <div className="spectrum-audit-wrapper" ref={wrapperRef} onClick={(e) => e.stopPropagation()}>
           <div className="spectrum-audit-list">
               <a 
-                href="mailto:chebbimohamedayoub@gmail.com"
+                href={`mailto:${SOCIALS.email}`}
                 className="spectrum-audit-option"
               >
                   <IconMail size={20} />
                   <span>E-MAIL</span>
               </a>
               <a 
-                href="https://calendly.com/" 
+                href={SOCIALS.calendly} 
                 target="_blank" 
                 rel="noreferrer"
                 className="spectrum-audit-option"
@@ -116,7 +117,7 @@ function ServiceSpectrum() {
       services: [
         "High-Fidelity Prototyping",
         "Motion Design & Micro-interactions",
-        "Adaptive UI Logic",
+        "Design Systems & Scalable UI",
       ],
       uxAngle: "We make your product feel like magic.",
     },
@@ -229,7 +230,7 @@ function ServiceSpectrum() {
 
   return (
     <div className="servicespectrum-container" ref={containerRef}>
-      <h2 className="section-title" ref={titleRef}>Services</h2>
+      <h2 className="servicespectrum-title" ref={titleRef}>Services</h2>
 
       {/* Grid Container */}
       <div className="spectrum-columns">

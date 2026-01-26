@@ -2,112 +2,123 @@ import "./preloader.css";
 import PropTypes from "prop-types";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import logosmall from "../../assets/logo_small.svg";
+import { useRef, useState, useEffect } from "react";
+import { useContextAwareness } from "../../hooks/useContextAwareness";
 
 gsap.registerPlugin(useGSAP);
 
-function TextProvider({ text1, text2 }) {
-  return (
-    <>
-      <p className="preloader-title">
-        {text1}
-        <br /> {text2}
-      </p>
-    </>
-  );
-}
+function Preloader({ onLoadComplete }) {
+  const preloaderContainer = useRef();
+  const progressRef = useRef();
+  const { preloaderText1, preloaderText2 } = useContextAwareness();
+  const [loadProgress, setLoadProgress] = useState(0);
 
-function waitForWebsiteLoad() {
-  return Promise.all([waitForImagesLoad(), waitForFontsLoad()]);
-}
+  // Track loading progress
+  useEffect(() => {
+    let totalAssets = 0;
+    let loadedAssets = 0;
 
-function waitForImagesLoad() {
-  return new Promise((resolve) => {
+    const updateProgress = () => {
+      loadedAssets++;
+      const progress = totalAssets > 0 ? Math.round((loadedAssets / totalAssets) * 100) : 100;
+      setLoadProgress(progress);
+    };
+
     const images = document.querySelectorAll("img");
-    const totalImages = images.length;
-    let imagesLoaded = 0;
-
-    function checkImagesLoaded() {
-      imagesLoaded++;
-      if (imagesLoaded === totalImages) {
-        resolve();
-      }
-    }
-
-    images.forEach((image) => {
-      if (image.complete) {
-        checkImagesLoaded();
-      } else {
-        image.addEventListener("load", checkImagesLoaded);
-        image.addEventListener("error", checkImagesLoaded);
+    totalAssets += images.length;
+    images.forEach((img) => {
+      if (img.complete) updateProgress();
+      else {
+        img.addEventListener("load", updateProgress);
+        img.addEventListener("error", updateProgress);
       }
     });
-  });
-}
 
-function waitForFontsLoad() {
-  return new Promise((resolve) => {
-    document.fonts.ready.then(resolve);
-  });
-}
+    const videos = document.querySelectorAll("video");
+    totalAssets += videos.length;
+    videos.forEach((video) => {
+      if (video.readyState >= 3) updateProgress();
+      else {
+        video.addEventListener("canplaythrough", updateProgress);
+        video.addEventListener("error", updateProgress);
+      }
+    });
 
-function Preloader({ text1, text2, onLoadComplete }) {
-  const preloaderContainer = useRef();
+    totalAssets += 1;
+    document.fonts.ready.then(updateProgress);
+
+    if (totalAssets === 0) setLoadProgress(100);
+  }, []);
+
+  // Simple, elegant animations
   useGSAP(
     () => {
-      gsap.fromTo(
-        ".preloader-content",
-        {
-          opacity: 0,
-          y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          delay: 0.5,
-          ease: "elastic.out(1,3)",
-          duration: 1,
-        }
-      );
+      const q = gsap.utils.selector(preloaderContainer);
 
-      waitForWebsiteLoad().then(() => {
-        gsap.to(".preloader-content", {
-          opacity: 0,
-          y: 10,
-          delay: 2,
-          ease: "elastic.out(1,3)",
-          duration: 0.25,
-        });
-        gsap.to(".preloader-container", {
-          opacity: 0,
-          scale: 1,
-          ease: "elastic.out(1,3)",
-          delay: 2,
-          zIndex: -1,
-          duration: 0.5,
-          onComplete: () => {
-            if (onLoadComplete) onLoadComplete();
-          }
-        });
-      });
+      // IN: Simple fade + subtle rise
+      gsap.fromTo(
+        q(".preloader-content"),
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", delay: 0.2 }
+      );
     },
     { scope: preloaderContainer }
   );
+
+  // Animate progress bar
+  useEffect(() => {
+    if (progressRef.current) {
+      gsap.to(progressRef.current, {
+        scaleX: loadProgress / 100,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    }
+  }, [loadProgress]);
+
+  // OUT animation when loaded
+  useEffect(() => {
+    if (loadProgress >= 100) {
+      const q = gsap.utils.selector(preloaderContainer);
+
+      gsap.to(q(".preloader-content"), {
+        opacity: 0,
+        y: -20,
+        duration: 0.4,
+        ease: "power2.in",
+        delay: 0.6,
+      });
+
+      gsap.to(preloaderContainer.current, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.9,
+        ease: "power2.inOut",
+        onComplete: () => {
+          gsap.set(preloaderContainer.current, { zIndex: -1 });
+          if (onLoadComplete) onLoadComplete();
+        },
+      });
+    }
+  }, [loadProgress, onLoadComplete]);
 
   return (
     <div className="preloader-container" ref={preloaderContainer}>
       <div className="preloader-content">
         <div className="preloader-text">
-          <img src={logosmall} className="preloader-logo" alt={"byMe"} />
-          <TextProvider text1={text1} text2={text2} />
+          <p className="preloader-line-1">{preloaderText1}</p>
+          <p className="preloader-line-2">{preloaderText2}</p>
+        </div>
+        <div className="preloader-progress">
+          <div className="preloader-progress-fill" ref={progressRef}></div>
         </div>
       </div>
     </div>
   );
 }
+
 Preloader.propTypes = {
-  id: PropTypes.number,
+  onLoadComplete: PropTypes.func,
 };
 
 export default Preloader;

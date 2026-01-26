@@ -18,6 +18,7 @@ import Companies from "../components/Companies/Companies";
 import { useSectionNavigation } from "../hooks/useSectionNavigation";
 import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 import { useProjectsAnimation } from "../hooks/useProjectsAnimation";
+import { useContextAwareness } from "../hooks/useContextAwareness";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -27,13 +28,47 @@ function HomePage() {
   const el = useRef();
   const q = gsap.utils.selector(el);
   const [preloaderFinished, setPreloaderFinished] = useState(false);
+  const { timeOfDay, themeColors } = useContextAwareness();
+  // Time-aware creamy pastel navbar colors
+  const navbarColorsByTime = {
+    night: {
+      aboutme: "#1f1a2e",       // Deep purple cream
+      services: "#1a1525",      // Dark purple
+      process: "#1f2a35",       // Muted teal-purple
+      casestudies: "#1a1525",   // Dark purple
+      contact: "#1a1525",       // Dark purple
+    },
+    morning: {
+      aboutme: "#2d2820",       // Warm brown cream
+      services: "#252015",      // Warm dark
+      process: "#2a3028",       // Muted sage
+      casestudies: "#252015",   // Warm dark
+      contact: "#252015",       // Warm dark
+    },
+    afternoon: {
+      aboutme: "#252422",       // Neutral warm
+      services: "#1a1918",      // Neutral dark
+      process: "#22333b",       // Muted teal
+      casestudies: "#1a1918",   // Neutral dark
+      contact: "#1a1918",       // Neutral dark
+    },
+    evening: {
+      aboutme: "#241f2a",       // Purple cream
+      services: "#1a1520",      // Purple dark
+      process: "#1f2830",       // Purple teal
+      casestudies: "#1a1520",   // Purple dark
+      contact: "#1a1520",       // Purple dark
+    },
+  };
+
+  const currentColors = navbarColorsByTime[timeOfDay] || navbarColorsByTime.afternoon;
 
   const navbarColors = [
-    { trigger: ".aboutme-container", color: "#252422" },
-    { trigger: ".servicespectrum-container", color: "#121212" },
-    { trigger: ".process-container", color: "#22333b" },
-    { trigger: ".casestudies-container", color: "#121212" },
-    { trigger: ".contact-container", color: "#121212" },
+    { trigger: ".aboutme-container", color: currentColors.aboutme },
+    { trigger: ".servicespectrum-container", color: currentColors.services },
+    { trigger: ".process-container", color: currentColors.process },
+    { trigger: ".casestudies-container", color: currentColors.casestudies },
+    { trigger: ".contact-container", color: currentColors.contact },
   ];
 
   // --- Animations ---
@@ -93,17 +128,15 @@ function HomePage() {
   }, { scope: el, dependencies: [preloaderFinished] });
 
   // Navbar Colors
-  useSectionNavigation(el, navbarColors, preloaderFinished);
+  useSectionNavigation(el, navbarColors, preloaderFinished, themeColors);
 
 
   return (
-    <div ref={el}>
+    <div ref={el} data-theme={timeOfDay}>
       <div className="blur"></div>
       <Navbar />
       <div className="App-header">
         <Preloader
-          text1={"LOADING"}
-          text2={"PORTFOLIO..."}
           onLoadComplete={() => setPreloaderFinished(true)}
         />
         <Hero startAnimation={preloaderFinished} />

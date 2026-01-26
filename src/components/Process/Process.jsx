@@ -15,22 +15,22 @@ function Process() {
     {
       number: "01",
       label: "IDEATE",
-      description: "Research, brainstorm, and define the vision through discovery sessions and user insights.",
+      description: "Deep-dive discovery. Using cognitive science principles to ensure we solve the right user problem.",
     },
     {
       number: "02",
       label: "DESIGN",
-      description: "Craft intuitive interfaces and experiences that resonate with users and align with goals.",
+      description: "Crafting intuitive flows. Focusing on reducing cognitive load and friction.",
     },
     {
       number: "03",
       label: "BUILD",
-      description: "Transform designs into performant, scalable code with attention to every detail.",
+      description: "Production-grade Engineering. Clean, maintainable Next.js/React code that scales.",
     },
     {
       number: "04",
       label: "SCALE",
-      description: "Optimize, iterate, and grow the product based on real-world feedback and metrics.",
+      description: "Data-driven iteration. Refining the product based on how real humans use it.",
     },
   ];
 
@@ -94,7 +94,7 @@ function Process() {
 
   return (
     <div className="process-container" ref={containerRef}>
-      <h2 className="section-title" ref={titleRef}>Process</h2>
+      <h2 className="process-title" ref={titleRef}>Process</h2>
 
       {/* Expandable List */}
       <div className="process-list">

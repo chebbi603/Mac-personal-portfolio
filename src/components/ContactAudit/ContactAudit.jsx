@@ -3,6 +3,7 @@ import "./ContactAudit.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IconMail, IconCalendar } from "@tabler/icons-react";
+import { SOCIALS } from "../../config";
 
 export default function ContactAudit() {
   const [isOpen, setIsOpen] = useState(false);
@@ -108,14 +109,14 @@ export default function ContactAudit() {
 
           <div className="audit-options-list">
               <a 
-                href="mailto:chebbimohamedayoub@gmail.com"
+                href={`mailto:${SOCIALS.email}`}
                 className="audit-option-item"
               >
                   <IconMail size={20} />
                   <span>E-MAIL</span>
               </a>
               <a 
-                href="https://calendly.com/" 
+                href={SOCIALS.calendly} 
                 target="_blank" 
                 rel="noreferrer"
                 className="audit-option-item"

@@ -11,6 +11,7 @@ import IPadCursor from "./components/iPadCursor/iPadCursor";
 
 import { calculateAge } from "./utils/time";
 import ContactAudit from "./components/ContactAudit/ContactAudit";
+import { TransitionProvider } from "./context/TransitionContext";
 
 // Lazy Loaded Components
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -60,38 +61,42 @@ function App() {
 
   const age = calculateAge("2002-12-03");
 
+  const location = useLocation();
+
   return (
     <HelmetProvider>
       <CursorProvider>
-        <div className="App">
-          <Helmet>
-            <meta
-              name="description"
-              content={`Welcome to Mohamed Ayoub Chebbi's portfolio, a ${age} year old UX/UI Designer and Developer studying in Hungary`}
-            />
-            <meta
-              name="keywords"
-              content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
-            />
-            <meta property="og:url" content="https://chebbimedayoub.com" />
-            {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
-          </Helmet>
-          <MediaQuery query="(min-device-width: 700px)">
-            <IPadCursor />
-          </MediaQuery>
-          <Suspense fallback={<div className="preloader-fallback">Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/tuniscovery" element={<CaseStudy />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/projects" element={<ProjectPage />} />
-              <Route path="/unidebnotes" element={<UnidebNotes />} />
-              <Route path="/menasyp25" element={<MENASYP />} />
-              <Route path="/*" element={<P404 />} />
-            </Routes>
-          </Suspense>
-          <ContactAudit />
-        </div>
+        <TransitionProvider>
+          <div className="App">
+            <Helmet>
+              <meta
+                name="description"
+                content={`Welcome to Mohamed Ayoub Chebbi's portfolio, a ${age} year old UX/UI Designer and Developer studying in Hungary`}
+              />
+              <meta
+                name="keywords"
+                content="freelancer, tunisia, tunisian designer, mohamed ayoub chebbi, ayoub chebbi, UX design, UI design, user interface, web design, graphic design, software development, photography, programming, HTML, CSS, JavaScript, React, Figma, Upwork, Design Freelancer, Java, Android"
+              />
+              <meta property="og:url" content="https://chebbimedayoub.com" />
+              {/* <script src="https://unpkg.com/react-scan@0.3.3/dist/auto.global.js"></script> */}
+            </Helmet>
+            <MediaQuery query="(min-device-width: 700px)">
+              <IPadCursor />
+            </MediaQuery>
+            <Suspense fallback={<div className="preloader-fallback">Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/tuniscovery" element={<CaseStudy />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/projects" element={<ProjectPage />} />
+                <Route path="/unidebnotes" element={<UnidebNotes />} />
+                <Route path="/menasyp25" element={<MENASYP />} />
+                <Route path="/*" element={<P404 />} />
+              </Routes>
+            </Suspense>
+            <ContactAudit />
+          </div>
+        </TransitionProvider>
       </CursorProvider>
     </HelmetProvider>
   );

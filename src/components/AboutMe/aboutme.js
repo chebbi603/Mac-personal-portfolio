@@ -82,9 +82,8 @@ function AboutMe() {
             <img className="quote" src={quote} alt="Quote" />
           </div>
           <p className="aboutme-title">
-            Building the future <br />
-            of interaction, <br />
-            one thoughtful interface at a time.
+            Forward Deployed Engineer. <br />
+            Future-Focused Researcher.
           </p>
         </div>
         <div className="aboutme-sec2">
@@ -102,16 +101,10 @@ function AboutMe() {
           {/* Description */}
           <div className="aboutme-desc">
             <p>
-              I bridge design and engineering to create digital experiences
-              that feel effortless and perform without compromise.
+              I don't just ship code; I study how humans interact with it. My background at BMW Group taught me rigor. My research into Adaptive UI teaches me empathy.
             </p>
             <p>
-              From enterprise workflows at BMW Group to AI products
-              and adaptive systems, my studio delivers work that stands apart,
-              where every detail serves the whole.
-            </p>
-            <p>
-              Working with ambitious teams across the world.
+              I bring this unique blend of enterprise discipline and R&D curiosity to every product I build. You get a system that works perfectly today, designed by someone thinking about tomorrow.
             </p>
           </div>
         </div>

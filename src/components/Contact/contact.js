@@ -57,8 +57,8 @@ function Contact() {
       <div className="contact-content">
         {/* Left - Headlines */}
         <div className="footer-headlines">
-          <h2 className="contact-title">Let's Talk</h2>
-          <p className="footer-tagline">Available for freelance projects</p>
+          <h2 className="contact-title">Let's Build Something Intelligent.</h2>
+          <p className="footer-tagline">Currently accepting partners for Q1 2026.</p>
         </div>
 
         {/* Right - Links */}
@@ -134,7 +134,8 @@ function Contact() {
       {/* Bottom Section */}
       <div className="footer-bottom">
         <p className="contact-myloc">
-          Designed & Developed with {"<3"} by Chebbi Mohamed Ayoub
+          Designed & Developed with {"<3"} by Chebbi Mohamed Ayoub <br />
+          <span style={{ opacity: 0.6, fontSize: "0.85em", marginTop: "4px", display: "inline-block" }}>R&D Focus: Generative Interfaces Thesis.</span>
         </p>
         <p className="contact-myloc">Built with React & GSAP</p>
       </div>

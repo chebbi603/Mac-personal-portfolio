@@ -6,7 +6,7 @@
   margin: 0;
 }
 
-.section-title {
+.casestudies-title {
   font-family: Stardom;
   font-size: 7rem;
   color: #fefae0;
@@ -173,7 +173,7 @@
     padding: 32px 0;
   }
   
-  .section-title {
+  .casestudies-title {
       font-size: 3rem;
       padding-left: 32px;
   }

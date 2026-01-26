@@ -3,8 +3,9 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IconArrowDown } from "@tabler/icons-react";
-import video1 from "../assets/herovideo.webm"; // Importing the video
-import ScrollTrigger from "gsap/ScrollTrigger"; // Ensure ScrollTrigger is imported if used directly, though widely registered in App
+import video1 from "../assets/herovideo.webm";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useContextAwareness } from "../hooks/useContextAwareness";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -14,6 +15,7 @@ function Hero({ startAnimation }) {
   const videoRef = useRef();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const q = gsap.utils.selector(container);
+  const { greeting, welcomeText, themeColors } = useContextAwareness();
 
   const handleVideoLoad = () => {
     setVideoLoaded(true);
@@ -167,7 +169,7 @@ function Hero({ startAnimation }) {
           playsInline
           onLoadedData={handleVideoLoad}
         />
-        <div className="hero-video-dark-overlay"></div>
+        <div className="hero-video-dark-overlay" ></div>
 
         {/* Content Overlay (Now inside wrapper to scale with it) */}
         <div className="hero-text-overlay">
@@ -184,10 +186,10 @@ function Hero({ startAnimation }) {
               {splitText("THAT THINK")}
             </h1>
 
-            {/* Description */}
+            {/* Context-Aware Description */}
             <p className="hero-desc-text esm-anim-secondary">
               MY NAME IS MOHAMED AYOUB 👋
-              <br />My work is about Bridging the gap between<br />Human-Centric Design and AI-Driven Engineering
+              <br />{greeting}
             </p>
             {/* Small header/availability */}
             <div className="mentions-l esm-anim-secondary">
@@ -197,7 +199,7 @@ function Hero({ startAnimation }) {
                 target="_blank" rel="noreferrer"
                 href="https://www.upwork.com/freelancers/ayoubc4"
               >
-                AVAILABLE FOR PROJECTS
+                LET'S BUILD TOGETHER
               </a>
             </div>
           </div>
