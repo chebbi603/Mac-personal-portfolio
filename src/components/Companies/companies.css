@@ -34,7 +34,7 @@
   transform: translateZ(0);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .company-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -44,6 +44,7 @@
     font-size: 2rem;
   }
   .company-container {
-    padding: 12rem 32px;
+    padding: 6rem 32px; /* Reduced vertical padding for mobile */
+    gap: 2rem;
   }
 }

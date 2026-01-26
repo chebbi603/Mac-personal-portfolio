@@ -15,26 +15,36 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 function Companies() {
   useGSAP(() => {
-    gsap.fromTo(
-      ".company-img",
+    const mm = gsap.matchMedia();
+
+    mm.add(
       {
-        translateY: -40,
-        autoAlpha: 0,
-        filter: "blur(20px)",
-        immediateRender: true,
-        willChange: "transform",
+        isDesktop: "(min-width: 900px)",
+        isMobile: "(max-width: 899px)",
       },
-      {
-        scrollTrigger: {
-          trigger: ".company-container",
-          start: "top 80%",
-        },
-        stagger: 0.05,
-        translateY: 0,
-        autoAlpha: 1,
-        filter: "blur(0px)",
-        duration: 0.4,
-        ease: "power1.out",
+      (context) => {
+        let { isMobile } = context.conditions;
+
+        gsap.fromTo(
+          ".company-img",
+          {
+            translateY: isMobile ? 20 : -40, // Less movement on mobile
+            autoAlpha: 0,
+            filter: "blur(20px)",
+          },
+          {
+            scrollTrigger: {
+              trigger: ".company-container",
+              start: "top 85%", // Trigger earlier on mobile
+            },
+            stagger: isMobile ? 0.02 : 0.05, // Faster stagger on mobile
+            translateY: 0,
+            autoAlpha: 1,
+            filter: "blur(0px)",
+            duration: 0.5,
+            ease: "power1.out",
+          }
+        );
       }
     );
   });

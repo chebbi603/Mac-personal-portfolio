@@ -165,29 +165,39 @@
 }
 
 /* Responsiveness */
-@media (max-width: 900px) {
+  /* Responsiveness */
+  @media (max-width: 900px) {
   .hero-main-text {
-    font-size: 4rem;
+    font-size: 13vw; /* More responsive unit for mobile title */
+    line-height: 0.9;
   }
   .hero-desc-text {
     font-size: 1rem;
-    padding: 0 1rem;
-    padding-left: 0; /* Align with container padding */
+    padding: 0;
+    padding-left: 0;
+    max-width: 90%;
+  }
+
+  /* Reset layout for mobile */
+  .esmi-center {
+      padding-left: 24px;
+      padding-right: 24px;
+      align-items: flex-start;
+  }
+  
+  .hero-text-overlay {
+      padding-bottom: 80px; /* Give space for bottom navigation/safe area */
+      justify-content: flex-end;
+  }
+
+  .mentions-l {
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
   }
 }
 
+
 @media (max-width: 640px) {
-  .esmi-center {
-    padding-left: 32px; /* Responsive navbar padding alignment */
-  }
-  .hero-text-overlay {
-    padding-bottom: 32px; /* Responsive bottom padding alignment */
-  }
-  .hero-main-text {
-    font-size: 2.5rem;
-  }
-  .mentions-l {
-    margin-bottom: 1rem;
-  }
+  /* Smaller mobile specific tweaks if needed, but 900px block covers most */
 }
 

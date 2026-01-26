@@ -16,33 +16,38 @@ function Contact() {
     const line1 = signatureRef.current.querySelector('.signature-line-1');
     const line2 = signatureRef.current.querySelector('.signature-line-2');
 
-    // Line 1 moves left on scroll
-    gsap.fromTo(line1,
-      { x: 100 },
-      {
-        x: -100,
-        scrollTrigger: {
-          trigger: signatureRef.current,
-          start: "top 100%",
-          end: "bottom 0%",
-          scrub: true
-        }
-      }
-    );
+    // Use matchMedia to ensure safe triggers on mobile resize
+    const mm = gsap.matchMedia();
 
-    // Line 2 moves right on scroll
-    gsap.fromTo(line2,
-      { x: -100 },
-      {
-        x: 100,
-        scrollTrigger: {
-          trigger: signatureRef.current,
-          start: "top 100%",
-          end: "bottom 0%",
-          scrub: true
+    mm.add("(min-width: 10px)", () => {
+      // Line 1 moves left on scroll
+      gsap.fromTo(line1,
+        { x: 100 },
+        {
+          x: -100,
+          scrollTrigger: {
+            trigger: signatureRef.current,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true
+          }
         }
-      }
-    );
+      );
+
+      // Line 2 moves right on scroll
+      gsap.fromTo(line2,
+        { x: -100 },
+        {
+          x: 100,
+          scrollTrigger: {
+            trigger: signatureRef.current,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true
+          }
+        }
+      );
+    });
   }, { scope: signatureRef });
 
   return (

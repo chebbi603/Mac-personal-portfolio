@@ -172,23 +172,46 @@
   .casestudies-container {
     padding: 32px 0;
   }
+  
+  .section-title {
+      font-size: 3rem;
+      padding-left: 32px;
+  }
 
   .casestudies-grid {
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 0px; /* Remove gap for seamless stack */
   }
   
   .casestudy-card {
     aspect-ratio: 4 / 3;
     cursor: auto; /* Normal cursor on touch */
+    border-left: none;
+    border-right: none;
+    border-top: none; 
+    border-bottom: 1px solid rgba(254, 250, 224, 0.15); /* Separator */
   }
 
   /* Hide custom cursor on mobile */
   .casestudy-cursor {
     display: none;
   }
+  
+  .casestudy-content {
+      padding: 1.5rem;
+  }
 
   .casestudy-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem; /* Ensure readable */
+    white-space: normal; /* Allow wrapping */
+  }
+  
+  .casestudy-description {
+      display: none; /* Hide description on mobile to keep it clean, or keep it? Original code had webkit-box. Let's show it if space allows. */
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* Limit lines */
+      line-clamp: 2; /* Standard property */
+      -webkit-box-orient: vertical;
+      font-size: 0.85rem;
   }
 }

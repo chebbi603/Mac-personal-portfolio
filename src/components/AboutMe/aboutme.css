@@ -131,28 +131,40 @@
 
 /* Responsiveness */
 
-@media (max-width: 1200px) {
-  .aboutme-container {
-    padding: 8rem 2rem;
-  }
-  
-  .aboutme-textcontainer {
-    grid-template-columns: 1fr; /* Stack vertically */
-    gap: 4rem;
-  }
-}
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .aboutme-container {
-    padding: 6rem 1.5rem;
+    padding: 6rem 32px; /* Consistent padding */
+  }
+
+  .aboutme-textcontainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem 0;
   }
 
   .aboutme-title {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Readable size on mobile */
   }
 
-  .aboutme-detail {
-    font-size: 1.25rem;
+  .aboutme-desc p {
+      font-size: 1.1rem; /* Smaller than desktop but legible */
+  }
+
+  .profile-container {
+      flex-direction: row; /* Keep row unless very small */
+      align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .aboutme-container {
+      padding: 4rem 24px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .about-myloc {

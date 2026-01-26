@@ -290,23 +290,28 @@
   .contact-content {
     flex-direction: column;
     gap: 48px;
+    align-items: flex-start; /* Ensure left alignment */
   }
   
   .contact-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .contact-link-container {
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 48px; /* Consistent gap */
+    width: 100%;
+    justify-content: flex-start;
   }
   
   .footer-signature-container {
     margin-left: -32px;
+    padding: 32px 0 24px;
+    width: 110vw; /* Ensure it scrolls off slightly to imply movement */
   }
   
   .footer-signature {
-    font-size: 18vw;
+    font-size: 20vw;
   }
 }
 

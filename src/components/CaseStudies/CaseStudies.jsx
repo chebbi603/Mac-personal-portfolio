@@ -135,25 +135,36 @@ export default function CaseStudies() {
     // Animate entire grid as one unit
     const grid = containerRef.current.querySelector(".casestudies-grid");
     
-    gsap.fromTo(grid, 
-      { 
-        y: 100,
-        scale: 0.9,
-        filter: "blur(20px)", 
-        autoAlpha: 0 
-      },
+    const mm = gsap.matchMedia();
+    mm.add(
       {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 100%", // Start as soon as it enters viewport
-          end: "top 50%", // Finish when near top
-          scrub: 1 // Smooth scrub
-        },
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        autoAlpha: 1,
-        ease: "none" // Linear ease for scrub usually better, or keeping expo is fine? scrub maps to scroll. linear is best for direct control.
+        isDesktop: "(min-width: 900px)",
+        isMobile: "(max-width: 899px)",
+      },
+      (context) => {
+        let { isMobile } = context.conditions;
+
+        gsap.fromTo(grid, 
+          { 
+            y: isMobile ? 50 : 100, // Less movement on mobile
+            scale: isMobile ? 0.95 : 0.9,
+            filter: "blur(20px)", 
+            autoAlpha: 0 
+          },
+          {
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: isMobile ? "top 85%" : "top 100%", // Earlier on mobile
+              end: "top 50%", 
+              scrub: 1 
+            },
+            y: 0,
+            scale: 1,
+            filter: "blur(0px)",
+            autoAlpha: 1,
+            ease: "none" 
+          }
+        );
       }
     );
 

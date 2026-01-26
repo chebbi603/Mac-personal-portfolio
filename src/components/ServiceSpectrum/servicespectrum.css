@@ -384,13 +384,13 @@
   .servicespectrum-container {
     padding: 4rem 0; /* Full width container, internal padding handles content */
   }
-
-  .servicespectrum-label {
-    padding-left: 2rem; /* Match mobile padding */
+  
+  /* Section title padding fix for mobile */
+  .section-title {
+      font-size: 3rem;
+      padding-left: 32px; /* Match standard mobile padding */
   }
 
-  /* Reset to simple stack on mobile */
-  /* We use a simple 1-column grid with padding built into the width or margin */
   .spectrum-columns {
     grid-template-columns: 1fr;
     width: 100%;
@@ -404,8 +404,13 @@
     border-bottom: 1px solid rgba(254, 250, 224, 0.15);
     border-right: none;
     border-left: none !important;
+    padding: 3rem 2rem; /* Reduced padding */
   }
   
+  .column-label {
+      font-size: 2rem;
+  }
+
   /* Merged card wrapper on mobile */
   .merged-card-wrapper {
     grid-column: auto !important; /* Reset grid placement */
@@ -420,11 +425,6 @@
     min-height: auto;
   }
   
-  .spectrum-column.dimmed {
-    opacity: 1;
-    filter: none;
-  }
-
   .merged-title {
     font-size: 2rem;
   }
@@ -433,7 +433,12 @@
     align-items: flex-start;
   }
   
+  .merged-answer {
+      font-size: 1rem;
+  }
+  
   .merged-phases {
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
 }

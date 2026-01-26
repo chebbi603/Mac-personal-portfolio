@@ -77,34 +77,62 @@ function Hero({ startAnimation }) {
           scrollTrigger: {
             trigger: container.current,
             start: "top top",
-            end: "bottom top", // Animate while in view
+            end: "bottom top",
             scrub: true,
           },
         });
 
-        t1.fromTo(
-          videoWrapper.current,
-          {
-            scale: 1,
-            borderRadius: "0px",
-            y: 0,
-          },
-          {
-            scale: targetScale,
-            borderRadius: "0px",
-            y: 200, // Parallax effect (moves down as you scroll down, creating slow-scroll feel)
-            ease: "none",
-          }
-        )
-          .to(
-            q(".hero-text-overlay"),
+        // Mobile-specific animation tweaking
+        if (isMobile) {
+          t1.fromTo(
+            videoWrapper.current,
             {
-              opacity: 0,
-              filter: "blur(10px)", // Fade out blur effect
-              ease: "none",
+              scale: 1,
+              borderRadius: "0px",
+              y: 0,
             },
-            "<" // Sync with video scale
-          );
+            {
+              scale: 1, // Don't scale down on mobile to avoid whitespace issues
+              borderRadius: "0px",
+              y: 50, // Gentle parallax
+              ease: "none",
+            }
+          )
+            .to(
+              q(".hero-text-overlay"),
+              {
+                y: -50, // Move text up slightly
+                opacity: 0,
+                ease: "none"
+              },
+              "<"
+            );
+        } else {
+          // Desktop Animation (Original)
+          t1.fromTo(
+            videoWrapper.current,
+            {
+              scale: 1,
+              borderRadius: "0px",
+              y: 0,
+            },
+            {
+              scale: targetScale,
+              borderRadius: "0px",
+              y: 200,
+              ease: "none",
+            }
+          )
+            .to(
+              q(".hero-text-overlay"),
+              {
+                opacity: 0,
+                filter: "blur(10px)",
+                ease: "none",
+              },
+              "<"
+            );
+        }
       });
 
       // Force refresh to ensure start/end positions of downstream triggers are recalculated

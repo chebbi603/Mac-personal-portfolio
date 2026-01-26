@@ -45,20 +45,32 @@ function Process() {
       });
 
       // Animate items on scroll
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top 80%",
-        onEnter: () => {
-          gsap.to(itemsRef.current, {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power3.out",
-          });
+      // Animate items on scroll
+      const mm = gsap.matchMedia();
+      mm.add(
+        {
+           isDesktop: "(min-width: 900px)",
+           isMobile: "(max-width: 899px)",
         },
-      });
+        (context) => {
+             let { isMobile } = context.conditions;
+
+             ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: isMobile ? "top 85%" : "top 80%",
+                onEnter: () => {
+                  gsap.to(itemsRef.current, {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    duration: 0.8,
+                    stagger: isMobile ? 0.08 : 0.12,
+                    ease: "power3.out",
+                  });
+                },
+              });
+        }
+      );
 
       // Parallax title animation - scrolls slower and blurs when overlapped
       if (titleRef.current) {

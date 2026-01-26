@@ -14,30 +14,41 @@ function AboutMe() {
 
   useGSAP(
     () => {
-      // 1. Initial State (Blur & Hidden)
-      gsap.set(q(".aboutme-title, .quote-wrapper, .profile-container, .aboutme-desc"), {
-        y: 50,
-        opacity: 0,
-        filter: "blur(10px)",
-      });
+      const mm = gsap.matchMedia();
 
-      // 2. Blur Fade In Animation
-      gsap.to(q(".aboutme-title, .quote-wrapper, .profile-container, .aboutme-desc"), {
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 60%",
-          end: "bottom bottom",
+      mm.add(
+        {
+          isDesktop: "(min-width: 900px)",
+          isMobile: "(max-width: 899px)",
         },
-        y: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        stagger: 0.1,
-        duration: 1,
-        ease: "power2.out",
-      });
+        (context) => {
+          let { isMobile } = context.conditions;
+
+          // 1. Initial State
+          gsap.set(q(".aboutme-title, .quote-wrapper, .profile-container, .aboutme-desc"), {
+            y: isMobile ? 30 : 50, // Less distance on mobile
+            opacity: 0,
+            filter: "blur(10px)",
+          });
+
+          // 2. Blur Fade In Animation
+          gsap.to(q(".aboutme-title, .quote-wrapper, .profile-container, .aboutme-desc"), {
+            scrollTrigger: {
+              trigger: container.current,
+              start: isMobile ? "top 75%" : "top 60%", // Earlier trigger on mobile
+              end: "bottom bottom",
+            },
+            y: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            stagger: isMobile ? 0.05 : 0.1, // Faster stagger
+            duration: 0.8,
+            ease: "power2.out",
+          });
+        }
+      );
 
       // 3. Intensified Parallax using Translation
-      const mm = gsap.matchMedia();
       mm.add("(min-width: 1200px)", () => {
         gsap.fromTo(q(".aboutme-sec1"), {
           y: -200,
