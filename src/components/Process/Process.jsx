@@ -15,6 +15,7 @@ import img10 from "../Pictures/assets/10.webp";
 import img11 from "../Pictures/assets/11.webp";
 import img12 from "../Pictures/assets/12.webp";
 import buildImg from "../Pictures/assets/build.jpg";
+import scaleImg from "../../assets/scale.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -146,7 +147,7 @@ function Process() {
       number: "04",
       label: "SCALE",
       description: "Data-driven iteration. Refining the product based on how real humans use it.",
-      image: "https://media.licdn.com/dms/image/v2/C4D22AQGPCl3rGuFYOg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1645728943715?e=1770854400&v=beta&t=0B3UScxRKRT4IUo55dk1c8dXNpPsua2B2Kk4VkHoHX4"
+      image: scaleImg
     },
   ];
 
