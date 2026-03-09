@@ -255,7 +255,7 @@
   border: 1px solid rgba(254, 250, 224, 0.1); 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 200px; /* Matched to expanded size */
-  height: 120px;
+  height: 170px;
   border-radius: 20px; 
   overflow: hidden;
   display: flex;
@@ -299,6 +299,15 @@
 .spectrum-audit-option span {
   font-weight: 500;
   font-family: Host; /* Keep site font consistency if desired, or use DM Sans to match exactly */
+}
+
+.spectrum-audit-highlighted {
+  background: #14a800 !important;
+  color: #fff !important;
+}
+
+.spectrum-audit-highlighted:hover {
+  background: #108a00 !important;
 }
 
 /* ========================================

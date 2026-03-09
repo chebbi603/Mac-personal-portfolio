@@ -30,7 +30,7 @@ function SpectrumAuditDropdown({ onClose }) {
       },
       {
         width: 200,
-        height: 120,
+        height: 170,
         borderRadius: 20,
         backgroundColor: "#242424",
         ...springConfig
@@ -81,6 +81,15 @@ function SpectrumAuditDropdown({ onClose }) {
               >
                   <IconCalendar size={20} />
                   <span>CALENDLY</span>
+              </a>
+              <a 
+                href={SOCIALS.upworkConsultation} 
+                target="_blank" 
+                rel="noreferrer"
+                className="spectrum-audit-option spectrum-audit-highlighted"
+              >
+                  <IconCalendar size={20} />
+                  <span>UPWORK</span>
               </a>
           </div>
        </div>

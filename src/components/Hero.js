@@ -1,9 +1,10 @@
 import "../home.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { IconArrowDown } from "@tabler/icons-react";
 import video1 from "../assets/herovideo.webm";
+import posterImg from "../assets/herovideo-poster.jpg";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useContextAwareness } from "../hooks/useContextAwareness";
 
@@ -14,12 +15,23 @@ function Hero({ startAnimation }) {
   const videoWrapper = useRef();
   const videoRef = useRef();
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(null);
   const q = gsap.utils.selector(container);
   const { greeting, welcomeText, themeColors } = useContextAwareness();
 
+  // Defer setting the video source to prioritize initial render
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVideoSrc(video1);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleVideoLoad = () => {
     setVideoLoaded(true);
-    videoRef.current.play();
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
   };
 
   useGSAP(
@@ -159,16 +171,21 @@ function Hero({ startAnimation }) {
       {/* Video Background Layer */}
       <div className="hero-video-wrapper" ref={videoWrapper}>
 
+        {/* Poster Image Layer */}
+        <img src={posterImg} alt="Background Poster" className="hero-poster-img" />
+
         {/* Video (Fades in when loaded) */}
-        <video
-          ref={videoRef}
-          className={`hero-video ${videoLoaded ? "video-visible" : "video-hidden"}`}
-          src={video1}
-          muted
-          loop
-          playsInline
-          onLoadedData={handleVideoLoad}
-        />
+        {videoSrc && (
+          <video
+            ref={videoRef}
+            className={`hero-video ${videoLoaded ? "video-visible" : "video-hidden"}`}
+            src={videoSrc}
+            muted
+            loop
+            playsInline
+            onLoadedData={handleVideoLoad}
+          />
+        )}
         <div className="hero-video-dark-overlay" ></div>
 
         {/* Content Overlay (Now inside wrapper to scale with it) */}

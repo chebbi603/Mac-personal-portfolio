@@ -75,3 +75,12 @@
 .audit-option-item span {
   font-weight: 500;
 }
+
+.audit-option-highlighted {
+  background: #14a800 !important;
+  color: #fff !important;
+}
+
+.audit-option-highlighted:hover {
+  background: #108a00 !important;
+}

@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import "./ContactAudit.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { IconMail, IconCalendar } from "@tabler/icons-react";
+import { IconMail, IconCalendar, IconBrandUpwork } from "@tabler/icons-react";
 import { SOCIALS } from "../../config";
 
 export default function ContactAudit() {
@@ -19,7 +19,7 @@ export default function ContactAudit() {
       // 1. Animate container size and radius
       gsap.to(wrapperRef.current, {
         width: 200,
-        height: 120,
+        height: 170,
         borderRadius: 20,
         backgroundColor: "#242424",
         ...springConfig
@@ -123,6 +123,15 @@ export default function ContactAudit() {
               >
                   <IconCalendar size={20} />
                   <span>CALENDLY</span>
+              </a>
+              <a 
+                href={SOCIALS.upworkConsultation} 
+                target="_blank" 
+                rel="noreferrer"
+                className="audit-option-item audit-option-highlighted"
+              >
+                  <IconBrandUpwork size={20} />
+                  <span>CONSULTATION</span>
               </a>
           </div>
       </div>
