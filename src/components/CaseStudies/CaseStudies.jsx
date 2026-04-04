@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import tuniscoveryVid from "../../pages/Projects/hack4tourism/tuniscovery.webm";
 import twoamVid from "../../pages/Projects/2am/2am.webm";
 import unidebVid from "../../pages/Projects/unidebnotes/unidebnotes.webm";
+import dsaiinfraVid from "../../pages/DSAIInfra/placeholder.mp4";
 // MENASYP video is in public folder
 const menasypVid = "/menasyp_mobile_optimized.mp4";
 
@@ -20,6 +21,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const projects = [
   {
     id: 1,
+    title: "DS AI Infra",
+    type: "AI INFRASTRUCTURE",
+    description: "An MCP + RAG workflow that retrieves design system logic at generation time, reducing AI coding waste.",
+    video: dsaiinfraVid,
+    path: "/ds-ai-infra",
+    external: false,
+    color: "#1c1c1c"
+  },
+  {
+    id: 2,
     title: "IEEE R8 MENA SYP 2025",
     type: "BRANDING - GRAPHIC DESIGN",
     description: "The IEEE R8 MENA SYP is a student congress that aims to inspire future leaders from 17+ countries",

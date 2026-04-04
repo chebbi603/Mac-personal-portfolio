@@ -7,6 +7,7 @@ import Preloader from "../../components/Preloader/preloader";
 import Sections from "./Section";
 import { useGSAP } from "@gsap/react";
 import Navbar from "../../components/Navbar/navbar";
+import CaseStudyHeader from "./CaseStudyHeader";
 
 function CaseStudy() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
@@ -54,6 +55,7 @@ function CaseStudy() {
         onLoadComplete={() => setPreloaderFinished(true)}
       />
       <div className="darkness"></div>
+      <CaseStudyHeader startAnimation={preloaderFinished} />
       <Sections />
     </div>
   );

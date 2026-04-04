@@ -21,6 +21,7 @@ const P404 = lazy(() => import("./pages/404/404"));
 const ProjectPage = lazy(() => import("./pages/Projects/ProjectPage"));
 const UnidebNotes = lazy(() => import("./pages/UnidebNotes/UnidebNotes"));
 const MENASYP = lazy(() => import("./pages/MENASYP/MENASYP"));
+const DSAIInfra = lazy(() => import("./pages/DSAIInfra/DSAIInfra"));
 
 function App() {
   //FIREBASE
@@ -91,6 +92,7 @@ function App() {
                 <Route path="/projects" element={<ProjectPage />} />
                 <Route path="/unidebnotes" element={<UnidebNotes />} />
                 <Route path="/menasyp25" element={<MENASYP />} />
+                <Route path="/ds-ai-infra" element={<DSAIInfra />} />
                 <Route path="/*" element={<P404 />} />
               </Routes>
             </Suspense>
