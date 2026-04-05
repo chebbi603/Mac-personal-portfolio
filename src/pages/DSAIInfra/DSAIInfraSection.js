@@ -29,7 +29,7 @@ const MergedCard = ({ badge, title, children }) => (
       <div className="spectrum-merged-card">
         <div className="merged-card-content">
           <div className="merged-badge">{badge}</div>
-          <h2 className="merged-title">{title}</h2>
+          <h2 className="merged-title" style={{ fontSize: title.length > 25 ? "2.5rem" : "3rem"}}>{title}</h2>
           {children}
         </div>
       </div>
@@ -64,7 +64,7 @@ const ValueColumn = ({ isPostSwatch, percentage, desc, time }) => {
           <h3 className="column-label" style={{ fontSize: "4rem", color }}>{percentage}</h3>
         </div>
         <p className="column-for-clients">
-          <span className="for-label">Accuracy</span>
+          <span className="for-label">Workflow state</span>
           <span className="for-text">{desc}</span>
         </p>
         <p className="column-ux-angle">{time}</p>
@@ -112,9 +112,9 @@ function DSAIInfraSection() {
 
       <h2 className="servicespectrum-title" style={{ marginTop: "0" }}>Swatch</h2>
       
-      <MergedCard badge="DS-AI-INFRA" title="Semantic Context Over UI Systems">
+      <MergedCard badge="OPEN SOURCE PROJECT" title="Semantic Component Intelligence for AI Agents">
         <p className="merged-description">
-          An open-source RAG-powered knowledge layer that provides AI coding agents with structured understanding of UI design systems. Deployed at BMW.
+          An open-source RAG-powered knowledge layer that gives AI coding agents structured, searchable baseline knowledge about every component in your design system. Deployed at BMW.
         </p>
         <div className="merged-phases" style={{ marginTop: "3rem" }}>
           <span>UX Engineer & AI Strategist</span>
@@ -130,105 +130,128 @@ function DSAIInfraSection() {
       </GraphicPlaceholder>
 
       {/* 2. Executive Summary */}
-      <MergedCard badge="EXECUTIVE SUMMARY" title="Bridging the Deficit">
+      <MergedCard badge="WHAT IT IS" title="The Context Engine">
         <p className="merged-description" style={{ maxWidth: "800px" }}>
-          Engineering teams rely heavily on AI agents to accelerate delivery. However, when these agents lack structured knowledge of internal design systems, they hallucinate component structures, ignore composition patterns, and generate unusable code that requires heavy manual review.
+          Swatch sits precisely between an AI coding agent and your internal design system. It is designed to proactively answer three explicit questions before the agent even begins generating UI code:
         </p>
-        <p className="merged-description" style={{ maxWidth: "800px", marginTop: "1rem" }}>
-          Swatch solves this. By operating as a RAG-powered layer connected to Claude via the Model Context Protocol (MCP), Swatch feeds agents the exact metadata and logic they need—shifting AI generated code to production quality on the first try.
-        </p>
+        <ul className="column-services" style={{ marginTop: "2rem", listStyleType: "disc", paddingLeft: "1.5rem" }}>
+          <li><b>What component should I use?</b> (Semantic search by intent)</li>
+          <li><b>How do I use it correctly?</b> (Props schema, composition patterns, accessibility roles)</li>
+          <li><b>What should I explicitly avoid?</b> (Documented anti-patterns, incorrect usage warnings)</li>
+        </ul>
       </MergedCard>
 
-      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>The Tax</h2>
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>The Need</h2>
 
       {/* 3. The Problem */}
       <div className="spectrum-columns">
         <IssueColumn 
           number="01" 
-          title="Accuracy" 
-          issueText="Agents guess properties or fall back to inline CSS when they cannot infer the right system utility." 
+          title="Rework Loops" 
+          issueText="Agents generate wrong props, broken composition, or hallucinate nonexistent components entirely." 
         />
         <IssueColumn 
           number="02" 
-          title="Review" 
-          issueText="Code review cycles stretch longer as senior engineers must catch subtle UI hallucinations." 
+          title="System Erosion" 
+          issueText="Inconsistent layouts, accessibility failures, and immediate branding breakdown across codebases." 
         />
         <IssueColumn 
           number="03" 
-          title="Erosion" 
-          issueText="Unchecked generated code creates parallel, off-brand component structures that fragment architecture." 
+          title="False Speed" 
+          issueText="The agent writes code faster, but the human reviewer works harder. The net productivity gain collapses." 
           last 
         />
         <div className="spectrum-separator"></div>
       </div>
 
-      {/* 4. Solution Workflow Architecture */}
-      <MergedCard badge="SOLUTION ARCHITECTURE" title="Context via Swatch">
+      <MergedCard badge="THE INTELLIGENCE SCHEMA" title="5 Dimensions Per Component">
         <p className="merged-description">
-          When deployed, the developer does not need complex prompt engineering. The tooling bridges the intent natively, pushing documentation directly into the active reasoning loop.
+          Unlike passive documentation files that an AI might scan inconsistently, Swatch relies on a strict intelligence schema. Every component gets evaluated and encoded across five mandatory dimensions:
         </p>
-        <div className="merged-phases" style={{ marginTop: "3rem", fontSize: "1rem", color: "#fefae0" }}>
-          <span className="for-label">1. PROMPT</span>
-          <span className="phase-arrow">→</span>
-          <span className="for-label">2. MCP QUERY</span>
-          <span className="phase-arrow">→</span>
-          <span className="for-label">3. RAG SEMANTICS</span>
-            <span className="phase-arrow">→</span>
-          <span className="for-label">4. GENERATION</span>
+        <ul className="column-services" style={{ marginTop: "2rem" }}>
+          <li><b>1. Identification:</b> Meta name, category, semantic tags, integration complexity, exact physical dependencies.</li>
+          <li><b>2. Semantics:</b> Primary behavioral purpose, when to use, explicit circumstances on when to completely avoid.</li>
+          <li><b>3. Technical Integrity:</b> Full props schema, valid composition slots, strict ARIA roles, verified keyboard support flags.</li>
+          <li><b>4. Embedded Intelligence:</b> Common prop configurations clustered by user scenario, parent/child hierarchical dependencies.</li>
+          <li><b>5. Executable Examples:</b> Real configuration payloads strictly tied back to the end-user goal and context.</li>
+        </ul>
+      </MergedCard>
+
+      <GraphicPlaceholder text="GRAPHIC PLACEHOLDER: 5D INTELLIGENCE SCHEMA VISUAL" />
+
+      {/* 4. Solution Workflow Architecture */}
+      <MergedCard badge="HOW IT WORKS" title="The Architecture Stack">
+        <p className="merged-description">
+           The full stack relies on local inference boundaries to prevent latency delays. Swatch acts as a bridge executed purely locally via Node or npm capabilities. 
+        </p>
+        <p className="merged-description" style={{ marginTop: "1rem" }}>
+           <b>1. RAG Pipeline:</b> Component JSON catalog → Google AI text-embedding-004 → Embedded local ChromaDB store → Semantic contextual query → Ranked result payload.
+        </p>
+        <p className="merged-description" style={{ marginTop: "1rem" }}>
+           <b>2. Server Runtime:</b> The Claude Code agent natively hooks into the MCP Server via stdio transport, calling strict functions like `query_components("I need a login form")` and `get_component_details("Tell me about AlertDialog")`. 
+        </p>
+      </MergedCard>
+
+      <GraphicPlaceholder text="GRAPHIC PLACEHOLDER: SYSTEM ARCHITECTURE (CLAUDE ➔ MCP ➔ RAG ENGINE)" />
+
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>BMW Context</h2>
+
+      <MergedCard badge="ENTERPRISE IMPLEMENTATION" title="Deploying at BMW">
+        <p className="merged-description" style={{ maxWidth: "1000px" }}>
+          BMW's frontend engineering runs a heavy, custom React design system. While Claude Code had excellent generalized React capabilities, it had absolute zero awareness of BMW's brand extensions, internationalisation protocols, or naming conventions. Agents routinely hallucinated components that required extensive senior-engineer rework loops.
+        </p>
+        <p className="merged-description" style={{ maxWidth: "1000px", marginTop: "1rem" }}>
+          We constructed a BMW-specific catalog inside Swatch. Anti-patterns like "never use base button" were explicitly documented as hard warnings to the LLM. With zero prompt changes from developers, Claude Code automatically gained full systemic compliance.
+        </p>
+        
+        <div style={{ marginTop: "3rem", padding: "2rem", border: "1px dashed rgba(254, 250, 224, 0.3)", borderRadius: "8px", background: "rgba(0,0,0,0.2)"}}>
+          <p className="for-label" style={{ marginBottom: "1rem" }}>config.json</p>
+          <pre style={{ margin: 0, fontFamily: "monospace", fontSize: "14px", color: "rgba(254, 250, 224, 0.9)" }}>
+{`{
+  "mcpServers": {
+    "swatch": {
+      "command": "npx",
+      "args": ["swatch-mcp", "--catalog", "./swatch-catalog/bmw-design-system"]
+    }
+  }
+}`}
+          </pre>
         </div>
       </MergedCard>
 
-      <GraphicPlaceholder text="GRAPHIC PLACEHOLDER: ANIMATED DATA FLOW" />
-
-      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>Value</h2>
-
       {/* 5. Business Value */}
-      <div className="spectrum-columns">
+      <div className="spectrum-columns" style={{ marginTop: "5rem" }}>
         <ValueColumn 
           isPostSwatch={false} 
-          percentage="60%" 
-          desc="Generated UI heavily requires rework due to standard hallucinations." 
-          time="Avg 10m correction time per component." 
+          percentage="3 Iterations" 
+          desc="Developer prompts structural layout ➔ Agent guesses HTML inputs ➔ Review flags incorrect standards." 
+          time="Heavy manual rework required." 
         />
         <ValueColumn 
           isPostSwatch={true} 
-          percentage="95%+" 
-          desc="Strict design system compliance enforced by default on the first pass." 
-          time="&lt; 1m correction time per component." 
+          percentage="1 Iteration" 
+          desc="Developer prompts structural layout ➔ Claude calls query_components ➔ Swatch injects compliance ➔ Code ships on first pass." 
+          time="Immediate production-quality compliance." 
         />
         <div className="spectrum-separator"></div>
       </div>
 
-      {/* 6. Technical Schema Deep Dive */}
-      <MergedCard badge="TECHNICAL DEEP DIVE" title="Intelligence Schema">
-        <p className="merged-description">
-          An AI agent cannot parse a standard developer website efficiently. Swatch works because of its underlying schema logic, indexing components across 5 discrete dimensions to ensure high-fidelity retrieval and minimum token waste.
-        </p>
-        <ul className="column-services" style={{ marginTop: "3rem" }}>
-          <li>1. Metadata</li>
-          <li>2. Component Semantics</li>
-          <li>3. Technical Props Interface</li>
-          <li>4. Embedded Vector Space</li>
-          <li>5. Syntax Examples</li>
-        </ul>
-      </MergedCard>
-
-      <GraphicPlaceholder text="GRAPHIC PLACEHOLDER: RADIAL SCHEMA MAP" />
-
       {/* 7. Agnostic Scalability */}
-      <MergedCard badge="SCALABILITY" title="Library Agnosticism">
+      <MergedCard badge="REACH & SCALABILITY" title="Completely Agnostic By Design">
         <p className="merged-description">
-          Swatch acts as the nervous system between any arbitrary design base and the LLM agent, decoupled from shadcn/ui. Ensure your design system translates its rules to the Swatch schema, and it immediately scales across the ecosystem.
+           The schema structure does not care about frameworks. Any team can author a catalog for their structural system and immediately plug it in. The `npm` MCP server intrinsically runs with any MCP-capable agent environment.
         </p>
-      </MergedCard>
-
-      <GraphicPlaceholder text="GRAPHIC PLACEHOLDER: ECOSYSTEM (SHADCN ➔ RAG ➔ CLAUDE)" />
-
-      {/* 8. About the Author */}
-      <MergedCard badge="AUTHOR" title="The Systems Perspective">
-        <p className="merged-description">
-          Mohamed Ayoub Chebbi operates at the intersection of developer experience and product strategy. Recognizing the business bleed caused by LLM hallucinations in enterprise frontends, he constructed Swatch to bridge the technical gap between static design systems and active AI reasoning. The result is a scalable infrastructure piece that treats prompt generation as systems engineering, protecting both design fidelity and engineering productivity.
+        <p className="merged-description" style={{ marginTop: "1rem" }}>
+          By open-sourcing Swatch, the community can construct verified catalogs for Material UI, Ant Design, Chakra UI — permanently establishing Swatch as the definitive context bridge between AI agents and custom organizational libraries.
         </p>
+
+        <div style={{ display: "flex", gap: "2rem", marginTop: "3rem" }}>
+           <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+              <div style={{ padding: "12px 24px", border: "1px solid #fefae0", borderRadius: "50px", color: "#fefae0", fontSize: "14px", fontWeight: "bold" }}>
+                 VIEW GITHUB REPOSITORY ↗
+              </div>
+           </a>
+        </div>
       </MergedCard>
 
       {/* 9. Closing CTA */}
