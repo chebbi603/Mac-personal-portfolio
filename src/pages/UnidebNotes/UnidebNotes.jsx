@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "../../components/Navbar/navbar";
 import Preloader from "../../components/Preloader/preloader";
 import gsap from "gsap";
@@ -5,40 +6,40 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import "../CaseStudy/casestudy.css";
 import UnidebSections from "./UnidebSection";
+import Contact from "../../components/Contact/contact";
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
-ScrollTrigger.normalizeScroll(true);
 
 export default function UnidebNotes() {
-  useGSAP(() => {
-    var studies = gsap.utils.toArray(".section-content");
+  const container = React.useRef();
 
-    studies.forEach((content, index) => {
-      gsap.fromTo(
-        content,
-        {
-          opacity: 0,
-          y: 100,
+  useGSAP(() => {
+    // Background color animation triggered by scroll
+    gsap.fromTo(
+      container.current,
+      { backgroundColor: "#000000" },
+      {
+        backgroundColor: "#061611",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "+=1000",
+          scrub: true,
         },
-        {
-          scrollTrigger: {
-            trigger: content,
-            start: "top 90%",
-            end: "top 70%",
-            scrub: true,
-          },
-          y: 0,
-          opacity: 1,
-        }
-      );
-    });
-  }, []);
+      }
+    );
+  }, { scope: container });
 
   return (
-    <div className="case-container">
+    <div className="case-container" ref={container}>
       <Navbar />
       <Preloader text1={"UNIDEB NOTES"} text2={""} />
       <UnidebSections />
+      
+      <div className="footer">
+         <Contact />
+      </div>
     </div>
   );
 }

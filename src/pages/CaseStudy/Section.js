@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./casestudy.css";
+import "../../components/ServiceSpectrum/servicespectrum.css";
+import { Link } from "react-router-dom";
+import MediaQuery from "react-responsive";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
 import img1 from "./assets/h4tp-01.png";
 import img2 from "./assets/h4tp-02.png";
 import img3 from "./assets/h4tp-03.png";
@@ -7,378 +14,197 @@ import img4 from "./assets/h4tp-04.png";
 import img5 from "./assets/h4tp-05.png";
 import img6 from "./assets/h4tp-06.png";
 import logo from "./assets/logo.svg";
-import MagneticButton from "../../components/ui/MagneticButton/MagneticButton";
-import { Link } from "react-router-dom";
 import tuniscovery1 from "./assets/tuniscovery_1.webm";
 import tuniscovery2 from "./assets/tuniscovery_2.webm";
 import tuniscovery3 from "./assets/tuniscovery_3.webm";
-import { IconArrowRight } from "@tabler/icons-react";
+
+import { GraphicPlaceholder, MergedCard, IssueColumn, HeroBanner } from "./CaseStudyComponents";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
 function Sections() {
+  const containerRef = useRef(null);
+  const bannerRef = useRef(null);
+
+  useGSAP(() => {
+    // Premium breathing banner background animation
+    const colors = ["#E63946", "#715AFF", "#588157", "#4361EE", "#6798C0", "#D36135"];
+    gsap.set(bannerRef.current, { backgroundColor: colors[0] });
+
+    const tl = gsap.timeline({ repeat: -1 });
+    colors.forEach((color, i) => {
+      const nextColor = colors[(i + 1) % colors.length];
+      tl.to(bannerRef.current, {
+        backgroundColor: nextColor,
+        duration: 2,           // 2 second smooth crossfade
+        ease: "power3.inOut",  // Premium easing
+        delay: 2               // Hold the static color for 2 seconds before transitioning
+      });
+    });
+
+    const columns = gsap.utils.toArray(".spectrum-column");
+    const mergedCards = gsap.utils.toArray(".merged-card-wrapper");
+    const allElements = [...columns, ...mergedCards];
+    const isMobile = window.innerWidth < 900;
+
+    gsap.set(allElements, { opacity: 0, y: 60, filter: "blur(20px)" });
+
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: isMobile ? "top 85%" : "top 75%",
+      onEnter: () => {
+        gsap.to(allElements, {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          stagger: isMobile ? 0.08 : 0.15,
+          ease: "power3.out",
+        });
+      },
+    });
+  }, { scope: containerRef });
+
   return (
-    <div className="section-container">
-      <div className="section-content">
-        <p className="section-sub">BACKGROUND</p>
-        <p className="section-title">Tuniscovery</p>
-        <p className="section-text">
+    <div className="servicespectrum-container" ref={containerRef} style={{ background: "transparent", minHeight: "auto", paddingBottom: "10vh" }}>
+
+      <HeroBanner 
+        containerRef={bannerRef}
+        customMedia={<img src={logo} alt="Tuniscovery" style={{ width: "80%", maxWidth: "400px", height: "auto", objectFit: "contain" }} />} 
+        title="Tuniscovery" 
+      />
+
+      <MergedCard badge="BACKGROUND" title="The Ultimate Tourism Gateway">
+        <p className="merged-description">
           <b>#TourismTechJam</b> was an intense 24-hour Hackathon hosted at The
-          Dot, organized by GIZ Tunisie as part of the <b>Tounes Wijhetouna</b>.
-          <br />
+          Dot, organized by GIZ Tunisie as part of the <b>Tounes Wijhetouna</b> initiative.
           This event was an incredible opportunity to delve into the current
-          state of <b>Tourism</b> in Tunisia and collaborate on innovative
-          solutions alongside the five active DMOs in the country. <br /> <br />
-          Our project focused on <b>developing a mobile app </b>designed to be
+          state of Tourism in Tunisia and collaborate on innovative
+          solutions alongside the five active DMOs in the country.
+        </p>
+        <p className="merged-description" style={{ marginTop: "1rem" }}>
+          Our project focused on <b>developing a mobile app</b> designed to be
           the ultimate gateway for tourists visiting Tunisia. We dedicated
           significant effort to creating an intuitive User Experience to ensure
           easy navigation and exploration.
         </p>
-        <br />
-        <p className="section-sub">Role</p>
-        <p className="section-text">
-          <b>UX/UI Designer</b>
-        </p>
-      </div>
-      <div className="section-content">
-        <p className="section-title">The Process</p>
-        <div className="process-container">
-          <p className="section-text">Understand</p>
-          <IconArrowRight />
-          <p className="section-text">Research</p>
-          <IconArrowRight />
-          <p className="section-text">Analyze</p>
-          <IconArrowRight />
-          <p className="section-text">Design</p>
-          <IconArrowRight />
-          <p className="section-text">Limited Testing</p>
-          <IconArrowRight />
-          <p className="section-text">Present</p>
+        <div className="merged-phases" style={{ marginTop: "3rem" }}>
+          <span>UX/UI Designer</span>
+          <span className="phase-arrow">→</span>
+          <span>Mobile App</span>
+          <span className="phase-arrow">→</span>
+          <span>Hackathon (24 hours)</span>
         </div>
-      </div>
-      <div className="section-content">
-        <p className="section-sub">The Problem</p>
-        <p className="section-title">
-          90% of tourists rely heavily on travel agencies to plan their trips,
-          limiting their ability to explore destinations independently.
-        </p>
-        <p className="section-text">
-          This dependency reduces the sense of adventure and customization,
-          leaving travelers with less opportunity to uncover hidden gems on
-          their own. It also causes some problems with local businesses that are
-          not affiliated with travel agencies <br /> <br />
-          The challenge is to create a tool that empowers tourists to
-          independently discover attractions, such as monuments, hotels, and
-          restaurants, while offering tailored suggestions that fit their unique
-          preferences and location in real-time.
-        </p>
-      </div>
-      <div className="section-content" style={{ width: "100%" }}>
-        <p className="section-sub">User Research</p>
-        <p className="section-title">Step 2: Let's do some research</p>
-        <br />
-        <div className="research-container">
-          <div className="research-container-item">
-            <p className="section-sub">Research Methods</p>
-            <p className="section-text">
-              <b>Existing solutions & systems</b>
-            </p>
-            <p className="section-text">
-              <b>Qualitative research (interviews with DMO managers)</b>
-            </p>
-            <p className="section-text">
-              <b>Quantitative research (Reviews of existing solutions)</b>
-            </p>
-            <p className="section-text" style={{ fontSize: "1rem" }}>
-              * Limited access to data due to hackathon constraints
-            </p>
-          </div>
-          <br />
-          <div className="research-container-item">
-            <p className="section-sub">Target users</p>
-            <p className="section-text">
-              <b>Tourists who want to explore Tunisian destinations</b>
-            </p>
-            <p className="section-text">
-              <b>DMOs who want to promote their destinations</b>
-            </p>
-            <p className="section-text">
-              <b>Small businesses located in each destination</b>
-            </p>
-          </div>
+      </MergedCard>
+
+      <MergedCard badge="THE PROCESS" title="Design Lifecycle">
+        <div className="merged-phases" style={{ marginTop: "1rem", fontSize: "1rem", color: "#fefae0", flexWrap: "wrap" }}>
+          <span className="for-label">1. UNDERSTAND</span>
+          <span className="phase-arrow">→</span>
+          <span className="for-label">2. RESEARCH</span>
+          <span className="phase-arrow">→</span>
+          <span className="for-label">3. ANALYZE</span>
+          <span className="phase-arrow">→</span>
+          <span className="for-label">4. DESIGN</span>
+          <span className="phase-arrow">→</span>
+          <span className="for-label">5. PITCH</span>
         </div>
-      </div>
-      <div className="section-content">
-        <p className="section-sub">Research Insights</p>
-        <p className="section-title">Reflecting on pain points</p>
-        <br />
-        <div className="avatars-container">
-          <div className="avatar-container">
-            <img
-              src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_9.png"
-              className="avatar-image"
-              alt="Sarah, User Persona"
-            />
-            <div className="avatar-info">
-              <p className="avatar-name">Sarah (United Kingdom)</p>
-              <p className="avatar-description">
-                "I’ve always relied on travel agencies to plan my trips because
-                they feel safe and organized. But sometimes, I wonder what I
-                might be missing out on. I’d love to explore more of Tunisia on
-                my own, but I worry about language barriers, getting lost, or
-                ending up in places I don’t feel comfortable. I need a tool that
-                gives me confidence to step out of my comfort zone while still
-                feeling secure."
-              </p>
-              <p className="avatar-description" style={{ color: "#fcef71" }}>
-                * MAIN HACKATHON TOPIC
-              </p>
-            </div>
-          </div>
-          <div className="avatar-container">
-            <img
-              src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_18.png"
-              className="avatar-image"
-              alt="Ahmed, User Persona"
-            />
-            <div className="avatar-info">
-              <p className="avatar-name">Ahmed (Tunisia)</p>
-              <p className="avatar-description">
-                "Tourists visiting our area often stick to major attractions
-                promoted by travel agencies, leaving out many of the unique
-                experiences we have to offer. My goal is to showcase everything
-                that makes our destination special, from our cultural events to
-                our hidden gems. I need a platform that not only highlights
-                these attractions but also allows me to directly reach and
-                inspire tourists in real time, encouraging them to explore
-                beyond their set itineraries."
-              </p>{" "}
-              <p className="avatar-description" style={{ color: "#fcef71" }}>
-                * MAIN HACKATHON TOPIC
-              </p>
-            </div>
-          </div>
-          <div className="avatar-container">
-            <img
-              src="https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_2.png"
-              className="avatar-image"
-              alt="Amel, User Persona"
-            />
-            <div className="avatar-info">
-              <p className="avatar-name">Amel (Tunisia)</p>
-              <p className="avatar-description">
-                "It’s hard to compete with big, agency-affiliated shops that get
-                all the attention. My ceramic shop represents the heart of
-                Tunisian craftsmanship, but tourists often don’t even know I
-                exist. I wish I had a way to promote my business to tourists who
-                are already nearby, show them what makes my work special, and
-                invite them to experience something truly authentic. It would
-                make a huge difference for my livelihood and for preserving our
-                culture."
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="section-container">
-        <div className="section-content">
-          <p className="section-title-fancy">
-            What if we could develop a mobile application that serves as the
-            <span className="fanciness"> ultimate gateway</span> for every
-            tourist?
-          </p>
-        </div>
-      </div>
-      <div className="section-content">
-        <p className="section-sub">What we created</p>
-        <p className="section-title">
-          Sites, Hotels, Restaurants, and journey planning in one package
+      </MergedCard>
+
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "clamp(2rem, 10vw, 4rem)" }}>The Problem</h2>
+
+      <MergedCard badge="THE CHALLENGE" title="Dependency & Isolation">
+        <p className="merged-description" style={{ maxWidth: "900px" }}>
+          <b>90% of tourists rely heavily on travel agencies to plan their trips, limiting their ability to explore destinations independently.</b>
         </p>
-        <p className="section-text">
-          Our aim was to make Tuniscovery the first application to download when
-          landing in Tunisia.
-          <br /> <br />
-          <b>Core features:</b>
-          <br /> - Robust trip planning system
-          <br /> - A space for every tunisian Destination Management
-          Organizations
-          <br /> - Exploring sites with immersive view features
+        <p className="merged-description" style={{ maxWidth: "900px", marginTop: "1rem" }}>
+          This dependency reduces the sense of adventure and customization, leaving travelers with less opportunity to uncover hidden gems on their own. It also causes problems with local businesses that are not affiliated with large travel agencies. The challenge is to create a tool that empowers tourists to independently discover attractions while offering tailored suggestions.
         </p>
-        <br />
-        <div className="cs-video-container">
-          <div className="cs-video-container-item">
-            <video
-              className="cs-video"
-              autoPlay
-              loop
-              muted
-              src={tuniscovery1}
-            />
-          </div>
-          <div className="cs-video-container-item">
-            <video
-              className="cs-video"
-              autoPlay
-              loop
-              muted
-              src={tuniscovery2}
-            />
-          </div>
-          <div className="cs-video-container-item">
-            <video
-              className="cs-video"
-              autoPlay
-              loop
-              muted
-              src={tuniscovery3}
-            />
-          </div>
-        </div>
+      </MergedCard>
+
+      <div className="spectrum-columns" style={{ marginTop: "5rem" }}>
+        <IssueColumn
+          number="01"
+          title="Tourists"
+          issueText="Rely heavily on organized travel agencies, missing authentic hidden gems due to safety or language concerns."
+        />
+        <IssueColumn
+          number="02"
+          title="DMO Managers"
+          issueText="Struggle to promote lesser-known cultural destinations and connect directly with tourists in real time."
+        />
+        <IssueColumn
+          number="03"
+          title="Local Businesses"
+          issueText="Suffer from a lack of visibility compared to agency-affiliated large-scale shops and restaurants."
+          last
+        />
+        <div className="spectrum-separator"></div>
       </div>
 
-      <div className="section-content">
-        <p className="section-sub">The Challenge</p>
-        <p className="section-title">Consistency vs Diversity</p>
-        <p className="section-text">
-          One of the challenges of this hackathon was to offer a space for
-          tunisian DMOs given that each DMO got a distinct color palette and
-          design language that represents the diversity of the tunisian
-          landscape (beaches, deserts, forests, ancient ruines...)
-          <br /> <br />
-          We crafted a set of color palettes for destination featured on our
-          application taking into account the landscapes and the activities that
-          can be done in each destination and applying the 60-30-10 rule. <br />{" "}
-          <br />
-          We also created a main color palette for our application that reflects
-          on our iconic tunisian culture
-          <br /> <br />
-          <div className="section-color-tile">
-            <p className="dmo-title">
-              <b>Tuniscovery</b>
-            </p>
-            <div className="colors">
-              <div className="colorpick" style={{ backgroundColor: "#F7F9FC" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#0A131F" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#E63946" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#1D3557" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#F1FAEE" }}>
-                {" "}
-              </div>
-            </div>
-          </div>
-          <br />
-          <div className="section-color-tile">
-            <p className="dmo-title">DMO Tunis Carthage</p>
-            <div className="colors">
-              <div className="colorpick" style={{ backgroundColor: "#715AFF" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#102E4A" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#A682FF" }}>
-                {" "}
-              </div>
-            </div>
-          </div>
-          <div className="section-color-tile">
-            <p className="dmo-title">DMO Zaghouan</p>
-            <div className="colors">
-              <div className="colorpick" style={{ backgroundColor: "#588157" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#FEFAE0" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#283618" }}>
-                {" "}
-              </div>
-            </div>
-          </div>
-          <div className="section-color-tile">
-            <p className="dmo-title">DMO Mehdia</p>
-            <div className="colors">
-              <div className="colorpick" style={{ backgroundColor: "#4361EE" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#F72585" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#3A0CA3" }}>
-                {" "}
-              </div>
-            </div>
-          </div>
-          <div className="section-color-tile">
-            <p className="dmo-title">DMO Djerba</p>
-            <div className="colors">
-              <div className="colorpick" style={{ backgroundColor: "#6798C0" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#FDC921" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#FFFDF7" }}>
-                {" "}
-              </div>
-            </div>
-          </div>
-          <div className="section-color-tile">
-            <p className="dmo-title">DMO Dahar</p>
-            <div className="colors">
-              <div className="colorpick" style={{ backgroundColor: "#D36135" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#282B28" }}>
-                {" "}
-              </div>
-              <div className="colorpick" style={{ backgroundColor: "#3E5641" }}>
-                {" "}
-              </div>
-            </div>
-          </div>
+      <MergedCard badge="SOLUTION" title="Sites, Hotels, and Journeys">
+        <p className="merged-description">
+          Our aim was to make Tuniscovery the first application to download when landing in Tunisia.
         </p>
-      </div>
-      <div className="section-content">
-        <p className="section-sub">The result</p>
-        <p className="section-title">We were awarded the second prize 🏆</p>
-        <p className="section-text">
-          Our application was highly appreciated by the jury especially for it's
-          design. Huge shoutout to{" "}
-          <a
-            href="https://www.linkedin.com/in/ahmed-trabelsi-42986116b/"
-            target="_blank" rel="noreferrer"
-          >
-            <b>@AhmedTrabelsi </b>
-          </a>
-          for this effective partnership!
-          <br /> <br />
-        </p>
-        <div className="section-image-container">
-          <img className="section-image" src={img6} alt="Process step 6" />
-          <img className="section-image" src={img5} alt="Process step 5" />
-          <img className="section-image" src={img4} alt="Process step 4" />
-          <img className="section-image" src={img3} alt="Process step 3" />
-          <img className="section-image" src={img2} alt="Process step 2" />
-          <img className="section-image" src={img1} alt="Process step 1" />
+        <ul className="column-services" style={{ marginTop: "2rem", listStyleType: "disc", paddingLeft: "1.5rem" }}>
+          <li><b>Trip Planning:</b> A robust journey planning system mapping out full days.</li>
+          <li><b>DMO Integration:</b> A dedicated space for every Tunisian Destination Management Organization.</li>
+          <li><b>Immersive Views:</b> Exploring sites with full video and immersive rich media.</li>
+        </ul>
+      </MergedCard>
+
+      <GraphicPlaceholder noBorder>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1px", width: "100%", background: "rgba(254, 250, 224, 0.15)" }}>
+          <video src={tuniscovery1} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block", backgroundColor: "#000" }} />
+          <video src={tuniscovery2} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block", backgroundColor: "#000" }} />
+          <video src={tuniscovery3} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block", backgroundColor: "#000" }} />
         </div>
-      </div>
-      <div className="fin">
-        <p className="section-sub">UX Case Study</p>
-        <img src={logo} className="logo" alt="Tuniscovery Logo" />
-        <Link to="/">
-          <MagneticButton>
-            <div className="studycase-btn">
-              <p className="studycase-txt">HOME PAGE</p>
+      </GraphicPlaceholder>
+
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "clamp(2rem, 10vw, 4rem)" }}>Visual Identity</h2>
+
+      <MergedCard badge="BRANDING" title="Consistency vs Diversity">
+        <p className="merged-description" style={{ maxWidth: "900px" }}>
+          One of the challenges of this hackathon was to offer a space for Tunisian DMOs given that each DMO has a distinct color palette and design language that represents the diversity of the Tunisian landscape (beaches, deserts, forests, ancient ruins). We crafted a set of color palettes applying the 60-30-10 rule.
+        </p>
+
+        <div style={{ display: "flex", gap: "1rem", overflowX: "auto", paddingBottom: "1rem", WebkitOverflowScrolling: "touch", width: "100%" }}>
+          {[
+            { name: "Tuniscovery Main", colors: ["#F7F9FC", "#0A131F", "#E63946", "#1D3557", "#F1FAEE"] },
+            { name: "DMO Tunis Carthage", colors: ["#715AFF", "#102E4A", "#A682FF"] },
+            { name: "DMO Zaghouan", colors: ["#588157", "#FEFAE0", "#283618"] },
+            { name: "DMO Mehdia", colors: ["#4361EE", "#F72585", "#3A0CA3"] },
+            { name: "DMO Djerba", colors: ["#6798C0", "#FDC921", "#FFFDF7"] },
+            { name: "DMO Dahar", colors: ["#D36135", "#282B28", "#3E5641"] },
+          ].map(palette => (
+            <div key={palette.name} style={{ display: "flex", flexDirection: "column", border: "1px solid rgba(254, 250, 224, 0.15)", gap: "1rem", padding: "1.5rem", background: "rgba(0,0,0,0.2)", flexShrink: 0, minWidth: "200px" }}>
+              <p className="for-label" style={{ margin: "0", marginBottom: "1rem" }}>{palette.name}</p>
+              <div style={{ display: "flex", width: "100%", height: "24px" }}>
+                {palette.colors.map((color, idx) => (
+                  <div key={idx} style={{ flex: 1, backgroundColor: color }}></div>
+                ))}
+              </div>
             </div>
-          </MagneticButton>
-        </Link>
-      </div>
+          ))}
+        </div>
+      </MergedCard>
+
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "clamp(2rem, 10vw, 4rem)" }}>Outcome</h2>
+
+      <MergedCard badge="THE RESULT" title="Awarded Second Prize 🏆">
+        <p className="merged-description">
+          Our application was highly appreciated by the jury, especially for its design execution within the 24-hour limit.
+        </p>
+      </MergedCard>
+
+      <GraphicPlaceholder noBorder>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 600px), 1fr))", gap: "1px", width: "100%", background: "rgba(254, 250, 224, 0.15)" }}>
+          {[img6, img5, img4, img3, img2, img1].map((img, idx) => (
+            <img key={idx} src={img} alt={`Process ${idx}`} style={{ width: "100%", height: "auto", display: "block", backgroundColor: "#000" }} />
+          ))}
+        </div>
+      </GraphicPlaceholder>
+
     </div>
   );
 }

@@ -92,7 +92,7 @@ function App() {
                 <Route path="/projects" element={<ProjectPage />} />
                 <Route path="/unidebnotes" element={<UnidebNotes />} />
                 <Route path="/menasyp25" element={<MENASYP />} />
-                <Route path="/ds-ai-infra" element={<DSAIInfra />} />
+                <Route path="/swatch-mcp" element={<DSAIInfra />} />
                 <Route path="/*" element={<P404 />} />
               </Routes>
             </Suspense>

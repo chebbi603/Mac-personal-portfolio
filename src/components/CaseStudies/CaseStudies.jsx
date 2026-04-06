@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 import tuniscoveryVid from "../../pages/Projects/hack4tourism/tuniscovery.webm";
 import twoamVid from "../../pages/Projects/2am/2am.webm";
 import unidebVid from "../../pages/Projects/unidebnotes/unidebnotes.webm";
-import dsaiinfraVid from "../../pages/DSAIInfra/placeholder.mp4";
+import dsaiinfraVid from "../../pages/DSAIInfra/swatch-cover.png";
 // MENASYP video is in public folder
 const menasypVid = "/menasyp_mobile_optimized.mp4";
 
@@ -21,13 +21,13 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const projects = [
   {
     id: 1,
-    title: "DS AI Infra",
+    title: "Swatch MCP",
     type: "AI INFRASTRUCTURE",
     description: "An MCP + RAG workflow that retrieves design system logic at generation time, reducing AI coding waste.",
-    video: dsaiinfraVid,
-    path: "/ds-ai-infra",
+    photo: dsaiinfraVid,
+    path: "/swatch-mcp",
     external: false,
-    color: "#1c1c1c"
+    color: "#5a2011ff"
   },
   {
     id: 2,
@@ -51,16 +51,6 @@ const projects = [
   },
   {
     id: 3,
-    title: "Two AM Production",
-    type: "CONTENT CREATION",
-    description: "Ahmed, Ayoub, and Malek working on cool videos. Engineering, Content Creation, and Technology.",
-    video: twoamVid,
-    path: "https://www.instagram.com/two_am_prod/",
-    external: true,
-    color: "#3d348b"
-  },
-  {
-    id: 4,
     title: "UNIDEB Notes",
     type: "UX/UI DESIGN - DEV",
     description: "A place for University of Debrecen students to share their lecture notes and study materials.",
@@ -96,29 +86,37 @@ function CaseStudyCard({ project }) {
 
   // Use simple mouse events just for the video play/pause on Desktop
   const handleMouseEnter = () => {
-    if (!isMobile && videoRef.current) {
+    if (!isMobile && project.video && videoRef.current) {
       videoRef.current.play();
     }
   };
 
   const handleMouseLeave = () => {
-    if (!isMobile && videoRef.current) {
+    if (!isMobile && project.video && videoRef.current) {
       videoRef.current.pause();
     }
   };
 
   const CardContent = (
     <>
-      <video
-        ref={videoRef}
-        className="casestudy-video"
-        src={project.video}
-        muted
-        loop
-        playsInline
-        autoPlay={isMobile} // Only autoplay property on mobile
-        preload="metadata" // Metadata is enough since we might not play immediately on desktop
-      />
+      {project.video ? (
+        <video
+          ref={videoRef}
+          className="casestudy-video"
+          src={`${project.video}#t=0.001`}
+          muted
+          loop
+          playsInline
+          autoPlay={isMobile}
+          preload="auto"
+        />
+      ) : (
+        <img 
+          src={project.photo} 
+          alt={project.title} 
+          className="casestudy-video" 
+        />
+      )}
       {/* Dynamic gradient color passed via style */}
       <div 
         className="casestudy-overlay"

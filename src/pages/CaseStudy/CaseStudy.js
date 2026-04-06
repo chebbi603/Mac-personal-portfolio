@@ -8,43 +8,32 @@ import Sections from "./Section";
 import { useGSAP } from "@gsap/react";
 import Navbar from "../../components/Navbar/navbar";
 import CaseStudyHeader from "./CaseStudyHeader";
+import Contact from "../../components/Contact/contact";
 
 function CaseStudy() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
 
-  ScrollTrigger.normalizeScroll(true);
-
   const studyScope = useRef();
-  useGSAP(
-    () => {
-      var studies = gsap.utils.toArray(".section-content");
+  
+  useGSAP(() => {
+    // Background color animation triggered by scroll
+    gsap.fromTo(
+      studyScope.current,
+      { backgroundColor: "#000000" },
+      {
+        backgroundColor: "#010D1A",
+        scrollTrigger: {
+          trigger: studyScope.current,
+          start: "top top",
+          end: "+=1000",
+          scrub: true,
+        },
+      }
+    );
+  }, { scope: studyScope });
 
-      studies.forEach((content, index) => {
-        gsap.fromTo(
-          content,
-          {
-            opacity: 0,
-            y: 100,
-          },
-          {
-            scrollTrigger: {
-              trigger: content,
-              start: "top 80%",
-              end: "top 60%",
-              scrub: true,
-            },
-            y: 0,
-            opacity: 1,
-          }
-        );
-      });
-    },
-    { scope: studyScope }
-  );
-
-  ScrollTrigger.refresh();
 
   return (
     <div className="case-container" ref={studyScope}>
@@ -54,9 +43,14 @@ function CaseStudy() {
         text2={"UX CASE STUDY"}
         onLoadComplete={() => setPreloaderFinished(true)}
       />
-      <div className="darkness"></div>
-      <CaseStudyHeader startAnimation={preloaderFinished} />
+      
+      {/* <CaseStudyHeader startAnimation={preloaderFinished} /> */}
       <Sections />
+      
+      <div className="footer">
+         <Contact />
+      </div>
+
     </div>
   );
 }

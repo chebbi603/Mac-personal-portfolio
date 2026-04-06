@@ -6,43 +6,31 @@ import Preloader from "../../components/Preloader/preloader";
 import DSAIInfraSection from "./DSAIInfraSection";
 import { useGSAP } from "@gsap/react";
 import Navbar from "../../components/Navbar/navbar";
+import Contact from "../../components/Contact/contact";
 
 function DSAIInfra() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
 
-  ScrollTrigger.normalizeScroll(true);
-
   const studyScope = useRef();
-  useGSAP(
-    () => {
-      var studies = gsap.utils.toArray(".section-content");
-
-      studies.forEach((content, index) => {
-        gsap.fromTo(
-          content,
-          {
-            opacity: 0,
-            y: 100,
-          },
-          {
-            scrollTrigger: {
-              trigger: content,
-              start: "top 80%",
-              end: "top 60%",
-              scrub: true,
-            },
-            y: 0,
-            opacity: 1,
-          }
-        );
-      });
-    },
-    { scope: studyScope }
-  );
-
-  ScrollTrigger.refresh();
+  
+  useGSAP(() => {
+    // Background color animation triggered by scroll
+    gsap.fromTo(
+      studyScope.current,
+      { backgroundColor: "#000000" },
+      {
+        backgroundColor: "#121212",
+        scrollTrigger: {
+          trigger: studyScope.current,
+          start: "top top",
+          end: "+=1000",
+          scrub: true,
+        },
+      }
+    );
+  }, { scope: studyScope });
 
   return (
     <div className="case-container" ref={studyScope}>
@@ -53,6 +41,9 @@ function DSAIInfra() {
         onLoadComplete={() => setPreloaderFinished(true)}
       />
       <DSAIInfraSection />
+      <div className="footer">
+         <Contact />
+      </div>
     </div>
   );
 }

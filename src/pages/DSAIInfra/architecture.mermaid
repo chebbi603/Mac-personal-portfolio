@@ -1,0 +1,44 @@
+graph TD
+    subgraph "Clients"
+        Claude["Claude Desktop (AI Agent)"]
+        OtherAgents["Future Agents (e.g., Google ADK)"]
+    end
+
+    subgraph "External Services"
+        GoogleAI["Google AI SDK (Embeddings)"]
+    end
+
+    subgraph "Protocol Adapters (src/mcp_server)"
+        MCPServer["MCP Server (stdio)"]
+        Tools["MCP Tools (query, details, list)"]
+    end
+
+    subgraph "Core Intelligence (src/swatch)"
+        API["API Facade (api.py)"]
+        CatalogLoader["Catalog Loader (JSON Parsing)"]
+        EmbeddingGen["Embedding Generator (Google AI)"]
+        Retriever["Vector Retriever (ChromaDB)"]
+        Models["Pydantic Models (types)"]
+    end
+
+    subgraph "Data Store"
+        VectorDB[("ChromaDB Vector Store")]
+        JSONCatalog[("Component Catalog (.json)")]
+    end
+
+    %% Connections
+    Claude -->|MCP Protocol| MCPServer
+    OtherAgents -.->|Future ADK| Tools
+    MCPServer --> Tools
+    Tools -->|Uses| API
+    
+    API --> CatalogLoader
+    API --> Retriever
+    
+    CatalogLoader -->|Reads| JSONCatalog
+    Retriever -->|Queries| VectorDB
+    
+    EmbeddingGen -->|Generates| GoogleAI
+    EmbeddingGen -->|Index/Search| Retriever
+    
+    API -->|Validates| Models

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../CaseStudy/casestudy.css";
+import "../../components/ServiceSpectrum/servicespectrum.css";
 import { Link } from "react-router-dom";
 import ScrollVideoComponent from "../CaseStudy/ScrollVideoComponent";
+import MediaQuery from "react-responsive";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 import presentation1 from "./assets/menapresentation-1.webp";
 import presentation2 from "./assets/menapresentation-2.webp";
@@ -13,134 +18,108 @@ import presentation7 from "./assets/menapresentation-7.webp";
 import presentation8 from "./assets/menapresentation-8.webp";
 import presentation9 from "./assets/menapresentation-9.webp";
 import presentation10 from "./assets/menapresentation-10.webp";
-// import menasypVideo from "./assets/menasyp_with_audio.webm";
-import MediaQuery from "react-responsive";
+
+import { GraphicPlaceholder, MergedCard, HeroBanner } from "../CaseStudy/CaseStudyComponents";
+
 const menasypVideo = "/menasyp_mobile_optimized.mp4";
 const menasypVideoWebm = "/menasyp_with_audio.webm";
 
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
 function MENASYPSections() {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const columns = gsap.utils.toArray(".spectrum-column");
+    const mergedCards = gsap.utils.toArray(".merged-card-wrapper");
+    const allElements = [...columns, ...mergedCards];
+    const isMobile = window.innerWidth < 900;
+
+    gsap.set(allElements, { opacity: 0, y: 60, filter: "blur(20px)" });
+
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: isMobile ? "top 85%" : "top 75%",
+      onEnter: () => {
+        gsap.to(allElements, {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          stagger: isMobile ? 0.08 : 0.15,
+          ease: "power3.out",
+        });
+      },
+    });
+  }, { scope: containerRef });
+
   return (
-    <div className="mena-section-container">
-      <div className="section-content">
-        <MediaQuery query="(max-device-width: 1000px)">
-          <div style={{ height: "100px" }}></div>
-        </MediaQuery>
-        <MediaQuery query="(min-device-width: 1000px)">
-          <div style={{ height: "200px" }}></div>
-        </MediaQuery>
-        <p className="section-sub">OVERVIEW</p>
-        <p className="section-title" style={{ color: "#FF2057" }}>
-          IEEE R8 MENA SYP 2025
+    <div className="servicespectrum-container" ref={containerRef} style={{ background: "transparent", minHeight: "auto", paddingBottom: "10vh" }}>
+
+      <HeroBanner imgSrc={presentation6} title="MENASYP 2025" />
+
+      <MergedCard badge="IEEE R8" title="The First Fusion of MESYP and NASYP">
+        <p className="merged-description" style={{ maxWidth: "800px" }}>
+          The <b>R8 MENA SYP 2025</b>, organized by IEEE INSAT, will be the first-ever fusion of MESYP and NASYP. It will take place in Gammarth, Tunis, Tunisia, from August 27 to 29, 2025.
         </p>
-        <p className="section-text">
-          The <b>R8 MENA SYP 2025</b>, organized by IEEE INSAT, will be the{" "}
-          <b>first-ever fusion of MESYP and NASYP.</b> It will take place in
-          Gammarth, Tunis, Tunisia, from August 27 to 29, 2025.
-          <br />
-          <b>
-            MENA SYP 2025 will combine technological innovation, international
-            networking, and cultural immersion
-          </b>
-          , marking a turning point for IEEE events.
+        <p className="merged-description" style={{ maxWidth: "800px", marginTop: "1rem" }}>
+          <b>MENA SYP 2025 will combine technological innovation, international networking, and cultural immersion</b>, marking a turning point for IEEE events.
         </p>
-        <br />
-        <p className="section-sub">Role</p>
-        <p className="section-text">
-          <b>Graphic & Brand Designer</b>
-        </p>
-        <br />
-        <p className="section-sub">Tools</p>
-        <p className="section-text">
-          <b>Figma - After Effects - Premiere Pro</b>
-        </p>
-      </div>
+
+        <div className="merged-phases" style={{ marginTop: "3rem" }}>
+          <span>Graphic & Brand Designer</span>
+          <span className="phase-arrow">→</span>
+          <span>Figma / After Effects / Premiere Pro</span>
+        </div>
+      </MergedCard>
+
       <MediaQuery query="(min-device-width: 1000px)">
-        <ScrollVideoComponent
-          frameCount={80}
-          framePrefix="frame_"
-          frameExtension="jpg"
-        />
+        <GraphicPlaceholder noBorder>
+          <video
+            autoPlay loop muted
+            style={{ width: "100%", display: "block", backgroundColor: "#000" }}
+            preload="metadata"
+            playsInline
+            webkit-playsinline="true"
+          >
+            <source src={menasypVideo} type="video/mp4" />
+            <source src={menasypVideoWebm} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </GraphicPlaceholder>
       </MediaQuery>
-      <div className="section-content">
-        <p className="section-sub">Design Process</p>
-        <p className="section-title">Visual Identity & Brand Development</p>
-        <p className="section-text">
-          The design process focused on creating a cohesive visual identity that
-          represents the fusion of MENA cultures while highlighting Tunisia's
-          role as the host country.
+
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>Visual Identity</h2>
+
+      <MergedCard badge="DESIGN PROCESS" title="Brand Development">
+        <p className="merged-description">
+          The design process focused on creating a cohesive visual identity that represents the fusion of MENA cultures while highlighting Tunisia's role as the host country.
         </p>
-        <br />
-        <div className="section-image-container">
-          <img src={presentation1} className="section-image" alt="Presentation slide 1" />
-          <img src={presentation2} className="section-image" alt="Presentation slide 2" />
-          <img src={presentation3} className="section-image" alt="Presentation slide 3" />
-          <img src={presentation4} className="section-image" alt="Presentation slide 4" />
-          <img src={presentation5} className="section-image" alt="Presentation slide 5" />
-        </div>
-      </div>
+      </MergedCard>
 
-      <div className="section-content">
-        <p className="section-sub">Final Results</p>
-        <p className="section-title">Brand Implementation</p>
-        <p className="section-text">
-          The final brand identity successfully captures the essence of the MENA
-          region while maintaining a modern and professional appearance suitable
-          for an international congress.
+      <GraphicPlaceholder noBorder>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1px", width: "100%", background: "rgba(254, 250, 224, 0.15)" }}>
+          {[presentation1, presentation2, presentation3, presentation4, presentation5].map((img, idx) => (
+            <img key={idx} src={img} alt={`Process ${idx}`} style={{ width: "100%", height: "auto", display: "block", backgroundColor: "#000" }} />
+          ))}
+        </div>
+      </GraphicPlaceholder>
+
+      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>Results</h2>
+
+      <MergedCard badge="FINAL RESULTS" title="Brand Implementation">
+        <p className="merged-description">
+          The final brand identity successfully captures the essence of the MENA region while maintaining a modern and professional appearance suitable for an international congress.
         </p>
-        <br />
-        <div className="section-image-container">
-          <img src={presentation6} className="section-image" alt="Presentation slide 6" />
-          <img src={presentation7} className="section-image" alt="Presentation slide 7" />
-          <img src={presentation8} className="section-image" alt="Presentation slide 8" />
-          <img src={presentation9} className="section-image" alt="Presentation slide 9" />
-          <img src={presentation10} className="section-image" alt="Presentation slide 10" />
-        </div>
-      </div>
+      </MergedCard>
 
-      <div className="section-content">
-        <p className="section-sub">Final Presentation</p>
-        <p className="section-title">Project Showcase</p>
-        <p className="section-text">
-          Watch the complete presentation showcasing the MENASYP brand identity
-          and design process.
-        </p>
-        <br />
-        <video
-          controls
-          className="section-image"
-          style={{ width: "100%" }}
-          preload="metadata"
-          playsInline
-          webkit-playsinline="true"
-        >
-          <source src={menasypVideo} type="video/mp4" />
-          <source src={menasypVideoWebm} type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div className="fin">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          <p className="section-sub">Project Presentation</p>
-          <p className="section-title-fancy">MENASYP</p>
-          <br />
+      <GraphicPlaceholder noBorder>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1px", width: "100%", background: "rgba(254, 250, 224, 0.15)" }}>
+          {[presentation6, presentation7, presentation8, presentation9, presentation10].map((img, idx) => (
+            <img key={idx} src={img} alt={`Results ${idx}`} style={{ width: "100%", height: "auto", display: "block", backgroundColor: "#000" }} />
+          ))}
         </div>
-
-        <div style={{ display: "flex", gap: "16px" }}>
-          <Link to="/">
-            <div className="studycase-btn">
-              <p className="studycase-txt">HOME PAGE</p>
-            </div>
-          </Link>
-        </div>
-      </div>
+      </GraphicPlaceholder>
     </div>
   );
 }

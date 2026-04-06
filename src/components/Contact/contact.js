@@ -1,14 +1,25 @@
 import "./contact.css";
 import "../../home.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import resumePDF from "../../assets/Mohamed Ayoub Chebbi Resume Forward-Deployed.pdf";
+import { IconX } from "@tabler/icons-react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function Contact() {
   const signatureRef = useRef(null);
+  const [showResume, setShowResume] = useState(false);
+
+  const toggleResume = (e) => {
+    // On mobile, prefer the native browser viewer (new tab)
+    if (window.innerWidth < 900) return;
+    
+    e.preventDefault();
+    setShowResume(!showResume);
+  };
 
   useGSAP(() => {
     if (!signatureRef.current) return;
@@ -58,7 +69,7 @@ function Contact() {
         {/* Left - Headlines */}
         <div className="footer-headlines">
           <h2 className="contact-title">Let's Build Something Intelligent.</h2>
-          <p className="footer-tagline">Currently accepting partners for Q1 2026.</p>
+          <p className="footer-tagline">Currently accepting partners for Q2 2026.</p>
         </div>
 
         {/* Right - Links */}
@@ -120,7 +131,8 @@ function Contact() {
             <div className="menu-link-element">
               <a
                 className="menu-link-text"
-                href="https://docs.google.com/document/d/1yMcimjWwgk-uz37sfpEnC_1TAqAn8VN6pbHjrjwuwjI/edit?usp=sharing"
+                href={resumePDF}
+                onClick={toggleResume}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -130,6 +142,22 @@ function Contact() {
           </div>
         </div>
       </div>
+
+      {/* PDF Modal */}
+      {showResume && (
+        <div className="resume-modal-overlay" onClick={() => setShowResume(false)}>
+          <div className="resume-modal-container" onClick={(e) => e.stopPropagation()}>
+            <button className="resume-modal-close" onClick={() => setShowResume(false)}>
+              <IconX size={24} />
+            </button>
+            <iframe 
+              src={`${resumePDF}#toolbar=0`} 
+              className="resume-iframe" 
+              title="Resume Viewer"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Bottom Section */}
       <div className="footer-bottom">
