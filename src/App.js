@@ -1,5 +1,5 @@
 import "./App.css";
-import Lenis from "@studio-freight/lenis";
+import { initLenis, setupScrollTrigger } from "./utils/scroll";
 import { initializeApp } from "firebase/app";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router";
@@ -38,16 +38,8 @@ function App() {
 
   initializeApp(firebaseConfig);
 
-  const lenis = new Lenis({
-    duration: 0.6,
-    easing: (t) => Math.min(1, 1 - Math.pow(2, -10 * t)),
-  });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
+  // Initialise Lenis only on desktop (mobile uses native scroll)
+  initLenis();
 
   const useScrollRestoration = () => {
     const { pathname } = useLocation();

@@ -14,11 +14,12 @@ import Pictures from "../../components/Pictures/Picture";
 import unideb from "./unidebnotes/unidebnotes.webm";
 // import mena from "../menasyp/assets/menasyp_with_audio.webm";
 import { IconArrowDownLeft } from "@tabler/icons-react";
+import { setupScrollTrigger } from "../../utils/scroll";
 const mena = "/menasyp_mobile_optimized.mp4";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.normalizeScroll(true);
+setupScrollTrigger();
 
 function ProjectItem({ tag }) {
   return (

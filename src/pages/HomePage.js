@@ -13,6 +13,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
+import { setupScrollTrigger } from "../utils/scroll";
 import Pictures from "../components/Pictures/Picture";
 import Companies from "../components/Companies/Companies";
 import { useSectionNavigation } from "../hooks/useSectionNavigation";
@@ -22,7 +23,7 @@ import { useContextAwareness } from "../hooks/useContextAwareness";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.normalizeScroll(true);
+setupScrollTrigger();
 
 function HomePage() {
   const el = useRef();

@@ -3,9 +3,16 @@
 
 .App {
   text-align: center;
-  overscroll-behavior: none;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .App {
+    overscroll-behavior: none;
+    overflow-y: hidden;
+  }
 }
 ::-webkit-scrollbar {
   display: none;

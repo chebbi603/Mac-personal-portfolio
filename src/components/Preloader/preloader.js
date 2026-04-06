@@ -95,7 +95,11 @@ function Preloader({ onLoadComplete }) {
         delay: 0.9,
         ease: "power2.inOut",
         onComplete: () => {
-          gsap.set(preloaderContainer.current, { zIndex: -1 });
+          gsap.set(preloaderContainer.current, { 
+            zIndex: -1, 
+            pointerEvents: "none", 
+            display: "none" 
+          });
           if (onLoadComplete) onLoadComplete();
         },
       });

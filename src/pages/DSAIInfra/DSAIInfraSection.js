@@ -13,7 +13,10 @@ import mcpConfigImg from "./mcpconfig.png";
 import ArchitectureVisual from "./ArchitectureVisual";
 import { GraphicPlaceholder, MergedCard, IssueColumn, ValueColumn, HeroBanner } from "../CaseStudy/CaseStudyComponents";
 
+import { setupScrollTrigger } from "../../utils/scroll";
+
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+setupScrollTrigger();
 
 // --- Main Component ---
 
@@ -63,7 +66,7 @@ function DSAIInfraSection() {
       </MergedCard>
 
       <GraphicPlaceholder noBorder>
-        <video src={swatchVideo} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }} />
+        <video src={swatchVideo} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block", touchAction: "pan-y", pointerEvents: "none" }} />
       </GraphicPlaceholder>
 
       {/* 2. Executive Summary */}
@@ -113,7 +116,7 @@ function DSAIInfraSection() {
       </MergedCard>
 
       <GraphicPlaceholder noBorder>
-        <img src={codeImg} alt="5D Intelligence Schema" style={{ width: "100%", height: "auto", display: "block" }} />
+        <img src={codeImg} alt="5D Intelligence Schema" style={{ width: "100%", height: "auto", display: "block", touchAction: "pan-y" }} />
       </GraphicPlaceholder>
 
       {/* 4. Solution Workflow Architecture */}
@@ -144,7 +147,7 @@ function DSAIInfraSection() {
         </p>
 
         <div style={{ marginTop: "3rem" }}>
-          <img src={mcpConfigImg} alt="MCP Config" style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px" }} />
+          <img src={mcpConfigImg} alt="MCP Config" style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px", touchAction: "pan-y" }} />
         </div>
       </MergedCard>
 

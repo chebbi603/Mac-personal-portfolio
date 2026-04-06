@@ -7,6 +7,7 @@ import MediaQuery from "react-responsive";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { setupScrollTrigger } from "../../utils/scroll";
 
 import presentation1 from "./assets/menapresentation-1.webp";
 import presentation2 from "./assets/menapresentation-2.webp";
@@ -25,6 +26,7 @@ const menasypVideo = "/menasyp_mobile_optimized.mp4";
 const menasypVideoWebm = "/menasyp_with_audio.webm";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+setupScrollTrigger();
 
 function MENASYPSections() {
   const containerRef = useRef(null);

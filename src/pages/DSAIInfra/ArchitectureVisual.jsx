@@ -2,9 +2,11 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { setupScrollTrigger } from "../../utils/scroll";
 import "./ArchitectureVisual.css";
 
 gsap.registerPlugin(ScrollTrigger);
+setupScrollTrigger();
 
 const stages = [
   {

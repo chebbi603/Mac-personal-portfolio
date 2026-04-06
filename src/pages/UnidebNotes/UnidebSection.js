@@ -12,10 +12,12 @@ import MediaQuery from "react-responsive";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { setupScrollTrigger } from "../../utils/scroll";
 
 import { GraphicPlaceholder, MergedCard, IssueColumn, ValueColumn, HeroBanner } from "../CaseStudy/CaseStudyComponents";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+setupScrollTrigger();
 
 const PersonaColumn = ({ name, role, quote, avatarUrl, last }) => (
   <div className={`spectrum-column ${last ? '' : 'spectrum-column-no-border-right'}`}>
@@ -199,7 +201,7 @@ function UnidebSections() {
       </MergedCard>
 
       <GraphicPlaceholder noBorder>
-        <video src={searchv} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }} />
+        <video src={searchv} autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block", pointerEvents: "none", touchAction: "pan-y" }} />
       </GraphicPlaceholder>
 
       <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "4rem" }}>Identity</h2>

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import "../CaseStudy/casestudy.css";
 import gsap from "gsap";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { setupScrollTrigger } from "../../utils/scroll";
 import Preloader from "../../components/Preloader/preloader";
 import DSAIInfraSection from "./DSAIInfraSection";
 import { useGSAP } from "@gsap/react";
@@ -10,8 +11,8 @@ import Contact from "../../components/Contact/contact";
 
 function DSAIInfra() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  setupScrollTrigger();
 
   const studyScope = useRef();
   
