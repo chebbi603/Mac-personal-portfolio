@@ -6,6 +6,29 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.contact-audit-container > * {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .contact-audit-container {
+    width: 100%;
+    right: 0;
+    left: 0;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  .contact-audit-container.has-home-btn {
+    justify-content: space-between;
+  }
+  .contact-audit-wrapper {
+    flex: 1;
+    width: auto !important;
+  }
 }
 
 /* The expanding container */
@@ -83,4 +106,29 @@
 
 .audit-option-highlighted:hover {
   background: #108a00 !important;
+}
+
+.home-action-btn {
+  background-color: #fefae0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.home-action-btn:hover {
+  background-color: #f0ebd0;
+}
+
+.home-action-btn:active {
+  transform: scale(0.95);
 }

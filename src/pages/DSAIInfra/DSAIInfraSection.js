@@ -54,7 +54,7 @@ function DSAIInfraSection() {
 
       <MergedCard badge="OPEN SOURCE PROJECT" title="Semantic Component Intelligence for AI Agents">
         <p className="merged-description">
-          An open-source RAG-powered knowledge layer that gives AI coding agents structured, searchable baseline knowledge about every component in your design system. Deployed at BMW.
+          An open-source RAG-powered knowledge layer that gives AI coding agents structured, searchable baseline knowledge about every component in your design system.
         </p>
         <div className="merged-phases" style={{ marginTop: "3rem" }}>
           <span>UX Engineer & AI Strategist</span>
@@ -136,9 +136,9 @@ function DSAIInfraSection() {
         <ArchitectureVisual />
       </GraphicPlaceholder>
 
-      <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "clamp(2.5rem, 10vw, 4rem)" }}>BMW Context</h2>
+      {/* <h2 className="servicespectrum-title" style={{ marginTop: "5rem", fontSize: "clamp(2.5rem, 10vw, 4rem)" }}>BMW Context</h2> */}
 
-      <MergedCard badge="ENTERPRISE IMPLEMENTATION" title="Deploying at BMW">
+      {/* <MergedCard badge="ENTERPRISE IMPLEMENTATION" title="Deploying at BMW">
         <p className="merged-description" style={{ maxWidth: "1000px" }}>
           BMW's frontend engineering runs a heavy, custom React design system. While Claude Code had excellent generalized React capabilities, it had absolute zero awareness of BMW's brand extensions, internationalisation protocols, or naming conventions. Agents routinely hallucinated components that required extensive senior-engineer rework loops.
         </p>
@@ -149,7 +149,7 @@ function DSAIInfraSection() {
         <div style={{ marginTop: "3rem" }}>
           <img src={mcpConfigImg} alt="MCP Config" style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px", touchAction: "pan-y" }} />
         </div>
-      </MergedCard>
+      </MergedCard> */}
 
       {/* 5. Business Value */}
       <div className="spectrum-columns" style={{ marginTop: "5rem" }}>

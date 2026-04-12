@@ -27,7 +27,7 @@ const projects = [
     photo: dsaiinfraVid,
     path: "/swatch-mcp",
     external: false,
-    color: "#5a2011ff"
+    color: "#5a2011"
   },
   {
     id: 2,

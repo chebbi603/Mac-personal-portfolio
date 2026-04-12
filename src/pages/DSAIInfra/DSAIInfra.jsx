@@ -22,7 +22,7 @@ function DSAIInfra() {
       studyScope.current,
       { backgroundColor: "#000000" },
       {
-        backgroundColor: "#121212",
+        backgroundColor: "#011627",
         scrollTrigger: {
           trigger: studyScope.current,
           start: "top top",

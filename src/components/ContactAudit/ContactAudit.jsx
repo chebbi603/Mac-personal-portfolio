@@ -1,14 +1,17 @@
 import { useState, useRef } from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./ContactAudit.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { IconMail, IconCalendar, IconBrandUpwork } from "@tabler/icons-react";
+import { IconMail, IconCalendar, IconBrandUpwork, IconHome } from "@tabler/icons-react";
 import { SOCIALS } from "../../config";
 
 export default function ContactAudit() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
   const wrapperRef = useRef(null);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useGSAP(() => {
     // Animation constants
@@ -94,9 +97,10 @@ export default function ContactAudit() {
 
   return (
     <div 
-      className="contact-audit-container" 
+      className={`contact-audit-container ${!isHome ? 'has-home-btn' : ''}`} 
       ref={containerRef}
     >
+
       <div 
           className="contact-audit-wrapper" 
           ref={wrapperRef}
@@ -135,6 +139,11 @@ export default function ContactAudit() {
               </a>
           </div>
       </div>
+      {!isHome && (
+        <Link to="/" className="home-action-btn" aria-label="Go to Home">
+          <IconHome size={24} stroke={1.5} />
+        </Link>
+      )}
     </div>
   );
 }
